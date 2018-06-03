@@ -4,15 +4,27 @@ import Toolbar from '../Navigation/Toolbar/Toolbar';
 
 const layout = (props) => (
     <Aux>
-        <div>
+        <header>
             <Toolbar />
+        </header>
+        <div>
             SideDrawer,
             Backdrop
         </div>
-        <main>
-            { props.children }
-        </main>
-        <div>Footer</div>
+        <div className='wrapper'>
+            <main>
+                { props.children }
+            </main>
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <hr></hr>
+        <footer>
+            <div className="Copyright">
+              <p className="zeroBottom"> &copy; 2018 WeConnect, All Rights Reserved.</p>
+            </div>
+        </footer>
     </Aux>
 );
 

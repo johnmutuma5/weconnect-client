@@ -89,6 +89,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  transform-origin: center;
   -webkit-animation: scaleBorder .4s;
           animation: scaleBorder .4s;
 }

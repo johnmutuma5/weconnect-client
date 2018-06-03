@@ -3,8 +3,7 @@ import '../navigation.css';
 
 const toolbar = () => {
     return (
-        <header>
-          <div className="toolbar">
+        <div className="toolbar">
             <div className="logo">
               <img src="" alt="WeConnect" />
             </div>
@@ -16,8 +15,7 @@ const toolbar = () => {
                 <li><a href="#">About WeConnect</a></li>
               </ul>
             </nav>
-          </div>
-        </header>);
+        </div>);
 }
 
 export default toolbar;
