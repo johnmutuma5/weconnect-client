@@ -1,21 +1,14 @@
 import React from 'react';
-import '../navigation.css';
+import NavigationItems from '../NavigationItems/NavigationItems';
+import Logo from '../../Logo/Logo';
+import './Toolbar.css';
+import logo from '../../../Logo.svg';
 
-const toolbar = () => {
-    return (
-        <div className="toolbar">
-            <div className="logo">
-              <img src="" alt="WeConnect" />
-            </div>
-            <nav>
-              <ul>
-                <li><a href="#">Businesses</a></li>
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="#">Register Business</a></li>
-                <li><a href="#">About WeConnect</a></li>
-              </ul>
-            </nav>
-        </div>);
-}
+const toolbar = (props) => (
+    <div className="toolbar">
+        <Logo src= { logo } alt_text='WeConnect' />
+        <NavigationItems />
+    </div>
+);
 
 export default toolbar;

@@ -1,30 +1,24 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
+import './Layout.css';
+import Footer from './Footer/Footer';
 
 const layout = (props) => (
     <Aux>
-        <header>
-            <Toolbar />
-        </header>
-        <div>
-            SideDrawer,
-            Backdrop
-        </div>
-        <div className='wrapper'>
-            <main>
-                { props.children }
-            </main>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <hr></hr>
-        <footer>
-            <div className="Copyright">
-              <p className="zeroBottom"> &copy; 2018 WeConnect, All Rights Reserved.</p>
+        <Toolbar />
+        <div className="content">
+            <section>
+                SideDrawer,
+                Backdrop
+            </section>
+            <div className='wrapper'>
+                <main>
+                    { props.children }
+                </main>
             </div>
-        </footer>
+            <Footer />
+        </div>
     </Aux>
 );
 
