@@ -8,10 +8,8 @@ const layout = (props) => (
     <Aux>
         <Toolbar />
         <div className="content">
-            <section>
-                SideDrawer,
-                Backdrop
-            </section>
+            SideDrawer,
+            Backdrop
             <div className='wrapper'>
                 <main>
                     { props.children }

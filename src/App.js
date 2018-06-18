@@ -5,7 +5,9 @@ class App extends Component {
   render() {
     return (
       <Layout>
-        This will be the main content of different pages
+        <section>
+            This will be the main content of different pages
+        </section>
       </Layout>
     );
   }
