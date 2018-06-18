@@ -8,9 +8,17 @@
           -webkit-box-align: center;
               -ms-flex-align: center;
                   align-items: center;
+  color: #57CEE5;
 }
 
 .logo img {
-    height: 70%;
+    height: 90%;
     width: 110px;
+}
+
+.logo .synopsis {
+    height: 70%;
+    font-size: .7em;
+    margin: 0 10px;
+    font-weight: bold;
 }
