@@ -31,6 +31,10 @@
   transition: all .5s;
 }
 
+.toolbar nav li a.active {
+    background: #932142;
+}
+
 .toolbar nav li a:hover {
   background-color: #7A7106;
   color: white;

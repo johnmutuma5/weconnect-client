@@ -20,6 +20,9 @@ body {
   margin: 0;
   background: #F7FCFC;
   position: relative;
+  color: #00080C;
+  font-weight:800;
+  font-size: .95em;
 }
 
 
@@ -53,9 +56,6 @@ article[class='form_container'] {
 }
 
 
-hr {
-  color: #fbfbfb;
-}
 
 .wrapper {
   width: 95%;
