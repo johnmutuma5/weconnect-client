@@ -2,4 +2,11 @@
     margin-top: 70px;
     min-height: calc(100vh - 70px);
     position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-content {
+    flex-basis: 100%;
+    justify-content: space-between;
 }

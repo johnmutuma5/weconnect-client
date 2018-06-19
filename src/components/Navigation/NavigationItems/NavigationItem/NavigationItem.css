@@ -1,5 +1,5 @@
 
-.toolbar nav ul li {
+.Toolbar nav ul li {
   width: auto;
   height: 100%;
   display: -webkit-box;
@@ -10,7 +10,7 @@
           align-items: center;
 }
 
-.toolbar nav li a {
+.Toolbar nav li a {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,16 +31,16 @@
   transition: all .5s;
 }
 
-.toolbar nav li a.active {
+.Toolbar nav li a.active {
     background: #932142;
 }
 
-.toolbar nav li a:hover {
+.Toolbar nav li a:hover {
   background-color: #D1C695;
   color: white;
 }
 
-.toolbar nav li a:hover:after{
+.Toolbar nav li a:hover:after{
   content: '';
   width: 100%;
   border-bottom: 4px solid #57CEE5;

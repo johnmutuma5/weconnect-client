@@ -5,7 +5,7 @@ import './Toolbar.css';
 import logo from '../../../Logo.svg';
 
 const toolbar = (props) => (
-    <div className="toolbar">
+    <div className="Toolbar container">
         <Logo src= { logo } alt_text='WeConnect' />
         <NavigationItems />
     </div>

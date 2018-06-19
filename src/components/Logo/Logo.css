@@ -1,4 +1,4 @@
-.toolbar .logo {
+.Toolbar .Logo {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -11,14 +11,26 @@
   color: #57CEE5;
 }
 
-.logo img {
+.Logo img {
     height: 90%;
     width: 110px;
 }
 
-.logo .synopsis {
+.Logo .synopsis {
     height: 70%;
     font-size: .7em;
     margin: 0 10px;
     font-weight: bold;
+}
+
+
+
+@media (max-width: 940px) {
+    .Logo {
+        justify-content: space-around;
+    }
+
+    .Logo .synopsis {
+        display: None;
+    }
 }
