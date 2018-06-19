@@ -6,7 +6,14 @@
             box-shadow: 1px 0px 7px #00080C;
     z-index: 500;
     height: 100vh;
-    width: 300px;
+    width: 325px;
     position: fixed;
     top: 0
+}
+
+
+@media (max-width: 325px) {
+    .SideDrawer {
+        width: 275px;
+    }
 }
