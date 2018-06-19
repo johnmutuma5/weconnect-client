@@ -9,8 +9,12 @@ const sideMenuToggler = (props) => {
 
     return (
         <div className={ classes.join(' ') }
-             onClick={ props.click }
-             visible={ props.sideMenuTogglerVisible } />
+            onClick={ props.click }
+            visible={ props.sideMenuTogglerVisible }>
+                <div />
+                <div />
+                <div />
+        </div>
     );
 }
 

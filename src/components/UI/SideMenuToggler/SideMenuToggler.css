@@ -2,22 +2,54 @@
     display: None;
     height: 40px;
     width: 40px;
-    padding: 2px;
-    background: #BBF5F9;
-    border-radius: 20%;
-    transition: transform .1s ease-out;
+    padding: 10px 2px;
+    border-radius: 30%;
+    transition: padding .2s ease-out;
+    cursor: pointer;
 }
 
-.SideMenuToggler.visible {
-    transform: scale(1);
+.SideMenuToggler:hover {
+    box-shadow: 1px 2px 2px #00273F;
+    transform: scale(1.05);
+}
+
+.SideMenuToggler:hover div {
+    background-color: #8DEAF7;
 }
 
 .SideMenuToggler.invisible {
-    transform: scale(0.05);
+    padding: 20px 2px;
+    border: None;
+}
+
+.SideMenuToggler.visible div{
+    transform: scaleX(1);
+}
+
+.SideMenuToggler.invisible div:first-child{
+    transform: scaleX(0);
+}
+
+.SideMenuToggler.invisible div:nth-child(2){
+    transform: scaleX(.6);
+}
+
+.SideMenuToggler.invisible div:last-child{
+    transform: scaleX(0);
+}
+
+.SideMenuToggler div {
+    transition: all .3s ease-out;
+    height: 2px;
+    width: 75%;
+    background: #D1C695;
 }
 
 @media (max-width: 700px) {
     .SideMenuToggler {
         display: Flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
     }
 }
