@@ -1,5 +1,5 @@
 
-.Toolbar nav ul li {
+.NavigationItem {
   width: auto;
   height: 100%;
   display: -webkit-box;
@@ -10,7 +10,7 @@
           align-items: center;
 }
 
-.Toolbar nav li a {
+.NavigationItem a {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,16 +31,16 @@
   transition: all .5s;
 }
 
-.Toolbar nav li a.active {
+.NavigationItem a.active {
     background: #932142;
 }
 
-.Toolbar nav li a:hover {
-  background-color: #D1C695;
-  color: white;
+.NavigationItem a:hover {
+  background-color: #8C8014;
+  color: #932142;
 }
 
-.Toolbar nav li a:hover:after{
+.NavigationItem a:hover:after{
   content: '';
   width: 100%;
   border-bottom: 4px solid #57CEE5;
@@ -74,4 +74,16 @@
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
   }
+}
+
+@media (max-width: 700px) {
+    .NavigationItem {
+        width: 100%;
+        height: 50px;
+    }
+
+    .NavigationItem a {
+        width: 100%;
+        justify-content: flex-start;
+    }
 }

@@ -1,4 +1,4 @@
-.Toolbar nav {
+.NavigationItems {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
@@ -7,7 +7,7 @@
   font-size: .9em;
 }
 
-.Toolbar nav ul {
+.NavigationItems ul {
   height: 100%;
   margin:0 0 0 auto;
   padding-left: 0;
@@ -23,6 +23,13 @@
           align-items: center;
 }
 
-.Toolbar  *, .Toolbar *::after {
-    margin: 0;
+@media (max-width: 700px) {
+    .NavigationItems {
+        height: auto;
+    }
+
+    .NavigationItems ul {
+        flex-flow: column;
+        justify-content: flex-start;
+    }
 }

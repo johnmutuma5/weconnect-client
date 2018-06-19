@@ -3,7 +3,7 @@ import NavigationItem from './NavigationItem/NavigationItem';
 import './NavigationItems.css';
 
 const navigationItems = (props) => (
-    <nav>
+    <nav className='NavigationItems'>
         <ul>
             <NavigationItem link_to = '/businesses'>Business</NavigationItem>
             <NavigationItem link_to = '/dashboard'>Dash Board</NavigationItem>

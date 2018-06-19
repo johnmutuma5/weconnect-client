@@ -1,9 +1,13 @@
 import React from 'react';
+import NavigationItems from '../NavigationItems/NavigationItems';
 import './SideDrawer.css';
 
 const sideDrawer = (props) => (
     <div className='SideDrawer'>
-        sideDrawer
+        <div>
+            Profile
+        </div>
+        <NavigationItems />
     </div>
 );
 

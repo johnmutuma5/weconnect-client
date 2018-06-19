@@ -8,6 +8,10 @@
   height: 50px;
 }
 
+.Toolbar  *, .Toolbar *::after {
+    margin: 0;
+}
+
 @media (max-width: 700px) {
     .Toolbar nav {
         display: None;
