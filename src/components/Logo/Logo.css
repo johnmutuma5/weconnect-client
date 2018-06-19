@@ -9,7 +9,6 @@
               -ms-flex-align: center;
                   align-items: center;
   color: #57CEE5;
-  margin-left: 10px;
 }
 
 .Logo img {
@@ -22,6 +21,10 @@
     font-size: .7em;
     margin: 0 10px;
     font-weight: bold;
+}
+
+.Logo .synopsis p {
+    margin: 0;
 }
 
 
