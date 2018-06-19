@@ -4,12 +4,27 @@ import Toolbar from './Toolbar/Toolbar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import './MainNavigation.css';
 
+
+function toggleSideDrawer(state, props) {
+    state = {...state};
+    let currentOpenState = state.sideDrawerOpen;
+    // update state
+    state.sideDrawerOpen = !currentOpenState;
+    return state;
+}
+
+
 class MainNavigation extends React.Component {
     constructor(props){
         super();
         this.state = {
-            sideDrawerOpen: true,
+            sideDrawerOpen: false,
         }
+    }
+
+    handleToggleSideDrawer() {
+        this.setState(toggleSideDrawer);
+        console.log(this.state.sideDrawerOpen);
     }
 
     render(){
@@ -19,7 +34,7 @@ class MainNavigation extends React.Component {
             <Aux>
                 <SideDrawer open={ open } />
                 <div className='top-bar'>
-                    <Toolbar />
+                    <Toolbar click={ this.handleToggleSideDrawer.bind(this) }/>
                 </div>
             </Aux>
         );
