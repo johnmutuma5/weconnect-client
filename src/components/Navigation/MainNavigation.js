@@ -4,13 +4,26 @@ import Toolbar from './Toolbar/Toolbar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import './MainNavigation.css';
 
-const mainNavigation = props => (
-    <Aux>
-        <SideDrawer />
-        <div className='top-bar'>
-            <Toolbar />
-        </div>
-    </Aux>
-);
+class MainNavigation extends React.Component {
+    constructor(props){
+        super();
+        this.state = {
+            sideDrawerOpen: true,
+        }
+    }
 
-export default mainNavigation;
+    render(){
+        const open = this.state.sideDrawerOpen;
+
+        return (
+            <Aux>
+                <SideDrawer open={ open } />
+                <div className='top-bar'>
+                    <Toolbar />
+                </div>
+            </Aux>
+        );
+    }
+}
+
+export default MainNavigation;
