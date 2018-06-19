@@ -1,0 +1,23 @@
+.SideMenuToggler {
+    display: None;
+    height: 40px;
+    width: 40px;
+    padding: 2px;
+    background: #BBF5F9;
+    border-radius: 20%;
+    transition: transform .1s ease-out;
+}
+
+.SideMenuToggler.visible {
+    transform: scale(1);
+}
+
+.SideMenuToggler.invisible {
+    transform: scale(0.05);
+}
+
+@media (max-width: 700px) {
+    .SideMenuToggler {
+        display: Flex;
+    }
+}

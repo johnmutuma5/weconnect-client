@@ -36,7 +36,8 @@ class MainNavigation extends React.Component {
                 <Backdrop active={ open }
                           click={ this.handleToggleSideDrawer.bind(this) }/>
                 <div className='top-bar'>
-                    <Toolbar click={ this.handleToggleSideDrawer.bind(this) }/>
+                    <Toolbar click={ this.handleToggleSideDrawer.bind(this) }
+                             sideMenuTogglerVisible = { !open } />
                 </div>
             </Aux>
         );
