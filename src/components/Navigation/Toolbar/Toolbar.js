@@ -5,7 +5,7 @@ import './Toolbar.css';
 import logo from '../../../Logo.svg';
 
 const toolbar = (props) => (
-    <div className="Toolbar container">
+    <div className="Toolbar container" onClick={ props.click }>
         <Logo src= { logo } alt_text='WeConnect' />
         <NavigationItems />
     </div>
