@@ -11,9 +11,9 @@ const sideMenuToggler = (props) => {
         <div className={ classes.join(' ') }
             onClick={ props.click }
             visible={ props.sideMenuTogglerVisible }>
-                <div />
-                <div />
-                <div />
+                <span />
+                <span />
+                <span />
         </div>
     );
 }

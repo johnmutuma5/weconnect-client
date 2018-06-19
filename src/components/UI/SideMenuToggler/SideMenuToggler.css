@@ -13,32 +13,33 @@
     transform: scale(1.05);
 }
 
-.SideMenuToggler:hover div {
+.SideMenuToggler:hover span {
     background-color: #8DEAF7;
 }
 
 .SideMenuToggler.invisible {
     padding: 20px 2px;
     border: None;
+    box-shadow: None;
 }
 
-.SideMenuToggler.visible div{
+.SideMenuToggler.visible span{
     transform: scaleX(1);
 }
 
-.SideMenuToggler.invisible div:first-child{
+.SideMenuToggler.invisible span:first-child{
     transform: scaleX(0);
 }
 
-.SideMenuToggler.invisible div:nth-child(2){
+.SideMenuToggler.invisible span:nth-child(2){
     transform: scaleX(.6);
 }
 
-.SideMenuToggler.invisible div:last-child{
+.SideMenuToggler.invisible span:last-child{
     transform: scaleX(0);
 }
 
-.SideMenuToggler div {
+.SideMenuToggler span {
     transition: all .3s ease-out;
     height: 2px;
     width: 75%;
