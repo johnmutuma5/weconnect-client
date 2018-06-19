@@ -1,8 +1,8 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
-import Toolbar from './Toolbar/Toolbar';
-import SideDrawer from './SideDrawer/SideDrawer';
-import Backdrop from '../UI/Backdrop/Backdrop';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import './MainNavigation.css';
 
 

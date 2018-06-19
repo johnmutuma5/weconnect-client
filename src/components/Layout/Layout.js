@@ -1,6 +1,6 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
-import MainNavigation from '../Navigation/MainNavigation';
+import MainNavigation from '../../containers/MainNavigation/MainNavigation';
 import './Layout.css';
 import Footer from './Footer/Footer';
 
