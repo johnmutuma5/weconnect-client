@@ -31,7 +31,12 @@
 
 @media (max-width: 940px) {
     .Logo {
-        justify-content: space-around;
+        justify-content: space-between;
+    }
+
+    .Logo img {
+        height: 90%;
+        width: 100px;
     }
 
     .Logo .synopsis {
