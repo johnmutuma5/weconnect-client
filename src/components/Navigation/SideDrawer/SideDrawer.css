@@ -1,0 +1,9 @@
+.SideDrawer {
+    background-color: #00396D;
+    -webkit-box-shadow: 1px 0px 7px #00080C;
+            box-shadow: 1px 0px 7px #00080C;
+    z-index: 500;
+    height: 100vh;
+    position: fixed;
+    top: 0
+}
