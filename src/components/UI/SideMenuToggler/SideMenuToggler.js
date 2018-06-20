@@ -1,21 +1,25 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import './SideMenuToggler.css';
 
-const sideMenuToggler = (props) => {
+const sideMenuToggler = (props, context) => {
     let classes = ["SideMenuToggler"]
-    classes = props.visible ?
-                classes.concat("visible") :
-              classes.concat("invisible");
+    classes = context.state.sideDrawerOpen ?
+                classes.concat("invisible") :
+              classes.concat("visible");
 
     return (
         <div className={ classes.join(' ') }
-            onClick={ props.click }
-            visible={ props.sideMenuTogglerVisible }>
+            onClick={ props.click }>
                 <span />
                 <span />
                 <span />
         </div>
     );
+}
+
+sideMenuToggler.contextTypes = {
+    state: PropTypes.object.isRequired
 }
 
 export default sideMenuToggler;

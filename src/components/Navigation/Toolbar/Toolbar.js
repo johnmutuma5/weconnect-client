@@ -9,8 +9,7 @@ const toolbar = (props) => (
     <div className="Toolbar container">
         <Logo src= { logo } alt_text="WeConnect" />
         <NavigationItems />
-        <SideMenuToggler click={ props.click }
-                         visible={ props.sideMenuTogglerVisible } />
+        <SideMenuToggler click={ props.click } />
 
     </div>
 );

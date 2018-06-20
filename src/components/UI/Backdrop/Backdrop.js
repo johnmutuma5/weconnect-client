@@ -1,9 +1,10 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import './Backdrop.css';
 
-const backDrop = (props) => {
+const backDrop = (props, context) => {
     let backdropClasses = ['Backdrop'];
-    backdropClasses = props.active ?
+    backdropClasses = context.state.sideDrawerOpen ?
                         backdropClasses.concat('active') :
                       backdropClasses.concat('inactive');
 
@@ -12,5 +13,9 @@ const backDrop = (props) => {
              onClick={ props.click } />
     );
 };
+
+backDrop.contextTypes = {
+    state: PropTypes.object.isRequired
+}
 
 export default backDrop;

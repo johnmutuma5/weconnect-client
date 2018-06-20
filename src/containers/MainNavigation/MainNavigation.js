@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../../hoc/Aux';
+import MainNavContextProvider from './MainNavigationProvider';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
@@ -28,18 +28,15 @@ class MainNavigation extends React.Component {
     }
 
     render(){
-        const open = this.state.sideDrawerOpen;
 
         return (
-            <Aux>
-                <SideDrawer open={ open } />
-                <Backdrop active={ open }
-                          click={ this.handleToggleSideDrawer.bind(this) }/>
+            <MainNavContextProvider state={ this.state }>
+                <SideDrawer />
+                <Backdrop click={ this.handleToggleSideDrawer.bind(this) }/>
                 <div className='top-bar'>
-                    <Toolbar click={ this.handleToggleSideDrawer.bind(this) }
-                             sideMenuTogglerVisible = { !open } />
+                    <Toolbar click={ this.handleToggleSideDrawer.bind(this) } />
                 </div>
-            </Aux>
+            </MainNavContextProvider>
         );
     }
 }
