@@ -4,17 +4,24 @@
     width: 40px;
     padding: 10px 2px;
     border-radius: 30%;
-    transition: padding .2s ease-out;
+    transition: padding .4s ease-out;
     cursor: pointer;
 }
 
 .SideMenuToggler:hover {
-    box-shadow: 1px 2px 2px #00273F;
+    box-shadow: -3px -2px 5px #00273F inset;
     transform: scale(1.05);
 }
 
+.SideMenuToggler span {
+    transition: all .5s ease-out;
+    height: 2px;
+    width: 75%;
+    background: #8DEAF7;
+}
+
 .SideMenuToggler:hover span {
-    background-color: #8DEAF7;
+    background-color: #D1C695;
 }
 
 .SideMenuToggler.invisible {
@@ -37,13 +44,6 @@
 
 .SideMenuToggler.invisible span:last-child{
     transform: scaleX(0);
-}
-
-.SideMenuToggler span {
-    transition: all .3s ease-out;
-    height: 2px;
-    width: 75%;
-    background: #D1C695;
 }
 
 @media (max-width: 700px) {
