@@ -28,13 +28,17 @@ class MainNavigation extends React.Component {
     }
 
     render(){
+        const context = {
+            state: this.state,
+            handleToggleSideDrawer: this.handleToggleSideDrawer.bind(this)
+        }
 
         return (
-            <MainNavContextProvider state={ this.state }>
+            <MainNavContextProvider { ...context }>
                 <SideDrawer />
-                <Backdrop click={ this.handleToggleSideDrawer.bind(this) }/>
+                <Backdrop />
                 <div className='top-bar'>
-                    <Toolbar click={ this.handleToggleSideDrawer.bind(this) } />
+                    <Toolbar />
                 </div>
             </MainNavContextProvider>
         );

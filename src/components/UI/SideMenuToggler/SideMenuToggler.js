@@ -10,7 +10,7 @@ const sideMenuToggler = (props, context) => {
 
     return (
         <div className={ classes.join(' ') }
-            onClick={ props.click }>
+            onClick={ context.handleToggleSideDrawer }>
                 <span />
                 <span />
                 <span />
@@ -19,7 +19,8 @@ const sideMenuToggler = (props, context) => {
 }
 
 sideMenuToggler.contextTypes = {
-    state: PropTypes.object.isRequired
+    state: PropTypes.object.isRequired,
+    handleToggleSideDrawer: PropTypes.func.isRequired
 }
 
 export default sideMenuToggler;

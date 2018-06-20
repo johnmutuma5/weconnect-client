@@ -4,7 +4,8 @@ import { PropTypes } from 'prop-types';
 class MainNavContextProvider extends React.Component {
     getChildContext() {
         return {
-            state: this.props.state
+            state: this.props.state,
+            handleToggleSideDrawer: this.props.handleToggleSideDrawer
         }
     }
 
@@ -14,7 +15,8 @@ class MainNavContextProvider extends React.Component {
 }
 
 MainNavContextProvider.childContextTypes = {
-    state: PropTypes.object.isRequired
+    state: PropTypes.object.isRequired,
+    handleToggleSideDrawer: PropTypes.func.isRequired
 }
 
 export default MainNavContextProvider;

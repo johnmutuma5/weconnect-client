@@ -10,12 +10,13 @@ const backDrop = (props, context) => {
 
     return (
         <div className={ backdropClasses.join(' ') }
-             onClick={ props.click } />
+             onClick={ context.handleToggleSideDrawer } />
     );
 };
 
 backDrop.contextTypes = {
-    state: PropTypes.object.isRequired
+    state: PropTypes.object.isRequired,
+    handleToggleSideDrawer: PropTypes.func.isRequired
 }
 
 export default backDrop;
