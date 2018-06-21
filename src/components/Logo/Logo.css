@@ -18,9 +18,9 @@
 
 .Logo .synopsis {
     height: 70%;
-    font-size: .7em;
+    font-size: .9em;
     margin: 0 10px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .Logo .synopsis p {
