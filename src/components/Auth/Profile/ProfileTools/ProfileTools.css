@@ -1,0 +1,10 @@
+.ProfileTools {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #BBF5F9;
+    background: #8595A0;
+    width: 100%;
+    height: 230px;
+}
