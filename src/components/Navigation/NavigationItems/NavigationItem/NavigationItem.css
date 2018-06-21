@@ -37,7 +37,7 @@
 
 .NavigationItem a:hover {
   background-color: #8C8014;
-  color: #932142;
+  color: #8DEAF7;
 }
 
 .NavigationItem a:hover:after{
@@ -84,6 +84,12 @@
 
     .NavigationItem a {
         width: 100%;
-        justify-content: flex-start;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+
+    .NavigationItem a:hover {
+        padding-left: 30px;
     }
 }
