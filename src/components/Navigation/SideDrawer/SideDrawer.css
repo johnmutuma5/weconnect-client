@@ -1,13 +1,22 @@
 .SideDrawer {
     display: None;
+    overflow: auto;
+    font-size: .95em;
+    font-weight: 500;
     -webkit-box-shadow: 1px 0px 7px #00080C;
             box-shadow: 1px 0px 7px #00080C;
-    z-index: 500;
-    height: 100vh;
+    z-index: 5000;
     width: 325px;
+    height: 100vh;
     position: fixed;
     top: 0;
     transition: transform .5s ease-out;
+    padding-bottom: 15px;
+}
+
+.SideDrawer .wrapper {
+    overflow: scroll;
+    height: 100%;
 }
 
 .Open {
