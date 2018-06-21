@@ -35,7 +35,7 @@ class MainNavigation extends React.Component {
 
         return (
             <MainNavContextProvider { ...context } >
-                <SideDrawer open = { this.state.sideDrawerOpen }/>
+                <SideDrawer />
                 <Backdrop id={ 'SideDrawerBackDrop' } />
                 <div className='top-bar'>
                     <Toolbar />
