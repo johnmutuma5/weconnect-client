@@ -17,3 +17,10 @@
 .Backdrop.inactive {
     transform: scale(0);
 }
+
+
+@media (min-width: 700px) {
+    .Backdrop#SideDrawerBackDrop{
+        display: None;
+    }
+}

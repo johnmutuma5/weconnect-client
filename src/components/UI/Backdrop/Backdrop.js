@@ -9,7 +9,7 @@ const backDrop = (props, context) => {
                       backdropClasses.concat('inactive');
 
     return (
-        <div className={ backdropClasses.join(' ') }
+        <div id={ props.id } className={ backdropClasses.join(' ') }
              onClick={ context.handleToggleSideDrawer } />
     );
 };

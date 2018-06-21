@@ -40,3 +40,12 @@
         background-color: #00396D;
     }
 }
+
+
+.Profile {
+    display: block;
+    color: #BBF5F9;
+    background: #8595A0;
+    width: 100%;
+    height: 230px;
+}
