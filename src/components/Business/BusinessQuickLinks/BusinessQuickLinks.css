@@ -1,0 +1,32 @@
+.Business .BusinessQuickLinks {
+  height: 40px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-top: .5px solid #e5e5e5;
+}
+
+.Business .BusinessQuickLinks div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Business .BusinessQuickLinks div:not(:last-child) {
+  border-right: .5px solid #e5e5e5;
+}
+
+.Business .BusinessQuickLinks p {
+  color: #606060;
+  font-size: .9em;
+}

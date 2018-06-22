@@ -1,0 +1,20 @@
+.Business .BusinessMainDescription {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-left: 25px;
+}
+
+.Business .BusinessMainDescription .business_name  h3 {
+    color: #7A0624;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: bold !important;
+    letter-spacing: 2px;
+}
+
+
+.Business .BusinessMainDescription .business_category p {
+    font-size: .8em;
+    color: #595959;
+}

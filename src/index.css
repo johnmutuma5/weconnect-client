@@ -24,6 +24,7 @@ body {
   font-weight:800;
   font-size: .8em;
   letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -126,7 +127,17 @@ body hr {
 }
 
 .draw-right {
-  animation: draw-right 1.2s;
+  -webkit-animation: draw-right 1.2s;
+          animation: draw-right 1.2s;
+}
+
+@-webkit-keyframes draw-right {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
 }
 
 @keyframes draw-right {

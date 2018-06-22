@@ -6,7 +6,7 @@
     justify-content: space-around;
 }
 
-.main-content {
+.content .main-content {
     flex-basis: 100%;
     justify-content: space-between;
 }
