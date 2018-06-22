@@ -11,7 +11,9 @@ const layout = (props) => (
         <div className="content">
             <div className='container main-content'>
                 <main>
-                    { props.children }
+                    <section>
+                        { props.children }
+                    </section>
                 </main>
             </div>
             <Footer />
