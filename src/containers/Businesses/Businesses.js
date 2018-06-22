@@ -22,9 +22,27 @@ class Businesses extends React.Component {
                 },
                 {
                     id: '1002',
-                    name: 'Sleek',
+                    name: 'Wenyeji Boys Ni Sisi',
                     location: 'Ridgeways, Kiambu Rd',
-                    category: 'Fashion'
+                    category: 'Software'
+                },
+                {
+                    id: '1003',
+                    name: 'Captured Memories',
+                    location: 'TRM, Drive',
+                    category: 'Photography'
+                },
+                {
+                    id: '1004',
+                    name: 'Standard Media',
+                    location: 'TRM, Drive',
+                    category: 'Media'
+                },
+                {
+                    id: '1005',
+                    name: 'Gold Diggers',
+                    location: 'TRM, Drive',
+                    category: 'Jewelry'
                 }
             ]
         }

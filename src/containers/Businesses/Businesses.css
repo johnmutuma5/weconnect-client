@@ -13,3 +13,12 @@ article.Businesses {
 .Businesses p {
   margin: 5px 0;
 }
+
+
+@media (min-width: 700px) {
+
+   article.Businesses {
+     width: 60%;
+     margin-left: 0;
+   }
+}
