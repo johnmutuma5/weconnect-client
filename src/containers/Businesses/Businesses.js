@@ -1,4 +1,5 @@
 import React from 'react';
+import Business from '../../components/Business/Business';
 
 class Businesses extends React.Component {
     constructor(props) {
@@ -22,15 +23,15 @@ class Businesses extends React.Component {
     }
 
     render() {
-        const businesses = this.state.businesses.map((business) => (
-                <div key={ business.id }>
-                    name: { business.name }
-                    <br />
-                    location: { business.location }
-                    <br />
-                    catergory: { business.category }
-                </div>
-        ));
+        const businesses = this.state.businesses
+            .map((business) => {
+                const business_props = {
+                    name: business.name,
+                    location: business.location,
+                    category: business.category
+                }
+                return <Business {...business_props } key={ business.id } />
+            });
 
         return (
             <div>
