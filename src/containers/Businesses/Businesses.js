@@ -1,6 +1,8 @@
 import React from 'react';
 import Business from '../../components/Business/Business';
 
+import './Businesses.css';
+
 class Businesses extends React.Component {
     constructor(props) {
         super(props);
@@ -14,6 +16,12 @@ class Businesses extends React.Component {
                 },
                 {
                     id: '1001',
+                    name: 'Sleek',
+                    location: 'Ridgeways, Kiambu Rd',
+                    category: 'Fashion'
+                },
+                {
+                    id: '1002',
                     name: 'Sleek',
                     location: 'Ridgeways, Kiambu Rd',
                     category: 'Fashion'
@@ -34,9 +42,9 @@ class Businesses extends React.Component {
             });
 
         return (
-            <div>
+            <article className='Businesses'>
                 { businesses }
-            </div>
+            </article>
         );
     }
 };
