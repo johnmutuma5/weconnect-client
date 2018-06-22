@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Layout from './components/Layout/Layout';
 import { Route } from 'react-router-dom';
+import Businesses from './containers/Businesses/Businesses';
 
 
 
