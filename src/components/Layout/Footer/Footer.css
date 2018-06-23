@@ -5,9 +5,9 @@ footer {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 50px;
   width: 100%;
-  background: #00273F;
+  background: #3F3900;
 }
 
 footer .Copyright {
