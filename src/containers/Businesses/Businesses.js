@@ -7,6 +7,11 @@ import actions from '../../store/actions';
 import './Businesses.css';
 
 class Businesses extends React.Component {
+    constructor (props) {
+        super(props);
+        // every subscription to store events return a revoker for the subscription
+        this.subscriptionsRevokers = [];
+    }
 
     componentWillMount() {
         this.setState({
@@ -20,13 +25,14 @@ class Businesses extends React.Component {
                 store.dispatch(action);
             })
         // subscribe to store events
-        this.subscriptionsRevokers = [];
-        this.unsubscribe =
-            store.after('GET_BUSINESSES', this.renderBusinesses.bind(this));
+        this.subscriptionsRevokers
+            .push(store.after('GET_BUSINESSES',
+                             this.renderBusinesses.bind(this)));
     }
 
     componentWillUnmount() {
-        this.unsubscribe();
+        for(let subscriptionRevoker of this.subscriptionsRevokers)
+            subscriptionRevoker();
     }
 
     renderBusinesses(state) {
