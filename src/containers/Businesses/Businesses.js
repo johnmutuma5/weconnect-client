@@ -1,5 +1,6 @@
 import React from 'react';
 import Business from '../../components/Business/Business';
+import loadBusinesses from '../../store/resources/business';
 
 import './Businesses.css';
 
@@ -7,45 +8,22 @@ class Businesses extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            businesses: [
-                {
-                    id: '1000',
-                    name: 'Andela Kenya',
-                    location: 'TRM, Drive',
-                    category: 'Software'
-                },
-                {
-                    id: '1001',
-                    name: 'Sleek',
-                    location: 'Ridgeways, Kiambu Rd',
-                    category: 'Fashion'
-                },
-                {
-                    id: '1002',
-                    name: 'Wenyeji Boys Ni Sisi',
-                    location: 'Ridgeways, Kiambu Rd',
-                    category: 'Software'
-                },
-                {
-                    id: '1003',
-                    name: 'Captured Memories',
-                    location: 'TRM, Drive',
-                    category: 'Photography'
-                },
-                {
-                    id: '1004',
-                    name: 'Standard Media',
-                    location: 'TRM, Drive',
-                    category: 'Media'
-                },
-                {
-                    id: '1005',
-                    name: 'Gold Diggers',
-                    location: 'TRM, Drive',
-                    category: 'Jewelry'
-                }
-            ]
+            businesses: []
         }
+    }
+
+    componentDidMount() {
+        this.getBusinesses();
+        console.log('done');
+    }
+
+    getBusinesses() {
+        let businesses = [];
+        const prom = loadBusinesses();
+        prom.then((result) => {
+            businesses = result;
+            this.setState({businesses: businesses})
+        })
     }
 
     render() {
