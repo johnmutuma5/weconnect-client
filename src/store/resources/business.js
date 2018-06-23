@@ -1,5 +1,11 @@
 const businesses = [
     {
+        id: '1006',
+        name: 'Lapis Lazuli Inc.',
+        location: 'Runda',
+        category: 'Jewelry'
+    },
+    {
         id: '1000',
         name: 'Andela Kenya',
         location: 'TRM, Drive',
@@ -34,8 +40,10 @@ const businesses = [
         name: 'Gold Diggers',
         location: 'TRM, Drive',
         category: 'Jewelry'
-    }
+    },
 ]
+
+
 
 function loadBusinesses() {
     let prom = new Promise((resolve, reject) => {

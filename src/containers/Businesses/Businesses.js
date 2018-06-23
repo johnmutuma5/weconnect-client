@@ -1,29 +1,39 @@
 import React from 'react';
 import Business from '../../components/Business/Business';
 import loadBusinesses from '../../store/resources/business';
+import { store } from '../../';
+import actions from '../../store/actions';
 
 import './Businesses.css';
 
 class Businesses extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            businesses: []
-        }
+
+    componentWillMount() {
+        this.setState({
+            businesses: [],
+            loading: true
+        });
+
+        loadBusinesses()
+            .then((result) => {
+                const action = actions.getBusinesses(result);
+                store.dispatch(action);
+            })
+        // subscribe to store events
+        this.subscriptionsRevokers = [];
+        this.unsubscribe =
+            store.after('GET_BUSINESSES', this.renderBusinesses.bind(this));
     }
 
-    componentDidMount() {
-        this.getBusinesses();
-        console.log('done');
+    componentWillUnmount() {
+        this.unsubscribe();
     }
 
-    getBusinesses() {
-        let businesses = [];
-        const prom = loadBusinesses();
-        prom.then((result) => {
-            businesses = result;
-            this.setState({businesses: businesses})
-        })
+    renderBusinesses(state) {
+        this.setState({
+            businesses: state.businesses,
+            loading: false
+        });
     }
 
     render() {
@@ -37,9 +47,14 @@ class Businesses extends React.Component {
                 return <Business {...business_props } key={ business.id } />
             });
 
+        let loader = null;
+        if (this.state.loading)
+            loader = 'loading now. Please wait'
+
         return (
             <article className='Businesses'>
                 { businesses }
+                { loader }
             </article>
         );
     }
