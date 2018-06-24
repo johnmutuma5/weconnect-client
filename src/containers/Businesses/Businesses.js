@@ -66,4 +66,9 @@ class Businesses extends React.Component {
     }
 };
 
+
+Businesses.contextTypes = {
+    store: PropTypes.object.isRequired
+}
+
 export default Businesses;

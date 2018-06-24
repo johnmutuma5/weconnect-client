@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import App from './App';
-import { createStore } from './store/store';
-import weConnectReducer from './store/reducer';
+import ResourcesProvider, { createStore } from './store';
+import weConnectReducer from './store/baseReducer';
 
 
 import './index.css';
@@ -13,7 +13,9 @@ export const store = createStore(weConnectReducer);
 
 const app = (
     <BrowserRouter>
-        <App />
+        <ResourcesProvider store={ store }>
+            <App />
+        </ResourcesProvider>
     </BrowserRouter>
 );
 
