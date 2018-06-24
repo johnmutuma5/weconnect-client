@@ -16,11 +16,15 @@ const weConnectReducer = (state=initState, action) => (
 
 
 const businessesReducer = (state=[], action) => {
-    if (action.type === actionTypes.GET_BUSINESSES){
-        const newState = state.concat(action.payload);
-        return newState;
+    switch (action.type) {
+        case actionTypes.GET_BUSINESSES:
+            const newState = state.concat(action.payload);
+            return newState;
+        default:
+            return state;
+
+
     }
-    return state;
 }
 
 
