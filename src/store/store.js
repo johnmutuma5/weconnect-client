@@ -1,14 +1,15 @@
-import weConnectReducer from './reducer';
-
-let events = {
-    'GET_BUSINESSES': []
-}
+import { events } from './events';
 
 
 class Store {
     constructor(reducer) {
-        this.reducer = weConnectReducer;
+        this.reducer = reducer;
         this.events = events
+    }
+
+    dispatch(action) {
+        this.state = this.reducer(undefined, action);
+        this.notify(action.type);
     }
 
     after(actionType, listener) {
@@ -22,15 +23,10 @@ class Store {
         return unsubscribe;
     }
 
-    emit(actionType) {
+    notify(actionType) {
         // this will be used to notify listners when events of actionType occur
         for (let listner of this.events[actionType])
             listner(this.state);
-    }
-
-    dispatch(action) {
-        this.state = this.reducer(undefined, action);
-        this.emit(action.type);
     }
 }
 

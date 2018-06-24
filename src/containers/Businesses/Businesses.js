@@ -2,7 +2,7 @@ import React from 'react';
 import Business from '../../components/Business/Business';
 import loadBusinesses from '../../store/resources/business';
 import { store } from '../../';
-import actions from '../../store/actions';
+import actions from '../../store/actions/actions';
 
 import './Businesses.css';
 
