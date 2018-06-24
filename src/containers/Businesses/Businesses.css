@@ -6,6 +6,10 @@ article.Businesses {
  margin: auto;
 }
 
+.Businesses a {
+    text-decoration: none;
+}
+
 .Businesses h4 {
   margin-bottom: 0;
 }

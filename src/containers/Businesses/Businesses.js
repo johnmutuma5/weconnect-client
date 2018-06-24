@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Business from '../../components/Business/Business';
 import loadBusinesses from '../../store/resources/business';
@@ -50,7 +51,13 @@ class Businesses extends React.Component {
                     category: business.category
                 }
                 // instantiate a business with business_props
-                return <Business {...business_props } key={ business.id } />
+                return (
+                    <Link to='/profile'>
+                        <Business
+                            {...business_props }
+                            key={ business.id } />
+                    </Link>
+                );
             });
 
         let loader = null;
@@ -59,6 +66,9 @@ class Businesses extends React.Component {
 
         return (
             <article className='Businesses'>
+                {'BusinessRegistrationForm '}
+                {'Backdrop '}
+                {'BusinessRegistrationTriggerButton '}
                 { businesses }
                 { loader }
             </article>
