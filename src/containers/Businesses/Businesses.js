@@ -1,54 +1,45 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Business from '../../components/Business/Business';
 import loadBusinesses from '../../store/resources/business';
-import { store } from '../../';
 import actions from '../../store/actions/actions';
 
 import './Businesses.css';
 
 
 class Businesses extends React.Component {
-    constructor (props) {
+    constructor (props, context) {
         super(props);
-        // every subscription to store events return a revoker for the subscription
-        this.subscriptions = {
-            GET_BUSINESSES: this.renderBusinesses,
-            GET_INITIAL_BUSINESSES_STATE: this.handleInitialStateReady
-        };
-        this.subscriptionsRevokers = [];
+        this.subscriptions = [
+            'INIT_BUSINESSES_STATE',
+            'RENDER_FETCHED_BUSINESSES'
+        ];
+        this.store = context.store
     }
 
     componentWillMount() {
         // subscribe to store events
-        const subscriptions = Object.entries(this.subscriptions);
-        for(let [subscrp, handler] of subscriptions)
-            this.subscribe(subscrp, handler.bind(this));
+        this.subscriptionsRevokers =
+            this.store.subscribe(this.subscriptions,
+                            this.handleStateDidUpdate.bind(this));
+        // get initial state
+        this.store.dispatch(actions.initBusinessesState());
+    }
 
-        store.dispatch(actions.getInitialBusinessesState());
+    componentDidMount() {
+        // load businesses async
         loadBusinesses()
-            .then(result => store.dispatch(actions.getBusinesses(result)));
+            .then(result => this.store.dispatch(actions.renderFetchedBusinesses(result)));
+    }
+
+    handleStateDidUpdate(state) {
+        this.setState(state.businessesState);
     }
 
     componentWillUnmount() {
         for(let subscriptionRevoker of this.subscriptionsRevokers)
             subscriptionRevoker();
     }
-
-    // subscribes listeners to store events
-    subscribe(event, callback) {
-        const unsubscribe = store.after(event, callback);
-        this.subscriptionsRevokers.push(unsubscribe);
-    }
-
-    // store listeners: these should be in this componenent's subscriptions
-    handleInitialStateReady(state) {
-        this.setState(state.businessesState);
-    }
-
-    renderBusinesses(state) {
-        this.setState(state.businessesState);
-    }
-    // store listeners end
 
     render() {
         const businesses = this.state.businesses

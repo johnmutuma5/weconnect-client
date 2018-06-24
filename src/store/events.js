@@ -7,5 +7,5 @@ import { registerEvent } from './utils';
 
 export const events = {}
 
-registerEvent(events, actionTypes.GET_BUSINESSES)
-registerEvent(events, actionTypes.GET_INITIAL_BUSINESSES_STATE)
+registerEvent(events, actionTypes.RENDER_FETCHED_BUSINESSES);
+registerEvent(events, actionTypes.INIT_BUSINESSES_STATE);

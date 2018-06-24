@@ -1,21 +1,21 @@
 import types from './actionTypes';
 
 
-const getBusinesses = (businesses=[]) => (
+const renderFetchedBusinesses = (businesses=[]) => (
     {
-        type: types.GET_BUSINESSES,
+        type: types.RENDER_FETCHED_BUSINESSES,
         payload: businesses
     }
 );
 
-const getInitialBusinessesState = () => (
+const initBusinessesState = () => (
     {
-        type: types.GET_INITIAL_BUSINESSES_STATE
+        type: types.INIT_BUSINESSES_STATE
     }
 );
 
 // export all the action creators
 export default {
-    getBusinesses: getBusinesses,
-    getInitialBusinessesState: getInitialBusinessesState
+    renderFetchedBusinesses: renderFetchedBusinesses,
+    initBusinessesState: initBusinessesState
 }
