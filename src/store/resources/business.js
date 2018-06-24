@@ -49,7 +49,7 @@ function loadBusinesses() {
     let prom = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(businesses);
-        }, 2000);
+        }, 1000);
     });
 
     return prom;

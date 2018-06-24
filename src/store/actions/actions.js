@@ -8,7 +8,14 @@ const getBusinesses = (businesses=[]) => (
     }
 );
 
+const getInitialBusinessesState = () => (
+    {
+        type: types.GET_INITIAL_BUSINESSES_STATE
+    }
+);
 
+// export all the action creators
 export default {
-    getBusinesses: getBusinesses
+    getBusinesses: getBusinesses,
+    getInitialBusinessesState: getInitialBusinessesState
 }

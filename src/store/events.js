@@ -8,3 +8,4 @@ import { registerEvent } from './utils';
 export const events = {}
 
 registerEvent(events, actionTypes.GET_BUSINESSES)
+registerEvent(events, actionTypes.GET_INITIAL_BUSINESSES_STATE)

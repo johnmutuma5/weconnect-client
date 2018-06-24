@@ -6,28 +6,27 @@ import actions from '../../store/actions/actions';
 
 import './Businesses.css';
 
+
 class Businesses extends React.Component {
     constructor (props) {
         super(props);
         // every subscription to store events return a revoker for the subscription
+        this.subscriptions = {
+            GET_BUSINESSES: this.renderBusinesses,
+            GET_INITIAL_BUSINESSES_STATE: this.handleInitialStateReady
+        };
         this.subscriptionsRevokers = [];
     }
 
     componentWillMount() {
-        this.setState({
-            businesses: [],
-            loading: true
-        });
-
-        loadBusinesses()
-            .then((result) => {
-                const action = actions.getBusinesses(result);
-                store.dispatch(action);
-            })
         // subscribe to store events
-        this.subscriptionsRevokers
-            .push(store.after('GET_BUSINESSES',
-                             this.renderBusinesses.bind(this)));
+        const subscriptions = Object.entries(this.subscriptions);
+        for(let [subscrp, handler] of subscriptions)
+            this.subscribe(subscrp, handler.bind(this));
+
+        store.dispatch(actions.getInitialBusinessesState());
+        loadBusinesses()
+            .then(result => store.dispatch(actions.getBusinesses(result)));
     }
 
     componentWillUnmount() {
@@ -35,12 +34,21 @@ class Businesses extends React.Component {
             subscriptionRevoker();
     }
 
-    renderBusinesses(state) {
-        this.setState({
-            businesses: state.businesses,
-            loading: false
-        });
+    // subscribes listeners to store events
+    subscribe(event, callback) {
+        const unsubscribe = store.after(event, callback);
+        this.subscriptionsRevokers.push(unsubscribe);
     }
+
+    // store listeners: these should be in this componenent's subscriptions
+    handleInitialStateReady(state) {
+        this.setState(state.businessesState);
+    }
+
+    renderBusinesses(state) {
+        this.setState(state.businessesState);
+    }
+    // store listeners end
 
     render() {
         const businesses = this.state.businesses
@@ -50,6 +58,7 @@ class Businesses extends React.Component {
                     location: business.location,
                     category: business.category
                 }
+                // instantiate a business with business_props
                 return <Business {...business_props } key={ business.id } />
             });
 

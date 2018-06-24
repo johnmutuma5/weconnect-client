@@ -4,26 +4,36 @@
 import actionTypes from './actions/actionTypes';
 
 const initState = {
-    businesses: []
+    businessesState: undefined
 }
 
 
 const weConnectReducer = (state=initState, action) => (
     {
-        businesses: businessesReducer(state.businesses, action)
+        businessesState: businessesStateReducer(state.businessesState, action)
     }
 );
 
 
-const businessesReducer = (state=[], action) => {
+
+const initialBusinessesState = {
+    businesses: [],
+    loading: true
+}
+const businessesStateReducer = (state=initialBusinessesState, action) => {
     switch (action.type) {
-        case actionTypes.GET_BUSINESSES:
-            const newState = state.concat(action.payload);
-            return newState;
-        default:
+        case actionTypes.GET_INITIAL_BUSINESSES_STATE:
             return state;
 
+        case actionTypes.GET_BUSINESSES:
+            const newState = {
+                businesses: state.businesses.concat(action.payload),
+                loading: false
+            };
+            return newState;
 
+        default:
+            return state;
     }
 }
 
