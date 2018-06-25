@@ -1,11 +1,12 @@
 .Backdrop {
     position: fixed;
     top: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
     z-index: 499;
     background: #00273F;
-    opacity: .6;
+    opacity: .9;
     transition: transform .1s ease-out;
     transform-origin: top right 2cm;
 }

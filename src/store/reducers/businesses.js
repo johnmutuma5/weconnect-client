@@ -3,7 +3,8 @@ import actionTypes from '../actions/actionTypes';
 
 const initialBusinessesState = {
     businesses: [],
-    loading: true
+    loading: true,
+    registeringNew: false
 }
 
 const businessesStateReducer = (state=initialBusinessesState, action) => {

@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Business from '../../components/Business/Business';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import loadBusinesses from '../../store/resources/business';
 import actions from '../../store/actions/actions';
+import BusinessRegistrationForm from './BusinessRegistration/BusinessRegistrationForm';
 
 import './Businesses.css';
 
@@ -52,10 +54,8 @@ class Businesses extends React.Component {
                 }
                 // instantiate a business with business_props
                 return (
-                    <Link to='/profile'>
-                        <Business
-                            {...business_props }
-                            key={ business.id } />
+                    <Link to='/profile' key={ business.id }>
+                        <Business {...business_props } />
                     </Link>
                 );
             });
@@ -66,9 +66,19 @@ class Businesses extends React.Component {
 
         return (
             <article className='Businesses'>
-                {'BusinessRegistrationForm '}
-                {'Backdrop '}
-                {'BusinessRegistrationTriggerButton '}
+                <BusinessRegistrationForm active={this.state.registeringNew}/>
+                <Backdrop
+                    active={this.state.registeringNew}
+                    click={() => this.setState({registeringNew: false})}/>
+                <div style={{
+                    height: '70px',
+                    width: '70px',
+                    borderRadius: '50%',
+                    background: '#8C8014',
+                    position: 'fixed',
+                    top: 100,
+                    left: '60%'
+                }}  onClick={() => this.setState({registeringNew: true})}  />
                 { businesses }
                 { loader }
             </article>

@@ -1,6 +1,5 @@
 .SideDrawer {
     display: None;
-    overflow: auto;
     font-size: .95em;
     font-weight: 500;
     -webkit-box-shadow: 1px 0px 7px #00080C;
