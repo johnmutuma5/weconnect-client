@@ -32,7 +32,10 @@ class Businesses extends React.Component {
     componentDidMount() {
         // load businesses async
         loadBusinesses()
-            .then(result => this.store.dispatch(actions.renderFetchedBusinesses(result)));
+            .then(result => {
+                let businesses = result.businesses
+                this.store.dispatch(actions.renderFetchedBusinesses(businesses))
+            });
     }
 
     handleStateDidUpdate(state) {

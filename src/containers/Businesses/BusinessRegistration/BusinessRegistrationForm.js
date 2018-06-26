@@ -10,7 +10,8 @@ class BusinessRegistrationForm extends React.Component {
         this.state = {
             business_name: '',
             location: '',
-            mobile: ''
+            mobile: '',
+            category:''
         }
     }
 
@@ -67,6 +68,15 @@ class BusinessRegistrationForm extends React.Component {
                             name: 'location',
                             value: this.state.location,
                             placeholder: 'Enter business location'
+                        }
+                    },
+                    {
+                        elementType: 'input',
+                        attributes: {
+                            type: 'text',
+                            name: 'category',
+                            value: this.state.category,
+                            placeholder: 'Enter business category'
                         }
                     }
                 ]

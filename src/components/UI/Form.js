@@ -45,7 +45,7 @@ class Form extends React.Component {
     render() {
         let formElements = this.props.loadElements()
             .map(this.createElement)
-        // this.createElement();
+
         return (
             <form
                 onSubmit={ this.props.onSubmit }

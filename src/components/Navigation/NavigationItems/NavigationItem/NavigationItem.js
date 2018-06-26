@@ -4,20 +4,21 @@ import './NavigationItem.css';
 import { NavLink } from 'react-router-dom';
 
 const navigationItem = (props, context) => {
-    const to = {
+
+    const li_attribs = {
+        onClick: context.handleToggleSideDrawer,
+        className: 'NavigationItem'
+    }
+
+    const navlink_to = {
         pathname: props.link_to,
         hash: props.hash,
         search: props.queryString
     };
 
-    const attribs = {
-        onClick: context.handleToggleSideDrawer,
-        className: 'NavigationItem'
-    }
-
     return (
-        <li { ...attribs } >
-            <NavLink to={ to }>
+        <li { ...li_attribs } >
+            <NavLink to={ navlink_to }>
                 { props.children }
             </NavLink>
         </li>
