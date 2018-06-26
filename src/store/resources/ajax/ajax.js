@@ -32,7 +32,7 @@ class HttpRequests {
             if (item === "baseURL")
             this.baseURL = conf_obj[item];
 
-            if (item === "requestHeaders")
+            if (item === "headers")
             Object.assign(this.requestHeaders, conf_obj[item]);
         }
     };
