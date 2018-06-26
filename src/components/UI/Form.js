@@ -35,11 +35,11 @@ class Form extends React.Component {
     }
 
     handleInputChange(e) {
-        let state = {}
+        let values = {...this.state.values}
         const value = e.target.value;
         const field = e.target.name;
-        Object.defineProperty(state, field, {value: value, enumerable: true});
-        this.setState(state);
+        Object.defineProperty(values, field, {value: value, enumerable: true});
+        this.setState({values: values});
     }
 
     render() {

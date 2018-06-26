@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Form from '../../../components/UI/Form';
 
 import './BusinessRegistrationForm.css';
@@ -8,16 +9,18 @@ class BusinessRegistrationForm extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            business_name: '',
-            location: '',
-            mobile: '',
-            category:''
+            values: {
+                name: '',
+                location: '',
+                mobile: '',
+                category:''
+            }
         }
     }
 
     onSubmit(e) {
         e.preventDefault();
-        console.log('Submited', this.state)
+        this.props.onSubmit(this.state.values);
     }
 
     render() {
@@ -56,8 +59,8 @@ class BusinessRegistrationForm extends React.Component {
                         elementType: 'input',
                         attributes: {
                             type: 'text',
-                            name: 'business_name',
-                            value: this.state.business_name,
+                            name: 'name',
+                            value: this.state.values.name,
                             placeholder: 'Enter business name'
                         }
                     },
@@ -66,7 +69,7 @@ class BusinessRegistrationForm extends React.Component {
                         attributes: {
                             type: 'text',
                             name: 'location',
-                            value: this.state.location,
+                            value: this.state.values.location,
                             placeholder: 'Enter business location'
                         }
                     },
@@ -75,7 +78,7 @@ class BusinessRegistrationForm extends React.Component {
                         attributes: {
                             type: 'text',
                             name: 'category',
-                            value: this.state.category,
+                            value: this.state.values.category,
                             placeholder: 'Enter business category'
                         }
                     }
@@ -94,7 +97,7 @@ class BusinessRegistrationForm extends React.Component {
                         attributes: {
                             type: "text",
                             name: "mobile",
-                            value: this.state.mobile,
+                            value: this.state.values.mobile,
                             placeholder: "Enter mobile number"
                         }
                     }
@@ -118,4 +121,4 @@ class BusinessRegistrationForm extends React.Component {
     }
 }
 
-export default BusinessRegistrationForm;
+export default withRouter(BusinessRegistrationForm);
