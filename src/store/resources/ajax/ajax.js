@@ -20,6 +20,9 @@ class HttpRequests {
                 if (this.readyState === 4 && ok_codes.includes(this.status)) {
                     res(JSON.parse(this.responseText));
                 }
+                else if(this.readyState === 4 && !ok_codes.includes(this.status)){
+                    rej(JSON.parse(this.responseText));
+                }
             }
             xhr.send(data);
         });

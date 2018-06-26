@@ -4,6 +4,27 @@ import Form from '../../../components/UI/Form';
 
 import './BusinessRegistrationForm.css';
 
+function registrationComplete(response) {
+    return (state, props) => (
+        {
+            success_message: response.msg,
+            successful: true,
+            submitting: false
+        }
+    )
+}
+
+function resetForm() {
+    return setTimeout(() => {
+        this.setState({
+            submitting: false,
+            successful: false,
+            success_message: '',
+            failed: false,
+            error_message: ''
+        })
+    }, 5000)
+}
 
 class BusinessRegistrationForm extends React.Component {
     constructor(props) {
@@ -14,13 +35,25 @@ class BusinessRegistrationForm extends React.Component {
                 location: '',
                 mobile: '',
                 category:''
-            }
+            },
+            submitting: false,
+            successful: false,
+            success_message: '',
+            failed: false,
+            error_message: ''
         }
     }
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.onSubmit(this.state.values);
+        this.setState({submitting: true})
+        this.props.onSubmit(this.state.values)
+            .then((response) => {
+                this.setState(registrationComplete(response), resetForm.bind(this))
+            })
+            .catch((error) => {
+                this.setState({failed: true, error_message: error.msg, submitting: false}, resetForm.bind(this))
+            })
     }
 
     render() {
@@ -28,6 +61,26 @@ class BusinessRegistrationForm extends React.Component {
         classes = this.props.active ?
                     classes.concat('active') :
                   classes.concat('inactive');
+
+        let form = <Form
+                        className='business_registration'
+                        loadElements={ this.loadFormElements.bind(this) }
+                        formContext = { this }
+                        onSubmit={ this.onSubmit.bind(this) }/>
+
+
+        if (this.state.successful)
+            form = this.state.success_message
+
+        if(this.state.failed){
+            console.log(this.state.error_message)
+            form = this.state.error_message
+        }
+
+        if (this.state.submitting)
+            form = 'processing'
+
+        form = this.state.successful ? this.state.success_message : form;
         return (
             <div className={ classes.join(' ') }>
                 <article className="form_container">
@@ -35,11 +88,7 @@ class BusinessRegistrationForm extends React.Component {
                       <p>{ 'Register your business' }</p>
                     </div>
 
-                    <Form
-                        className='business_registration'
-                        loadElements={ this.loadFormElements.bind(this) }
-                        formContext = { this }
-                        onSubmit={ this.onSubmit.bind(this) }/>
+                    { form }
                 </article>
             </div>
         )

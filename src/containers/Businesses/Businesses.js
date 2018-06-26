@@ -48,10 +48,7 @@ class Businesses extends React.Component {
     }
 
     addBusiness(businessData) {
-        registerNewBusiness(businessData)
-            .then((message) => (
-                console.log('me', message)
-            ))
+        return registerNewBusiness(businessData)
     }
 
     render() {
