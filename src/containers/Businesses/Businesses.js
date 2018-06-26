@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Business from '../../components/Business/Business';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
-import loadBusinesses from '../../store/resources/business';
+import {loadBusinesses, registerNewBusiness} from '../../store/resources/business';
 import actions from '../../store/actions/actions';
 import BusinessRegistrationForm from './BusinessRegistration/BusinessRegistrationForm';
 
@@ -47,6 +47,13 @@ class Businesses extends React.Component {
             subscriptionRevoker();
     }
 
+    addBusiness(businessData) {
+        registerNewBusiness(businessData)
+            .then((message) => (
+                console.log('me', message)
+            ))
+    }
+
     render() {
         const businesses = this.state.businesses
             .map((business) => {
@@ -69,7 +76,9 @@ class Businesses extends React.Component {
 
         return (
             <article className='Businesses'>
-                <BusinessRegistrationForm active={this.state.registeringNew}/>
+                <BusinessRegistrationForm
+                    active={ this.state.registeringNew }
+                    onSubmit={ this.addBusiness.bind(this) }/>
                 <Backdrop
                     active={this.state.registeringNew}
                     click={() => this.setState({registeringNew: false})}/>
