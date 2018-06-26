@@ -4,7 +4,7 @@ const ajax = new HttpRequests();
 ajax.config(
     {
         headers: {
-            'Content-Type': 'text/plain'
+            'Content-Type': 'application/json'
         }
     }
 );

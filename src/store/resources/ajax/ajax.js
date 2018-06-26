@@ -15,9 +15,9 @@ class HttpRequests {
 
             for (let item in requestHeaders)
                 xhr.setRequestHeader(item, requestHeaders[item]);
-
             xhr.onreadystatechange = function () {
-                    if (this.readyState === 4 && this.status === 200) {
+                let ok_codes = [200, 201]
+                if (this.readyState === 4 && ok_codes.includes(this.status)) {
                     res(JSON.parse(this.responseText));
                 }
             }
