@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Business from '../../components/Business/Business';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import CreateButton from '../../components/UI/CreateButton/CreateButton';
 import {loadBusinesses, registerNewBusiness} from '../../store/resources/business';
 import actions from '../../store/actions/actions';
 import BusinessRegistrationForm from './BusinessRegistration/BusinessRegistrationForm';
@@ -77,23 +78,18 @@ class Businesses extends React.Component {
             loader = 'loading now. Please wait'
 
         return (
+            // render businesses and new business registration UI components
             <article className='Businesses'>
+                { businesses }
+                <CreateButton
+                    id={'business'}
+                    click={ this.toggleRegistering.bind(this) }/>
                 <BusinessRegistrationForm
                     active={ this.state.registeringNew }
                     onSubmit={ this.addBusiness.bind(this) }/>
                 <Backdrop
                     active={this.state.registeringNew}
-                    click={() => this.setState({registeringNew: false})}/>
-                <div style={{
-                    height: '70px',
-                    width: '70px',
-                    borderRadius: '50%',
-                    background: '#8C8014',
-                    position: 'fixed',
-                    top: 100,
-                    left: '60%'
-                }}  onClick={() => this.setState({registeringNew: true})}  />
-                { businesses }
+                    click={ this.toggleRegistering.bind(this) }/>
                 { loader }
             </article>
         );

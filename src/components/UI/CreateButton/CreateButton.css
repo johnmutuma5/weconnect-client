@@ -1,0 +1,19 @@
+.CreateButton {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background: #8C8014;
+    position: fixed;
+}
+
+.CreateButton#business {
+    top: calc(100% - 135px);
+    left: 75%;
+}
+
+@media (min-width: 700px) {
+    .CreateButton#business {
+        top: calc(100% - 150px);
+        left: 62.5%;
+    }
+}
