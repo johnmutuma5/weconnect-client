@@ -51,6 +51,11 @@ class Businesses extends React.Component {
         return registerNewBusiness(businessData)
     }
 
+    toggleRegistering() {
+        let registeringNew = this.state.registeringNew;
+        this.setState({registeringNew: !registeringNew});
+    }
+
     render() {
         const businesses = this.state.businesses
             .map((business) => {

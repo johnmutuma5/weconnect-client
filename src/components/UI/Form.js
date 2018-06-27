@@ -9,6 +9,27 @@ class Form extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(props.formContext)
     }
 
+    handleInputChange(e) {
+        let values = {...this.state.values}
+        const value = e.target.value;
+        const field = e.target.name;
+        Object.defineProperty(values, field, {value: value, enumerable: true});
+        this.setState({values: values});
+    }
+
+    render() {
+        let formElements = this.props.loadElements()
+            .map(this.createElement)
+
+        return (
+            <form
+                onSubmit={ this.props.onSubmit }
+                className={ this.props.className }>
+                    { formElements }
+            </form>
+        )
+    }
+
     createElement(elem) {
         switch (elem.elementType) {
             case 'fieldset':
@@ -32,27 +53,6 @@ class Form extends React.Component {
                 break;
 
         }
-    }
-
-    handleInputChange(e) {
-        let values = {...this.state.values}
-        const value = e.target.value;
-        const field = e.target.name;
-        Object.defineProperty(values, field, {value: value, enumerable: true});
-        this.setState({values: values});
-    }
-
-    render() {
-        let formElements = this.props.loadElements()
-            .map(this.createElement)
-
-        return (
-            <form
-                onSubmit={ this.props.onSubmit }
-                className={ this.props.className }>
-                    { formElements }
-            </form>
-        )
     }
 }
 
