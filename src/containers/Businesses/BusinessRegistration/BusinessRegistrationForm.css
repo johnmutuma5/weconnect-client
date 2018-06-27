@@ -70,8 +70,8 @@
         left: 50%;
     }
 
-    30% {
-        transform: scale(.7) translateX(-50%) translateY(-50%);
+    20% {
+        transform: scale(.6) translateX(-50%) translateY(-50%);
         top: 60%;
         left: 70%;
     }
@@ -104,8 +104,8 @@
         left: 50%;
     }
 
-    30% {
-        transform: scale(.7) translateX(-50%) translateY(-50%);
+    20% {
+        transform: scale(.6) translateX(-50%) translateY(-50%);
         top: 60%;
         left: 70%;
     }
