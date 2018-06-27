@@ -8,7 +8,7 @@ const logo = (props) => (
         </div>
         <div className="synopsis">
             <p>{ 'Put your businesses on a global platform...' }</p>
-            <p>{ 'Looking to buy?? Find other businesses in your location' }</p>
+            <p>{ 'Looking to buy? You can find other businesses in your location' }</p>
         </div>
     </div>
 );
