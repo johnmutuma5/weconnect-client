@@ -66,7 +66,7 @@ class BusinessRegistrationForm extends React.Component {
 
     redirect(path) {
         return () => {
-            setTimeout(() => this.props.history.push(path), 3000)
+            setTimeout(() => this.props.history.push(path), 1500)
         }
     }
 
@@ -97,7 +97,7 @@ class BusinessRegistrationForm extends React.Component {
                 submitting: false,
                 successful: false,
                 failed: false,
-            })}, 4000);
+            })}, 1500);
     }
 
     loadFormElements() {
