@@ -179,12 +179,12 @@ class BusinessRegistrationForm extends React.Component {
     }
 }
 
-function registrationComplete(response) {
+function registrationComplete(msg) {
     // return a function for functional setState
     return (state, props) => (
         {
             successful: true,
-            success_message: response.msg,
+            success_message: msg,
             submitting: false
         }
     );

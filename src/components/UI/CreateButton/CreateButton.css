@@ -1,9 +1,111 @@
 .CreateButton {
-    height: 70px;
-    width: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     background: #8C8014;
     position: fixed;
+    -webkit-box-shadow: 1px 5px 15px 1px #60560D;
+            box-shadow: 1px 5px 15px 1px #60560D;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: -webkit-transform .3s ease;
+    -o-transition: transform .3s ease;
+    transition: transform .3s ease;
+    transition: transform .3s ease, -webkit-transform .3s ease;
+    -webkit-transition-delay: .3s;
+         -o-transition-delay: .3s;
+            transition-delay: .3s;
+}
+
+.CreateButton span {
+    width: 20px;
+    height: 3px;
+    background: #8DEAF7;
+    -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+            transform: translateX(50%);
+    border-radius: 2px;
+}
+
+.CreateButton span:last-child {
+    -webkit-transform: translateX(-50%) rotate(90deg) ;
+        -ms-transform: translateX(-50%) rotate(90deg) ;
+            transform: translateX(-50%) rotate(90deg) ;
+}
+
+.CreateButton.active {
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+}
+
+.CreateButton.inactive {
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+}
+
+.CreateButton:hover{
+    background-color: #7A7106;
+    -webkit-box-shadow: 1px 7px 15px 2px #4C4502;
+            box-shadow: 1px 7px 15px 2px #4C4502;
+}
+
+.CreateButton:hover span {
+    background: #36B2D8;
+    width: 21px;
+}
+
+/* tooltip */
+.CreateButton::before{
+    content: "Add a business";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 20px;
+    width: 120px;
+    position: absolute;
+    top: -25px;
+    left: -30px;
+    border: 1px solid #998E39;
+    border-radius: 5px;
+    color: #7A0624;
+    background-color: #E0D8B8;
+    font-size: .8em;
+    -webkit-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.CreateButton:hover::before {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+}
+
+.CreateButton#business::before{
+    content: "Add a business";
 }
 
 .CreateButton#business {

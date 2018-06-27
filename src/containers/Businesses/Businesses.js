@@ -82,13 +82,14 @@ class Businesses extends React.Component {
             <article className='Businesses'>
                 { businesses }
                 <CreateButton
+                    active={ !this.state.registeringNew }
                     id={'business'}
                     click={ this.toggleRegistering.bind(this) }/>
                 <BusinessRegistrationForm
                     active={ this.state.registeringNew }
                     onSubmit={ this.addBusiness.bind(this) }/>
                 <Backdrop
-                    active={this.state.registeringNew}
+                    active={ this.state.registeringNew }
                     click={ this.toggleRegistering.bind(this) }/>
                 { loader }
             </article>
