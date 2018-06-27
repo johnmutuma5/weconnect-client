@@ -12,9 +12,10 @@ class HttpRequests {
         const prom = new Promise (function (res, rej) {
             let xhr = new XMLHttpRequest();
             xhr.open(method_type, destination, true); // true async
-
+            // set request headers
             for (let item in requestHeaders)
                 xhr.setRequestHeader(item, requestHeaders[item]);
+            // add event handler
             xhr.onreadystatechange = function () {
                 let ok_codes = [200, 201]
                 if (this.readyState === 4 && ok_codes.includes(this.status)) {
@@ -24,6 +25,7 @@ class HttpRequests {
                     rej(JSON.parse(this.responseText));
                 }
             }
+            // send the request
             xhr.send(data);
         });
 
