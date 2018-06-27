@@ -65,9 +65,10 @@ class Businesses extends React.Component {
                     location: business.location,
                     category: business.category
                 }
+                const id = business.id;
                 // instantiate a business with business_props
                 return (
-                    <Link to='/profile' key={ business.id }>
+                    <Link to={ '/businesses/' + id } key={ id }>
                         <Business {...business_props } />
                     </Link>
                 );
