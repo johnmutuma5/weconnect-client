@@ -1,0 +1,24 @@
+.Message {
+    color: #BBF5F9;
+    height: 50px;
+    width: 60%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+}
+
+.Message.success {
+    background: #7A7106;
+    box-shadow: 1px 2px 7px 2px #4C4502;
+}
+
+.Message.error {
+    background: #7A0624;
+    box-shadow: 1px 2px 7px 2px #4F0017;
+}
+
+.Message.info {
+    background: #36B2D8;
+}
