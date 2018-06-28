@@ -10,6 +10,13 @@ class App extends Component {
   render() {
     return (
         <Layout>
+            <Route exact path="/" render={ () => {
+                    return (
+                        <Businesses />
+                    );
+                    }
+                }
+            />
             <Route exact path="/businesses" component={ Businesses } />
             <Route exact path="/register" component={ UserRegistrationForm } />
         </Layout>

@@ -191,7 +191,7 @@ form {
 fieldset:last-child {
   background-color: transparent;
   border: none;
-  width: 47%;
+  width: 100%;
 }
 
 .form_container legend {
@@ -204,8 +204,8 @@ input:not([type='checkbox']) {
   border: none;
   border-bottom: 1px solid #96858F;
   height: 35px;
-  width: 100%;
-  margin: 15px auto;
+  width: 50%;
+  margin: 10px auto;
 }
 
 input[name=submit] {
@@ -215,10 +215,16 @@ input[name=submit] {
   color: white;
   margin-left: 0;
   cursor: pointer;
+  width: 100%;
 }
 
 input[name='submit']:hover {
   background-color: #7A7106;
+}
+
+input[type='text'], input[type='password'], input[type='email']{
+    background-color: #D1C695;
+    min-width: 80%;
 }
 
 input {
@@ -228,8 +234,9 @@ input {
   padding-left: 5px !important;
 }
 
-input:focus {
+fieldset:not(:last-child) input:focus {
   -webkit-box-shadow: 0px 0px 5px 1px #F7FCFC;
           box-shadow: 0px 0px 5px 1px #F7FCFC;
   outline: none;
+  width: 51%;
 }

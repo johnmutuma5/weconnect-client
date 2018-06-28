@@ -7,13 +7,6 @@ const navigationItems = (props) => (
         <ul>
             <NavigationItem link_to='/businesses'>Explore Businesses</NavigationItem>
             <NavigationItem link_to='/dashboard'>Dash Board</NavigationItem>
-            <button style={
-                {
-                    height:'90%',
-                    width: '200px',
-                    borderRadius: '5px',
-                }
-            }>Get Started</button>
         </ul>
     </nav>
 );

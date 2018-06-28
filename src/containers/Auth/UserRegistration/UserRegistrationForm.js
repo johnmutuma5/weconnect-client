@@ -1,6 +1,7 @@
 import React from 'react';
 import Form, {formProcessComplete, formProcessFailed} from '../../../components/UI/Form';
 import {createAccount} from '../../../store/resources/auth';
+import Prompt from '../Prompt/Prompt';
 
 import './UserRegistrationForm.css';
 
@@ -45,6 +46,10 @@ class UserRegistrationForm extends React.Component {
     render() {
 
         let classes = ['UserRegistrationForm'];
+        classes = this.props.isVisible ?
+                    classes.concat(['visible']) :
+                    classes.concat(['invisible']);
+
 
         let form = <Form
                         formContext = { this }
@@ -52,6 +57,10 @@ class UserRegistrationForm extends React.Component {
                         onSubmit = { this.onSubmit.bind(this) } />
         return (
             <div className={ classes.join(' ') }>
+                <Prompt
+                    ask={'Already have an account?'}
+                    handleClicked={ this.props.handleReadyToLogin} >
+                    { 'Login' }</Prompt>
                 <article className="form_container">
                     <div className='form_header'>
                       <p>{ 'Register a user account' }</p>

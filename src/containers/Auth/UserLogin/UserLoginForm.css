@@ -1,5 +1,5 @@
 
-.UserRegistrationForm {
+.UserLoginForm {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -14,8 +14,8 @@
     top: 50%;
     left: 50%;
     /* transform: translateX(-50%) translateY(-50%); */
-    height: 700px;
-    max-height: 90%;
+    height: 400px;
+    max-height: 75%;
     width: 40%;
     max-width: 98%;
     min-width: 310px;
@@ -30,10 +30,10 @@
     border-radius: 9px;
 }
 
-.UserRegistrationForm.invisible {
+.UserLoginForm.invisible {
     transform: scale(0) translateX(-50%) translateY(-50%);
 }
 
-.UserRegistrationForm.visible {
+.UserLoginForm.visible {
     transform: scale(1) translateX(-50%) translateY(-50%);
 }
