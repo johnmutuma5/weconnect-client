@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Message from './Message/Message';
 
 
 class Form extends React.Component {
@@ -21,13 +22,15 @@ class Form extends React.Component {
         let formElements = this.props.loadElements()
             .map(this.createElement)
 
-        return (
+        const form = this.withMessages(
             <form
                 onSubmit={ this.props.onSubmit }
                 className={ this.props.className }>
                     { formElements }
             </form>
-        )
+        );
+
+        return form
     }
 
     createElement(elem) {
@@ -41,7 +44,7 @@ class Form extends React.Component {
                 );
 
             case 'legend':
-                const val = elem.value;
+                const val = elem.children;
                 return <legend key={ val }>{ val }</legend>;
 
             case 'input':
@@ -54,12 +57,65 @@ class Form extends React.Component {
 
         }
     }
+
+    withMessages(form) {
+        if (this.props.formContext.state.successful)
+            form = (<Message type={'success'}>
+                        { this.props.formContext.state.success_message }
+                    </Message>);
+
+        if(this.props.formContext.state.failed){
+            form = (<Message type={'error'}>
+                        { this.props.formContext.state.error_message }
+                    </Message>);
+            this.resetForm();
+        }
+
+        if (this.props.formContext.state.submitting)
+            form = (<Message type={'info'}>
+                        { 'Processing. Please wait.' }
+                    </Message>);
+
+        return form
+    }
+
+    resetForm() {
+        // reset the form after 1.5 seconds
+        setTimeout(() => {
+            this.props.formContext.setState({
+                submitting: false,
+                successful: false,
+                failed: false,
+            })}, 1500);
+    }
 }
 
 Form.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     loadElements: PropTypes.func.isRequired,
     formContext: PropTypes.object.isRequired
+}
+
+export function formProcessComplete(msg) {
+    // return a function for functional setState
+    return (state, props) => (
+        {
+            successful: true,
+            success_message: msg,
+            submitting: false
+        }
+    );
+};
+
+export function formProcessFailed(msg) {
+    // return a function for functional setState
+    return (state, props) => (
+        {
+            failed: true,
+            error_message: msg,
+            submitting: false
+        }
+    )
 }
 
 

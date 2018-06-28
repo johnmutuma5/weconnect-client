@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Form from '../../../components/UI/Form';
-import Message from '../../../components/UI/Message/Message';
+import Form, {formProcessComplete, formProcessFailed} from '../../../components/UI/Form';
 
 import './BusinessRegistrationForm.css';
 
@@ -28,12 +27,10 @@ class BusinessRegistrationForm extends React.Component {
         // create the form to present to client
         // use withMessage to replace the form with an API message container
         // messages are loaded onSubmit
-        const form = this.withMessages(
-            <Form
-                className='business_registration'
-                loadElements={ this.loadFormElements.bind(this) }
-                formContext = { this }
-                onSubmit={ this.onSubmit.bind(this) }/>);
+        const form = <Form
+                        loadElements={ this.loadFormElements.bind(this) }
+                        formContext = { this }
+                        onSubmit={ this.onSubmit.bind(this) }/>;
 
         return (
             <div className={ classes.join(' ') }>
@@ -57,10 +54,11 @@ class BusinessRegistrationForm extends React.Component {
                 const path = this.props.match.path + '/'+ business_id;
                 const msg = response.msg;
                 // update form state and redirect the user to the path above
-                this.setState(registrationComplete(msg), this.redirect(path));
+                this.setState(formProcessComplete(msg), this.redirect(path));
             })
             .catch((error) => {
-                this.setState(registrationFailed(error), this.resetForm)
+                const msg = error.msg;
+                this.setState(formProcessFailed(msg))
             })
     }
 
@@ -68,36 +66,6 @@ class BusinessRegistrationForm extends React.Component {
         return () => {
             setTimeout(() => this.props.history.push(path), 1500)
         }
-    }
-
-    withMessages(form) {
-        if (this.state.successful)
-            form = (<Message type={'success'}>
-                        { this.state.success_message }
-                    </Message>);
-
-        if(this.state.failed)
-            form = (<Message type={'error'}>
-                        { this.state.error_message }
-                    </Message>);
-
-        if (this.state.submitting)
-            form = (<Message type={'info'}>
-                        { 'Processing. Please wait.' }
-                    </Message>);
-
-        return form
-    }
-
-    resetForm() {
-        // resets form after displaying the message for 4 seconds
-        // useful in case the message is an error message from API
-        return setTimeout(() => {
-            this.setState({
-                submitting: false,
-                successful: false,
-                failed: false,
-            })}, 1500);
     }
 
     loadFormElements() {
@@ -111,7 +79,7 @@ class BusinessRegistrationForm extends React.Component {
                 children: [
                     {
                         elementType: 'legend',
-                        value: 'Basic Business Details'
+                        children: 'Basic Business Details'
                     },
                     {
                         elementType: 'input',
@@ -148,7 +116,7 @@ class BusinessRegistrationForm extends React.Component {
                 children: [
                     {
                         elementType: 'legend',
-                        value: 'Business Contact Details'
+                        children: 'Business Contact Details'
                     },
                     {
                         elementType: 'input',
@@ -179,26 +147,5 @@ class BusinessRegistrationForm extends React.Component {
     }
 }
 
-function registrationComplete(msg) {
-    // return a function for functional setState
-    return (state, props) => (
-        {
-            successful: true,
-            success_message: msg,
-            submitting: false
-        }
-    );
-};
-
-function registrationFailed(error) {
-    // return a function for functional setState
-    return (state, props) => (
-        {
-            failed: true,
-            error_message: error.msg,
-            submitting: false
-        }
-    )
-}
 
 export default withRouter(BusinessRegistrationForm);
