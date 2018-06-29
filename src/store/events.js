@@ -9,3 +9,4 @@ export const events = {}
 
 registerEvent(events, actionTypes.RENDER_FETCHED_BUSINESSES);
 registerEvent(events, actionTypes.INIT_BUSINESSES_STATE);
+registerEvent(events, actionTypes.LOGIN_USER);

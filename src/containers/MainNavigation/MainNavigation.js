@@ -37,7 +37,7 @@ class MainNavigation extends React.Component {
         const context = {
             state: this.state,
             handleToggleSideDrawer: this.handleToggleSideDrawer.bind(this),
-            handleUserGettingStarted: this.toggleUserGettingStarted.bind(this)
+            toggleUserGettingStarted: this.toggleUserGettingStarted.bind(this)
         }
 
         let gettingStarted = <GettingStarted />

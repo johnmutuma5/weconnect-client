@@ -46,7 +46,7 @@ class BusinessRegistrationForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.setState({submitting: true})
+        this.setState({submitting: true});
         this.props.onSubmit(this.state.values)
             .then((response) => {
                 // construct a path to the new business's profile page

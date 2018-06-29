@@ -9,9 +9,10 @@ class Store {
     }
 
     dispatch(action) {
-        this.state = this.reducer(undefined, action);
+        this.state = this.reducer(this.state, action);
         // notify listeners that this event has occured and updated state
         // eventTypes are identified by action types
+        console.log(this.state);
         this.notify(action.type);
     }
 

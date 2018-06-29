@@ -11,7 +11,7 @@ const toolbar = (props, context) => (
     <div className="Toolbar container">
         <Logo src= { logo } alt_text="WeConnect" />
         <NavigationItems />
-        <Button onClickHandler={ context.handleUserGettingStarted }>
+        <Button onClickHandler={ context.toggleUserGettingStarted }>
             { 'Get Started' }
         </Button>
         <SideMenuToggler click={ props.click } />
@@ -20,7 +20,7 @@ const toolbar = (props, context) => (
 );
 
 toolbar.contextTypes = {
-    handleUserGettingStarted: PropTypes.func.isRequired
+    toggleUserGettingStarted: PropTypes.func.isRequired
 }
 
 export default toolbar;

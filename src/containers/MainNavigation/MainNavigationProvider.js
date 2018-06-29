@@ -6,7 +6,7 @@ class MainNavContextProvider extends React.Component {
         return {
             state: this.props.state,
             handleToggleSideDrawer: this.props.handleToggleSideDrawer,
-            handleUserGettingStarted: this.props.handleUserGettingStarted
+            toggleUserGettingStarted: this.props.toggleUserGettingStarted
         }
     }
 
@@ -18,7 +18,7 @@ class MainNavContextProvider extends React.Component {
 MainNavContextProvider.childContextTypes = {
     state: PropTypes.object.isRequired,
     handleToggleSideDrawer: PropTypes.func.isRequired,
-    handleUserGettingStarted: PropTypes.func.isRequired
+    toggleUserGettingStarted: PropTypes.func.isRequired
 
 }
 

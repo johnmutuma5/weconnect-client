@@ -59,10 +59,12 @@ class Form extends React.Component {
     }
 
     withMessages(form) {
-        if (this.props.formContext.state.successful)
+        if (this.props.formContext.state.successful) {
             form = (<Message type={'success'}>
                         { this.props.formContext.state.success_message }
                     </Message>);
+            this.resetForm();
+        }
 
         if(this.props.formContext.state.failed){
             form = (<Message type={'error'}>

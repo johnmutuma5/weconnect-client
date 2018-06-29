@@ -1,4 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { weConnectLoginUser } from '../../../store/resources/auth';
+import { loginUserAction } from '../../../store/actions/actions';
 import Form, {formProcessComplete, formProcessFailed} from '../../../components/UI/Form';
 import Prompt from '../Prompt/Prompt';
 
@@ -7,7 +11,7 @@ import './UserLoginForm.css';
 
 class UserLoginForm extends React.Component {
 
-    constructor(props) {
+    constructor(props, context) {
         super();
         this.state = {
             values: {
@@ -15,26 +19,36 @@ class UserLoginForm extends React.Component {
                 password: ''
             }
         }
+        this.store = context.store;
+        console.log(context);
     }
 
     onSubmit(e) {
-        e.preventDefault()
-        // createAccount(this.state.values)
-        //     .then((response) => {
-        //         const msg = response.msg;
-        //         const next = '/businesses';
-        //         this.setState(formProcessComplete(msg), this.redirect(next));
-        //     })
-        //     .catch((error) => {
-        //         const msg = error.msg;
-        //         this.setState(formProcessFailed(msg));
-        //     });
+        e.preventDefault();
+        this.setState({submitting: true});
+        // login user in the API; get's a promise for a future  async response
+        weConnectLoginUser(this.state.values)
+            .then((response) => {
+                const msg = response.msg;
+                const next = '/';
+                // update application state with auth access_token credentials
+                const action = loginUserAction(response.access_token);
+                this.store.dispatch(action);
+                this.setState(formProcessComplete(msg), this.redirect(next));
+            })
+            .catch((error) => {
+                const msg = error.msg;
+                this.setState(formProcessFailed(msg));
+            });
     }
 
     redirect(path) {
         // returns a timed-out callback function for setState
         return () => {
-            setTimeout(()=>this.props.history.push(path) ,1500);
+            setTimeout(()=>{
+                this.props.history.push(path);
+                this.context.toggleUserGettingStarted();
+            } ,1500);
         }
     }
 
@@ -114,4 +128,9 @@ class UserLoginForm extends React.Component {
     }
 }
 
-export default UserLoginForm;
+UserLoginForm.contextTypes = {
+    toggleUserGettingStarted: PropTypes.func.isRequired,
+    store: PropTypes.object.isRequired
+}
+
+export default withRouter(UserLoginForm);
