@@ -1,10 +1,11 @@
 import React from 'react';
-import MainNavContextProvider from './MainNavigationProvider';
-import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
-import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
+import LayoutContextProvider from './LayoutContextProvider';
+import Navigation from '../../components/Navigation/Navigation';
+import GettingStarted from '../Auth/GettingStarted';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
-import GettingStarted from '../Auth/GettingStarted'
-import './MainNavigation.css';
+import Footer from './Footer/Footer';
+
+import './Layout.css';
 
 
 function toggleSideDrawer(state, props) {
@@ -16,7 +17,8 @@ function toggleSideDrawer(state, props) {
 }
 
 
-class MainNavigation extends React.Component {
+
+class Layout extends React.Component {
     constructor(props){
         super();
         this.state = {
@@ -33,7 +35,7 @@ class MainNavigation extends React.Component {
         this.setState({userGettingStarted: !this.state.userGettingStarted})
     }
 
-    render(){
+    render() {
         const context = {
             state: this.state,
             handleToggleSideDrawer: this.handleToggleSideDrawer.bind(this),
@@ -45,27 +47,27 @@ class MainNavigation extends React.Component {
         if (this.state.userGettingStarted)
             gettingStarted = <GettingStarted
                                 visible={this.state.userGettingStarted} />
-
         return (
-            <MainNavContextProvider { ...context } >
-                <SideDrawer />
-                <Backdrop
-                    active={this.state.sideDrawerOpen}
-                    id={ 'SideDrawerBackDrop' }
-                    click={this.handleToggleSideDrawer.bind(this)}/>
-
-                <div className='top-bar'>
-                    <Toolbar />
+            <LayoutContextProvider {...context} >
+                <Navigation />
+                <div className="content">
+                    <div className='container main-content'>
+                        <main>
+                            <section>
+                                { this.props.children }
+                            </section>
+                        </main>
+                    </div>
+                    { gettingStarted }
+                    <Backdrop
+                        active={this.state.userGettingStarted}
+                        id={ 'GettingStartedBackdrop' }
+                        click={this.toggleUserGettingStarted.bind(this)}/>
+                    <Footer />
                 </div>
-
-                { gettingStarted }
-                <Backdrop
-                    active={this.state.userGettingStarted}
-                    id={ 'GettingStartedBackdrop' }
-                    click={this.toggleUserGettingStarted.bind(this)}/>
-            </MainNavContextProvider>
+            </LayoutContextProvider>
         );
     }
 }
 
-export default MainNavigation;
+export default Layout;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Layout from './components/Layout/Layout';
+import Layout from './containers/Layout/Layout';
 import { Route } from 'react-router-dom';
 import Businesses from './containers/Businesses/Businesses';
 import UserRegistrationForm from './containers/Auth/UserRegistration/UserRegistrationForm';
