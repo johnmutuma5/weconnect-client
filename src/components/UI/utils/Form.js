@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Message from './Message/Message';
+import Message from '../Message/Message';
 
 
 class Form extends React.Component {
@@ -119,6 +119,20 @@ export function formProcessFailed(msg) {
             submitting: false
         }
     )
+}
+
+export function formInput(type, name, value, placeholder) {
+    return (
+        {
+            elementType: 'input',
+            attributes: {
+                type: type,
+                name: name,
+                value: value,
+                placeholder: placeholder
+            }
+        }
+    );
 }
 
 

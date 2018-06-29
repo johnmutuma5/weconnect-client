@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Form, {formProcessComplete, formProcessFailed} from '../../../components/UI/Form';
+import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 
 import './BusinessRegistrationForm.css';
 
@@ -19,10 +19,10 @@ class BusinessRegistrationForm extends React.Component {
 
     render() {
         // define classes form styling the form with css
-        let classes = ['BusinessRegistrationForm']
-        classes = this.props.active ?
-                    classes.concat('active') :
-                  classes.concat('inactive');
+        let businessFormCssClass = ['BusinessRegistrationForm']
+        businessFormCssClass = this.props.active ?
+                    businessFormCssClass.concat('active') :
+                  businessFormCssClass.concat('inactive');
 
         // create the form to present to client
         // use withMessage to replace the form with an API message container
@@ -33,7 +33,7 @@ class BusinessRegistrationForm extends React.Component {
                         onSubmit={ this.onSubmit.bind(this) }/>;
 
         return (
-            <div className={ classes.join(' ') }>
+            <div className={ businessFormCssClass.join(' ') }>
                 <article className="form_container">
                     <div className='form_header'>
                       <p>{ 'Register your business' }</p>
@@ -82,8 +82,8 @@ class BusinessRegistrationForm extends React.Component {
                         children: 'Basic Business Details'
                     },
                     formInput('text', 'name', this.state.values.name, 'Business Name'),
-                    formInput('text', 'locaiton', this.state.values.location, 'Business Location'),
-                    formInput('text', 'name', this.state.values.category, 'Business Category')
+                    formInput('text', 'location', this.state.values.location, 'Business Location'),
+                    formInput('text', 'category', this.state.values.category, 'Business Category')
                 ]
             },
             {
@@ -107,20 +107,5 @@ class BusinessRegistrationForm extends React.Component {
         ]
     }
 }
-
-function formInput(type, name, value, placeholder) {
-    return (
-        {
-            elementType: 'input',
-            attributes: {
-                type: type,
-                name: name,
-                value: value,
-                placeholder: placeholder
-            }
-        }
-    );
-}
-
 
 export default withRouter(BusinessRegistrationForm);

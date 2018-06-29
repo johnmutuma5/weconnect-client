@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { weConnectLoginUser } from '../../../store/resources/auth';
 import { loginUserAction } from '../../../store/actions/actions';
-import Form, {formProcessComplete, formProcessFailed} from '../../../components/UI/Form';
+import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 import Prompt from '../Prompt/Prompt';
 
 import './UserLoginForm.css';
@@ -54,10 +54,8 @@ class UserLoginForm extends React.Component {
 
     render() {
 
-        let classes = ['UserLoginForm'];
-        classes = this.props.isVisible ?
-                    classes.concat(['visible']) :
-                    classes.concat(['invisible']);
+        let userLoginCssClass = ['UserLoginForm'];
+        userLoginCssClass = this.props.isVisible ? userLoginCssClass.concat(['visible']) : userLoginCssClass.concat(['invisible']);
 
 
         let form = <Form
@@ -65,7 +63,7 @@ class UserLoginForm extends React.Component {
                         loadElements = { this.loadElements.bind(this) }
                         onSubmit = { this.onSubmit.bind(this) } />
         return (
-            <div className={ classes.join(' ') }>
+            <div className={ userLoginCssClass.join(' ') }>
                 <Prompt
                     ask={'No account yet?'}
                     handleClicked={ this.props.handleReadyToSignUp } >
@@ -84,44 +82,21 @@ class UserLoginForm extends React.Component {
         return [
             {
                 elementType: 'fieldset',
-                key: 2,
+                key: 'userloginform1',
                 children: [
                     {
                         elementType: 'legend',
                         children: 'Username and Password'
                     },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'username',
-                            placeholder: 'Username',
-                            type: 'text',
-                            value: this.state.values.username
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'password',
-                            placeholder: 'Password',
-                            type: 'password',
-                            value: this.state.values.password
-                        }
-                    }
+                    formInput('text', 'username', this.state.values.username, 'Username'),
+                    formInput('password', 'password', this.state.values.password, 'Password')
                 ]
             },
             {
                 elementType: 'fieldset',
-                key: 3,
+                key: 'userloginform2',
                 children: [
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'submit',
-                            value: 'Submit',
-                            type: 'submit'
-                        }
-                    }
+                    formInput('submit', 'submit', 'Submit', undefined)
                 ]
             }
         ]

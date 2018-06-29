@@ -1,5 +1,5 @@
 import React from 'react';
-import Form, {formProcessComplete, formProcessFailed} from '../../../components/UI/Form';
+import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 import {createAccount} from '../../../store/resources/auth';
 import Prompt from '../Prompt/Prompt';
 
@@ -44,11 +44,11 @@ class UserRegistrationForm extends React.Component {
     }
 
     render() {
-
-        let classes = ['UserRegistrationForm'];
-        classes = this.props.isVisible ?
-                    classes.concat(['visible']) :
-                    classes.concat(['invisible']);
+        let userFormCssClass = ['UserRegistrationForm'];
+        if (this.props.isVisible)
+            userFormCssClass = userFormCssClass.concat(['visible'])
+        else
+            userFormCssClass = userFormCssClass.concat(['invisible'])
 
 
         let form = <Form
@@ -56,7 +56,7 @@ class UserRegistrationForm extends React.Component {
                         loadElements = { this.loadElements.bind(this) }
                         onSubmit = { this.onSubmit.bind(this) } />
         return (
-            <div className={ classes.join(' ') }>
+            <div className={ userFormCssClass.join(' ') }>
                 <Prompt
                     ask={'Already have an account?'}
                     handleClicked={ this.props.handleReadyToLogin} >
@@ -75,99 +75,36 @@ class UserRegistrationForm extends React.Component {
         return [
             {
                 elementType: 'fieldset',
-                key: 1,
+                key: 'usrreg1',
                 children: [
                     {
                         elementType: 'legend',
                         children: 'Basic and Contact Data'
                     },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'first_name',
-                            placeholder: 'First Name',
-                            type: 'text',
-                            value: this.state.values.first_name
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'last_name',
-                            placeholder: 'Last Name',
-                            type: 'text',
-                            value: this.state.values.last_name
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'gender',
-                            placeholder: 'Gender',
-                            type: 'text',
-                            value: this.state.values.gender
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'email',
-                            placeholder: 'Email',
-                            type: 'email',
-                            value: this.state.values.email
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'mobile',
-                            placeholder: 'Mobile No.',
-                            type: 'text',
-                            value: this.state.values.mobile
-                        }
-                    }
+                    formInput('text', 'first_name', this.state.values.first_name, 'First Name'),
+                    formInput('text', 'last_name', this.state.values.last_name, 'Last Name'),
+                    formInput('text', 'gender', this.state.values.gender, 'Gender'),
+                    formInput('email', 'email', this.state.values.email, 'Email'),
+                    formInput('text', 'mobile', this.state.values.mobile, 'Mobile No.')
                 ]
             },
             {
                 elementType: 'fieldset',
-                key: 2,
+                key: 'usrreg2',
                 children: [
                     {
                         elementType: 'legend',
                         children: 'Login Details'
                     },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'username',
-                            placeholder: 'Username',
-                            type: 'text',
-                            value: this.state.values.username
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'password',
-                            placeholder: 'Password',
-                            type: 'password',
-                            value: this.state.values.password
-                        }
-                    }
+                    formInput('text', 'username', this.state.values.username, 'Username'),
+                    formInput('password', 'password', this.state.values.password, 'Password')
                 ]
             },
             {
                 elementType: 'fieldset',
-                key: 3,
+                key: 'usrreg3',
                 children: [
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            name: 'submit',
-                            value: 'Submit',
-                            type: 'submit'
-                        }
-                    }
+                    formInput('submit', 'submit', 'Submit', undefined)
                 ]
             }
         ]
