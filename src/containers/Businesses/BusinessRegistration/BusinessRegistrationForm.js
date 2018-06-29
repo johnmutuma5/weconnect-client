@@ -75,76 +75,51 @@ class BusinessRegistrationForm extends React.Component {
         return [
             {
                 elementType: 'fieldset',
-                key: 1,
+                key: 'busreg1',
                 children: [
                     {
                         elementType: 'legend',
                         children: 'Basic Business Details'
                     },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            type: 'text',
-                            name: 'name',
-                            value: this.state.values.name,
-                            placeholder: 'Enter business name'
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            type: 'text',
-                            name: 'location',
-                            value: this.state.values.location,
-                            placeholder: 'Enter business location'
-                        }
-                    },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            type: 'text',
-                            name: 'category',
-                            value: this.state.values.category,
-                            placeholder: 'Enter business category'
-                        }
-                    }
+                    formInput('text', 'name', this.state.values.name, 'Business Name'),
+                    formInput('text', 'locaiton', this.state.values.location, 'Business Location'),
+                    formInput('text', 'name', this.state.values.category, 'Business Category')
                 ]
             },
             {
                 elementType: 'fieldset',
-                key: 2,
+                key: 'busreg2',
                 children: [
                     {
                         elementType: 'legend',
                         children: 'Business Contact Details'
                     },
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            type: "text",
-                            name: "mobile",
-                            value: this.state.values.mobile,
-                            placeholder: "Enter mobile number"
-                        }
-                    }
+                    formInput('text', 'name', this.state.values.mobile, 'Mobile No.')
                 ]
             },
             {
                 elementType: 'fieldset',
                 key: 3,
                 children: [
-                    {
-                        elementType: 'input',
-                        attributes: {
-                            type: "submit",
-                            name: "submit",
-                            value: "Register business"
-                        }
-                    }
+                    formInput('submit', 'submit', 'Register Business', undefined)
                 ]
             }
         ]
     }
+}
+
+function formInput(type, name, value, placeholder) {
+    return (
+        {
+            elementType: 'input',
+            attributes: {
+                type: type,
+                name: name,
+                value: value,
+                placeholder: placeholder
+            }
+        }
+    );
 }
 
 
