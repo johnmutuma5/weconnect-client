@@ -6,8 +6,9 @@ import Message from './Message/Message';
 class Form extends React.Component {
     constructor(props) {
         super();
+        this.formContext = props.formContext;
         this.createElement = this.createElement.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(props.formContext)
+        this.handleInputChange = this.handleInputChange.bind(this.formContext)
     }
 
     handleInputChange(e) {
@@ -59,19 +60,11 @@ class Form extends React.Component {
     }
 
     withMessages(form) {
-        if (this.props.formContext.state.successful) {
-            form = (<Message type={'success'}>
-                        { this.props.formContext.state.success_message }
-                    </Message>);
-            this.resetForm();
-        }
+        if (this.props.formContext.state.successful)
+            form = this.resetWithMessage(form, this.formContext.state.success_message, 'success');
 
-        if(this.props.formContext.state.failed){
-            form = (<Message type={'error'}>
-                        { this.props.formContext.state.error_message }
-                    </Message>);
-            this.resetForm();
-        }
+        if(this.props.formContext.state.failed)
+            form = this.resetWithMessage(form, this.formContext.state.error_message, 'error');
 
         if (this.props.formContext.state.submitting)
             form = (<Message type={'info'}>
@@ -79,6 +72,14 @@ class Form extends React.Component {
                     </Message>);
 
         return form
+    }
+
+    resetWithMessage(form, message, messageType){
+        form = (<Message type={messageType}>
+                    { message }
+                </Message>);
+        this.resetForm();
+        return form;
     }
 
     resetForm() {
