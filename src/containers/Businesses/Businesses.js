@@ -88,7 +88,7 @@ class Businesses extends React.Component {
                 <Aux>
                      <CreateButton
                          active={ !this.state.registeringNew }
-                         id={'business'}
+                         id={'animatedAtThumb'}
                          click={ this.toggleRegistering.bind(this) }/>,
                      <BusinessRegistrationForm
                          active={ this.state.registeringNew }

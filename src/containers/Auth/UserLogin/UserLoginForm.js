@@ -5,6 +5,7 @@ import { weConnectLoginUser } from '../../../store/resources/auth';
 import { loginUserAction } from '../../../store/actions/actions';
 import Form, {formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 import Prompt from '../Prompt/Prompt';
+import Modal from '../../../components/UI/Modal/Modal';
 
 import './UserLoginForm.css';
 
@@ -40,28 +41,20 @@ class UserLoginForm extends React.Component {
     }
 
     render() {
-
-        let userLoginCssClass = ['UserLoginForm'];
-        userLoginCssClass = this.props.isVisible ? userLoginCssClass.concat(['visible']) : userLoginCssClass.concat(['invisible']);
-
-
+        const modalTitle = 'Login';
         let form = <Form
                         formContext = { this }
                         loadElements = { this.loadElements.bind(this) }
                         onSubmit = { this.onSubmit.bind(this) } />
         return (
-            <div className={ userLoginCssClass.join(' ') }>
+            <Modal title={ modalTitle } isVisible={ this.props.isVisible }>
                 <Prompt
                     ask={'No account yet?'}
                     handleClicked={ this.props.handleReadyToSignUp } >
                     { 'Sign up' }</Prompt>
-                <article className="form_container">
-                    <div className='form_header'>
-                      <p>{ 'Login' }</p>
-                    </div>
-                    { form }
-                </article>
-            </div>
+
+                { form }
+            </Modal>
         );
     }
 

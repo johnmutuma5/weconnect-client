@@ -7,4 +7,15 @@
   border-radius: 3px;
   margin-bottom: 45px;
   background: #FDFFFF;
+  animation: slide-up .8s ease-out;
+}
+
+@keyframes slide-up {
+    from  {
+        transform: rotateX(-30deg) translateY(40px);
+    }
+
+    to {
+        transform: rotateX(0) translateY(0);
+    }
 }

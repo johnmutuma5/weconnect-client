@@ -15,4 +15,31 @@
     background: #8595A0;
     width: 100%;
     height: 230px;
+    cursor: pointer;
+}
+
+.ProfileTools#atToolBar {
+    display: none;
+}
+
+@media (min-width: 700px) {
+    .ProfileTools {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .ProfileTools div:not(:first-child) {
+        display: none;
+    }
+
+    .ProfileTools#atToolBar {
+        display: flex;
+    }
+
+    .ProfileTools .ProfileAvatar {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
 }

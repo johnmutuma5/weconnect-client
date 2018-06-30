@@ -9,6 +9,10 @@
   height: 50px;
 }
 
+.GettingStarted {
+    margin-left: 50px;
+}
+
 @media (max-width: 700px) {
     .Toolbar nav {
         display: None;

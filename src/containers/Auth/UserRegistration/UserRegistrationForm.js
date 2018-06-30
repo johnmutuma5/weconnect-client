@@ -1,9 +1,10 @@
 import React from 'react';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 import {createAccount} from '../../../store/resources/auth';
+import Modal from '../../../components/UI/Modal/Modal';
 import Prompt from '../Prompt/Prompt';
 
-import './UserRegistrationForm.css';
+// import './UserRegistrationForm.css';
 
 class UserRegistrationForm extends React.Component {
 
@@ -44,30 +45,20 @@ class UserRegistrationForm extends React.Component {
     }
 
     render() {
-        let userFormCssClass = ['UserRegistrationForm'];
-        if (this.props.isVisible)
-            userFormCssClass = userFormCssClass.concat(['visible'])
-        else
-            userFormCssClass = userFormCssClass.concat(['invisible'])
-
-
+        const modalTitle = 'Register a user account';
         let form = <Form
                         formContext = { this }
                         loadElements = { this.loadElements.bind(this) }
                         onSubmit = { this.onSubmit.bind(this) } />
         return (
-            <div className={ userFormCssClass.join(' ') }>
-                <Prompt
-                    ask={'Already have an account?'}
-                    handleClicked={ this.props.handleReadyToLogin} >
-                    { 'Login' }</Prompt>
-                <article className="form_container">
-                    <div className='form_header'>
-                      <p>{ 'Register a user account' }</p>
-                    </div>
-                    { form }
-                </article>
-            </div>
+            <Modal title={ modalTitle } isVisible={this.props.isVisible}>
+            <Prompt
+                ask={'Already have an account?'}
+                handleClicked={ this.props.handleReadyToLogin} >
+                { 'Login' }</Prompt>
+
+            { form }
+            </Modal>
         );
     }
 

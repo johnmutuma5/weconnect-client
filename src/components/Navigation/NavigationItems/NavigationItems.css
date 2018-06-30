@@ -4,7 +4,7 @@
           flex-grow: 2;
   height: 100%;
   /* font-weight: 900;
-  /* font-size: .7em; */ 
+  /* font-size: .7em; */
 }
 
 .NavigationItems ul {
@@ -23,13 +23,71 @@
           align-items: center;
 }
 
+.CategoryNavigationItems {
+    display: flex;
+    justify-content: center;
+    background-color: #F9F7F2;
+    height: 30px;
+    width: 100%;
+}
+
+.CategoryNavigationItems .NavigationItems {
+    width: 100%;
+}
+
+.CategoryNavigationItems nav {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 1280px;
+}
+
+.CategoryNavigationItems nav ul {
+    display: flex;
+    justify-content: flex-start;
+    margin: auto 0;
+    padding: 0;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+}
+
+.CategoryNavigationItems ul li {
+    display: flex;
+}
+
+.CategoryNavigationItems a {
+    height: 50%;
+    font-size: .9em;
+    color: #566068;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: bold;
+    text-align: center;
+    border-left: 1px solid #36B2D8;
+}
+
+.CategoryNavigationItems a:hover {
+    color: #00080C;
+    background: none;
+}
+
+.CategoryNavigationItems .NavigationItem a.active {
+    color: #00080C;
+    background: none;
+}
+
 @media (max-width: 700px) {
-    .NavigationItems {
+    .SideDrawer .NavigationItems {
         height: auto;
     }
 
-    .NavigationItems ul {
+    .SideDrawer .NavigationItems ul {
         flex-flow: column;
         justify-content: flex-start;
+    }
+
+    .CategoryNavigationItems ul {
+        width: 100%;
+        overflow: hidden;
     }
 }

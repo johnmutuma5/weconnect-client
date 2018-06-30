@@ -1,7 +1,7 @@
 .Message {
     color: #BBF5F9;
-    height: 50px;
-    width: 60%;
+    height: 25px;
+    width: 50%;
     text-align: center;
     display: flex;
     align-items: center;
@@ -11,14 +11,15 @@
 
 .Message.success {
     background: #7A7106;
-    box-shadow: 1px 2px 7px 2px #4C4502;
+    box-shadow: 2px 3px 4px 1px #4C4502;
 }
 
 .Message.error {
     background: #7A0624;
-    box-shadow: 1px 2px 7px 2px #4F0017;
+    box-shadow: 2px 3px 5px 1px #23040D;
 }
 
 .Message.info {
     background: #36B2D8;
+    box-shadow: 2px 3px 4px 1px #00273F;
 }

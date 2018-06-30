@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
+import Modal from '../../../components/UI/Modal/Modal';
 
 import './BusinessRegistrationForm.css';
 
@@ -18,29 +19,19 @@ class BusinessRegistrationForm extends React.Component {
     }
 
     render() {
-        // define classes form styling the form with css
-        let businessFormCssClass = ['BusinessRegistrationForm']
-        businessFormCssClass = this.props.active ?
-                    businessFormCssClass.concat('active') :
-                  businessFormCssClass.concat('inactive');
-
         // create the form to present to client
         // use withMessage to replace the form with an API message container
         // messages are loaded onSubmit
+        const modalTitle = 'Introduce your Business. Free.'
         const form = <Form
                         loadElements={ this.loadFormElements.bind(this) }
                         formContext = { this }
                         onSubmit={ this.onSubmit.bind(this) }/>;
 
         return (
-            <div className={ businessFormCssClass.join(' ') }>
-                <article className="form_container">
-                    <div className='form_header'>
-                      <p>{ 'Register your business' }</p>
-                    </div>
-                    { form }
-                </article>
-            </div>
+            <Modal title={ modalTitle } isVisible={ this.props.active } id='animateToThumbButton'>
+                { form }
+            </Modal>
         )
     }
 
@@ -51,7 +42,8 @@ class BusinessRegistrationForm extends React.Component {
             .then((response) => {
                 // construct a path to the new business's profile page
                 const business_id = response.id;
-                const path = this.props.match.path + '/'+ business_id;
+                const path = '/businesses/'+ business_id;
+                console.log(path)
                 const msg = response.msg;
                 // update form state and redirect the user to the path above
                 this.setState(formProcessComplete(msg), this.redirect(path));
@@ -63,6 +55,7 @@ class BusinessRegistrationForm extends React.Component {
     }
 
     redirect(path, timeout=1500) {
+        console.log(path);
         return () => {
             setTimeout(() => this.props.history.push(path), timeout)
         }

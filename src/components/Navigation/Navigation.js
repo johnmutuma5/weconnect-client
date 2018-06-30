@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Toolbar from './Toolbar/Toolbar';
+import { CategoryNavigationItems } from './NavigationItems/NavigationItems';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import Aux from '../../hoc/Aux';
@@ -22,6 +23,7 @@ const mainNavigation = (props, context) => {
 
             <div className='top-bar'>
                 <Toolbar />
+                <CategoryNavigationItems />
             </div>
         </Aux>
     )

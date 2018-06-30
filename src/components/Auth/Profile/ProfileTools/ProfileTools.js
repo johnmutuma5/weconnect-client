@@ -4,7 +4,7 @@ import ProfileAvatar from '../ProfileAvatar/ProfileAvatar';
 import './ProfileTools.css';
 
 const profileTools = (props) => (
-    <div className='ProfileTools'>
+    <div className='ProfileTools' id={ props.id }>
         <ProfileAvatar image={ {} } />
         <div> { 'John Doe'} </div>
     </div>

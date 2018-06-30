@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Message from '../Message/Message';
 
+import './Form.css';
+
 
 class Form extends React.Component {
     constructor(props) {
@@ -24,11 +26,13 @@ class Form extends React.Component {
             .map(this.createElement)
 
         const form = this.withMessages(
-            <form
-                onSubmit={ this.props.onSubmit }
-                className={ this.props.className }>
-                    { formElements }
-            </form>
+            <article className="form_container">
+                <form
+                    onSubmit={ this.props.onSubmit }
+                    className={ this.props.className }>
+                        { formElements }
+                </form>
+            </article>
         );
 
         return form

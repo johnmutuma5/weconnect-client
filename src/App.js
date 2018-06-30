@@ -17,7 +17,7 @@ class App extends Component {
                     }
                 }
             />
-            <Route exact path="/businesses" component={ Businesses } />
+            <Route path="/businesses" component={ Businesses } />
             <Route exact path="/register" component={ UserRegistrationForm } />
         </Layout>
     );

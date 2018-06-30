@@ -5,9 +5,23 @@ import './NavigationItems.css';
 const navigationItems = (props) => (
     <nav className='NavigationItems'>
         <ul>
-            <NavigationItem link_to='/businesses'>Explore Businesses</NavigationItem>
+            <NavigationItem link_to='/businesses'>Explore</NavigationItem>
+            <NavigationItem link_to='/upgrade'>Upgrade</NavigationItem>
         </ul>
     </nav>
+);
+
+// navigation items for business categories
+export const CategoryNavigationItems = (props) => (
+    <div className='CategoryNavigationItems'>
+        <nav className='NavigationItems'>
+            <ul>
+                <NavigationItem link_to='/businesses/filter?category=technology'>Technology</NavigationItem>
+                <NavigationItem link_to='/businesses/filter?category=art'>{ 'Creativity' }</NavigationItem>
+                <NavigationItem link_to='/businesses/filter?category=entertain'> Entertainment </NavigationItem>
+            </ul>
+        </nav>
+    </div>
 );
 
 export default navigationItems;

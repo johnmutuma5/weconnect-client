@@ -108,13 +108,13 @@
     content: "Add a business";
 }
 
-.CreateButton#business {
+.CreateButton#animatedAtThumb {
     top: calc(100% - 135px);
     left: 75%;
 }
 
 @media (min-width: 700px) {
-    .CreateButton#business {
+    .CreateButton#animatedAtThumb {
         top: calc(100% - 150px);
         left: 62.5%;
     }

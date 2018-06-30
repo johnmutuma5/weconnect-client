@@ -1,15 +1,17 @@
 .top-bar {
     display: flex;
+    flex-flow: column;
+    align-items: center;
     justify-content: space-around;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background-color: #00396D;
     width: 100%;
-    max-height: 50px;
+    max-height: 100px;
     position: fixed;
     top: 0;
     z-index: 99;
     margin-bottom: 10px;
-    -webkit-box-shadow: 3px 1px 3px #00080C;
-            box-shadow: 3px 1px 3px #00080C;
+    -webkit-box-shadow: 3px 0px 10px #4C4502;
+            box-shadow: 3px 0px 10px #4C4502;
 }
