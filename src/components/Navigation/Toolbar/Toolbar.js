@@ -19,7 +19,6 @@ const toolbar = (props, context) => {
         </Button>;
 
     // check layout state
-    console.log(layoutState)
     if (layoutState.showLayoutForAuthenticatedUser)
         gettingStartedButton = 'User Avatar'; // to import from profile components
 

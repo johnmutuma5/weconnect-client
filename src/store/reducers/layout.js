@@ -8,7 +8,6 @@ const initState = {
 };
 
 const layoutStateReducer = (state=initState, action) => {
-    console.log('layout ', state)
     switch (action.type) {
         case actionTypes.INIT_LAYOUT_STATE:
             // return default state
