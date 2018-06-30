@@ -1,16 +1,19 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { toggleSideDrawer } from '../../../store/actions/actions';
+
 import './SideMenuToggler.css';
 
 const sideMenuToggler = (props, context) => {
-    let classes = ["SideMenuToggler"]
-    classes = context.state.sideDrawerOpen ?
-                classes.concat("invisible") :
-              classes.concat("visible");
+    const state = context.layoutState;
 
+    let classes = ["SideMenuToggler"]
+    classes = state.sideDrawerOpen? classes.concat("invisible"): classes.concat("visible");
+
+    const store = context.store;
     return (
         <div className={ classes.join(' ') }
-            onClick={ context.handleToggleSideDrawer }>
+            onClick={ () => store.dispatch(toggleSideDrawer()) }>
                 <span />
                 <span />
                 <span />
@@ -19,8 +22,8 @@ const sideMenuToggler = (props, context) => {
 }
 
 sideMenuToggler.contextTypes = {
-    state: PropTypes.object.isRequired,
-    handleToggleSideDrawer: PropTypes.func.isRequired
+    layoutState: PropTypes.object.isRequired,
+    store: PropTypes.object.isRequired
 }
 
 export default sideMenuToggler;

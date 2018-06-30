@@ -1,6 +1,6 @@
 import types from './actionTypes';
 
-
+// BUSINESS
 export const renderFetchedBusinesses = (businesses=[]) => (
     {
         type: types.RENDER_FETCHED_BUSINESSES,
@@ -14,7 +14,7 @@ export const initBusinessesState = () => (
     }
 );
 
-
+//AUTH
 export const loginUserAction = (auth_token) => (
     {
         type: types.LOGIN_USER,
@@ -22,9 +22,22 @@ export const loginUserAction = (auth_token) => (
     }
 )
 
-// export all the action creators
-export default {
-    renderFetchedBusinesses: renderFetchedBusinesses,
-    initBusinessesState: initBusinessesState,
-    loginUserAction: loginUserAction
-}
+// LAYOUT
+
+export const initLayoutState = () => (
+    {
+        type: types.INIT_LAYOUT_STATE
+    }
+);
+
+export const toggleSideDrawer = () => (
+    {
+        type: types.TOGGLE_SIDE_DRAWER
+    }
+);
+
+export const toggleGettingStarted = () => (
+    {
+        type: types.TOGGLE_GETTING_STARTED
+    }
+);

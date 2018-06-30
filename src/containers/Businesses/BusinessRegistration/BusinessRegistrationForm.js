@@ -62,9 +62,9 @@ class BusinessRegistrationForm extends React.Component {
             })
     }
 
-    redirect(path) {
+    redirect(path, timeout=1500) {
         return () => {
-            setTimeout(() => this.props.history.push(path), 1500)
+            setTimeout(() => this.props.history.push(path), timeout)
         }
     }
 
@@ -94,7 +94,7 @@ class BusinessRegistrationForm extends React.Component {
                         elementType: 'legend',
                         children: 'Business Contact Details'
                     },
-                    formInput('text', 'name', this.state.values.mobile, 'Mobile No.')
+                    formInput('text', 'mobile', this.state.values.mobile, 'Mobile No.')
                 ]
             },
             {

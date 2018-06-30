@@ -12,7 +12,6 @@ class Store {
         this.state = this.reducer(this.state, action);
         // notify listeners that this event has occured and updated state
         // eventTypes are identified by action types
-        console.log(this.state);
         this.notify(action.type);
     }
 
@@ -22,7 +21,8 @@ class Store {
         try {
             this.events[eventType].push(listener);
         } catch (e) {
-            console.log(`Ensure you have registered ${ eventType } in the events file`);
+            console.log(`Ensure you have registered ${ eventType } in the events file
+                and subscribed relevant components to that event`);
         }
         // return a function to unsubscribe the listener
         const unsubscribe = () => {
@@ -45,8 +45,13 @@ class Store {
 
     notify(eventType) {
         // this will be used to notify listners when events of actionType occur
-        for (let listner of this.events[eventType])
-            listner(this.state);
+        try {
+            for (let listner of this.events[eventType])
+                listner(this.state);
+        } catch (e) {
+            alert(`Ensure you have registered ${ eventType } in the events file
+                and subscribed relevant components to that event`)
+        }
     }
 }
 

@@ -25,14 +25,5 @@ const businessesStateReducer = (state=initialBusinessesState, action) => {
     }
 }
 
-// const businessesListReducer = (state=[], action) => {
-//     switch (action.type) {
-//         case actionTypes.RENDER_FETCHED_BUSINESSES:
-//             let newState = [...]
-//             return newState;
-//         default:
-//             return state;
-//     }
-// }
 
 export default businessesStateReducer;

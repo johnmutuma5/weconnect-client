@@ -4,23 +4,39 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
 import SideMenuToggler from '../../UI/SideMenuToggler/SideMenuToggler';
 import Button from '../../UI/Button/Button';
-import './Toolbar.css';
 import logo from '../../../Logo.svg';
+import { toggleGettingStarted } from '../../../store/actions/actions';
 
-const toolbar = (props, context) => (
-    <div className="Toolbar container">
-        <Logo src= { logo } alt_text="WeConnect" />
-        <NavigationItems />
-        <Button onClickHandler={ context.toggleUserGettingStarted }>
+import './Toolbar.css';
+
+const toolbar = (props, context) => {
+    const store = context.store;
+    const layoutState = context.layoutState;
+
+    let gettingStartedButton =
+        <Button onClickHandler={ () => store.dispatch(toggleGettingStarted()) }>
             { 'Get Started' }
-        </Button>
-        <SideMenuToggler click={ props.click } />
+        </Button>;
 
-    </div>
-);
+    // check layout state
+    console.log(layoutState)
+    if (layoutState.showLayoutForAuthenticatedUser)
+        gettingStartedButton = 'User Avatar'; // to import from profile components
+
+    return (
+        <div className="Toolbar container">
+            <Logo src= { logo } alt_text="WeConnect" />
+            <NavigationItems />
+            { gettingStartedButton }
+            <SideMenuToggler click={ props.click } />
+
+        </div>
+    );
+};
 
 toolbar.contextTypes = {
-    toggleUserGettingStarted: PropTypes.func.isRequired
+    store: PropTypes.object.isRequired,
+    layoutState: PropTypes.object.isRequired
 }
 
 export default toolbar;

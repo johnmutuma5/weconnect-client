@@ -4,9 +4,7 @@ import { PropTypes } from 'prop-types';
 class LayoutContextProvider extends React.Component {
     getChildContext() {
         return {
-            state: this.props.state,
-            handleToggleSideDrawer: this.props.handleToggleSideDrawer,
-            toggleUserGettingStarted: this.props.toggleUserGettingStarted
+            layoutState: this.props.layoutState
         }
     }
 
@@ -16,10 +14,7 @@ class LayoutContextProvider extends React.Component {
 }
 
 LayoutContextProvider.childContextTypes = {
-    state: PropTypes.object.isRequired,
-    handleToggleSideDrawer: PropTypes.func.isRequired,
-    toggleUserGettingStarted: PropTypes.func.isRequired
-
+    layoutState: PropTypes.object.isRequired
 }
 
 export default LayoutContextProvider;

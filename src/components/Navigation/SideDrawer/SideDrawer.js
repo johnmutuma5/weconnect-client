@@ -5,8 +5,9 @@ import ProfileTools from '../../Auth/Profile/ProfileTools/ProfileTools';
 import './SideDrawer.css';
 
 const sideDrawer = (props, context) => {
+    const state = context.layoutState;
     let classes = ['SideDrawer']
-    classes = context.state.sideDrawerOpen ? classes.concat('Open') : classes.concat('Closed');
+    classes = state.sideDrawerOpen ? classes.concat('Open') : classes.concat('Closed');
 
     return (
         <div className={ classes.join(' ') }>
@@ -19,7 +20,7 @@ const sideDrawer = (props, context) => {
 };
 
 sideDrawer.contextTypes = {
-    state: PropTypes.object.isRequired
+    layoutState: PropTypes.object.isRequired
 }
 
 export default sideDrawer;

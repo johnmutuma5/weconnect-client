@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Business from '../../components/Business/Business';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import CreateButton from '../../components/UI/CreateButton/CreateButton';
+import Aux from '../../hoc/Aux';
 import {loadBusinesses, registerNewBusiness} from '../../store/resources/business';
-import actions from '../../store/actions/actions';
+import {initBusinessesState, renderFetchedBusinesses} from '../../store/actions/actions';
 import BusinessRegistrationForm from './BusinessRegistration/BusinessRegistrationForm';
 
 import './Businesses.css';
@@ -27,7 +28,7 @@ class Businesses extends React.Component {
             this.store.subscribe(this.subscriptions,
                             this.handleStateDidUpdate.bind(this));
         // get initial state
-        this.store.dispatch(actions.initBusinessesState());
+        this.store.dispatch(initBusinessesState());
     }
 
     componentDidMount() {
@@ -35,7 +36,7 @@ class Businesses extends React.Component {
         loadBusinesses()
             .then(result => {
                 let businesses = result.businesses
-                this.store.dispatch(actions.renderFetchedBusinesses(businesses))
+                this.store.dispatch(renderFetchedBusinesses(businesses))
             });
     }
 
@@ -78,20 +79,31 @@ class Businesses extends React.Component {
         if (this.state.loading)
             loader = 'loading now. Please wait'
 
+        // check layout state
+        const layoutState = this.context.layoutState;
+
+        let businessRegistrationElements = null;
+        if (layoutState.showLayoutForAuthenticatedUser) {
+            businessRegistrationElements =
+                <Aux>
+                     <CreateButton
+                         active={ !this.state.registeringNew }
+                         id={'business'}
+                         click={ this.toggleRegistering.bind(this) }/>,
+                     <BusinessRegistrationForm
+                         active={ this.state.registeringNew }
+                         onSubmit={ this.addBusiness }/>
+                     <Backdrop
+                         active={ this.state.registeringNew }
+                         click={ this.toggleRegistering.bind(this) }/>
+                </Aux>
+        }
+
         return (
             // render businesses and new business registration UI components
             <article className='Businesses'>
                 { businesses }
-                <CreateButton
-                    active={ !this.state.registeringNew }
-                    id={'business'}
-                    click={ this.toggleRegistering.bind(this) }/>
-                <BusinessRegistrationForm
-                    active={ this.state.registeringNew }
-                    onSubmit={ this.addBusiness }/>
-                <Backdrop
-                    active={ this.state.registeringNew }
-                    click={ this.toggleRegistering.bind(this) }/>
+                { businessRegistrationElements }
                 { loader }
             </article>
         );
@@ -100,7 +112,8 @@ class Businesses extends React.Component {
 
 
 Businesses.contextTypes = {
-    store: PropTypes.object.isRequired
+    store: PropTypes.object.isRequired,
+    layoutState: PropTypes.object.isRequired
 }
 
 export default Businesses;

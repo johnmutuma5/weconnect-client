@@ -1,12 +1,15 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import './NavigationItem.css';
 import { NavLink } from 'react-router-dom';
+import { toggleSideDrawer } from '../../../../store/actions/actions';
+
+import './NavigationItem.css';
 
 const navigationItem = (props, context) => {
+    const store = context.store;
 
     const li_attribs = {
-        onClick: context.handleToggleSideDrawer,
+        onClick: () => store.dispatch(toggleSideDrawer()),
         className: 'NavigationItem'
     }
 
@@ -26,7 +29,8 @@ const navigationItem = (props, context) => {
 };
 
 navigationItem.contextTypes = {
-    handleToggleSideDrawer: PropTypes.func.isRequired
+    store: PropTypes.object.isRequired
 }
+
 
 export default navigationItem;
