@@ -22,10 +22,10 @@ export const CategoryNavigationItems = (props) => (
                     queryString='?category=technology'>Technology</NavigationItem>
                 <NavigationItem
                     link_to='/businesses/filter'
-                    queryString='?category=art'>{ 'Creativity' }</NavigationItem>
+                    queryString='?category=art'>Creativity</NavigationItem>
                 <NavigationItem
                     link_to='/businesses/filter'
-                    queryString='?category=entertain'> Entertainment </NavigationItem>
+                    queryString='?category=entertain'>Entertainment</NavigationItem>
             </ul>
         </nav>
     </div>

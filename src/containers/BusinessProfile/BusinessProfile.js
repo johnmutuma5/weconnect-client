@@ -32,16 +32,12 @@ class BusinessProfile extends React.Component {
     componentWillMount() {
         window.scrollTo (0, 0);
         const businessId = this.props.match.params['id'];
-        console.log('mounting profile')
         weConnectFetchPrimaryBusinessInfo(businessId)
             .then(res => this.setState(setPrimaryBusinessInfo(res)));
         weConnectFetchBusinessReviews(businessId)
             .then(res => this.setState(setBusinessReviews(res)));
     }
 
-    componentDidMount() {
-        console.log('mounted profile')
-    }
 
     render() {
         return (
