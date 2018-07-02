@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 import {createAccount} from '../../../store/resources/auth';
 import Modal from '../../../components/UI/Modal/Modal';
@@ -102,4 +103,4 @@ class UserRegistrationForm extends React.Component {
     }
 }
 
-export default UserRegistrationForm;
+export default withRouter(UserRegistrationForm);

@@ -90,8 +90,8 @@ input:not([type='checkbox']) {
 }
 
 input[name=submit] {
-  background-color: #998E39;
-  box-shadow: 2px 4px 7px #4C4502;
+  background-color: #00396D;
+  box-shadow: 2px 3px 5px #00273f;
   border: none;
   padding: 5px;
   color: white;
@@ -101,7 +101,8 @@ input[name=submit] {
 }
 
 input[name='submit']:hover {
-  background-color: #7A7106;
+  background-color: #d1c695;
+  box-shadow: 2px 3px 5px #4c4502;
 }
 
 input[type='text'], input[type='password'], input[type='email']{

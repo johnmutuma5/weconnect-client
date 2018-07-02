@@ -10,6 +10,8 @@ class App extends Component {
   render() {
     return (
         <Layout>
+            <Route path="/businesses" component={ Businesses } />
+            <Route exact path="/register" component={ UserRegistrationForm } />
             <Route exact path="/" render={ () => {
                     return (
                         <Businesses />
@@ -17,8 +19,6 @@ class App extends Component {
                     }
                 }
             />
-            <Route path="/businesses" component={ Businesses } />
-            <Route exact path="/register" component={ UserRegistrationForm } />
         </Layout>
     );
   }

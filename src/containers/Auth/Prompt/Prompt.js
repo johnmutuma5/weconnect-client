@@ -6,7 +6,8 @@ const prompt = (props) => (
     <div style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        margin: '15px 0'
     }}>
         <div style={{
             display: 'flex',

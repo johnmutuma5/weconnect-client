@@ -7,15 +7,30 @@
   border-radius: 3px;
   margin-bottom: 45px;
   background: #FDFFFF;
-  animation: slide-up .8s ease-out;
+  -webkit-animation: slide-up .8s ease-out;
+          animation: slide-up .8s ease-out;
+}
+
+@-webkit-keyframes slide-up {
+    from  {
+        -webkit-transform: rotateX(-40deg) translateY(40px);
+                transform: rotateX(-40deg) translateY(40px);
+    }
+
+    to {
+        -webkit-transform: rotateX(0) translateY(0);
+                transform: rotateX(0) translateY(0);
+    }
 }
 
 @keyframes slide-up {
     from  {
-        transform: rotateX(-30deg) translateY(40px);
+        -webkit-transform: rotateX(-40deg) translateY(40px);
+                transform: rotateX(-40deg) translateY(40px);
     }
 
     to {
-        transform: rotateX(0) translateY(0);
+        -webkit-transform: rotateX(0) translateY(0);
+                transform: rotateX(0) translateY(0);
     }
 }
