@@ -19,11 +19,11 @@
     background:  #00273F;
 }
 
-.Modal .Button {
+.Button.Dark {
     background: #00273F;
     height: 25px;
 }
 
-.Modal .Button:hover {
+.Button.Dark:hover {
     background: #D1C695;
 }

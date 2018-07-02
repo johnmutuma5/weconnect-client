@@ -29,7 +29,8 @@ class Form extends React.Component {
             <article className="form_container">
                 <form
                     onSubmit={ this.props.onSubmit }
-                    className={ this.props.className }>
+                    className={ this.props.className }
+                    id={ this.props.id }>
                         { formElements }
                 </form>
             </article>

@@ -50,7 +50,8 @@ class Businesses extends React.Component {
     }
 
     addBusiness(businessData) {
-        return registerNewBusiness(businessData)
+        const userToken = this.store.state.authState.userToken;
+        return registerNewBusiness(businessData, userToken);
     }
 
     toggleRegistering() {
@@ -89,10 +90,10 @@ class Businesses extends React.Component {
                      <CreateButton
                          active={ !this.state.registeringNew }
                          id={'animatedAtThumb'}
-                         click={ this.toggleRegistering.bind(this) }/>,
+                         click={ this.toggleRegistering.bind(this) }/>
                      <BusinessRegistrationForm
                          active={ this.state.registeringNew }
-                         onSubmit={ this.addBusiness }/>
+                         onSubmit={ this.addBusiness.bind(this) }/>
                      <Backdrop
                          active={ this.state.registeringNew }
                          click={ this.toggleRegistering.bind(this) }/>

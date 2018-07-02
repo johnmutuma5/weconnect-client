@@ -1,0 +1,21 @@
+.ReviewForm {
+    height: 170px;
+}
+
+
+
+.ReviewForm input:focus {
+    /* border: 1px solid black; */
+    /* box-shadow: none; */
+    outline: None;
+    margin-left: 15px;
+}
+
+.ReviewForm input {
+    width: 200px;
+    margin: 10px 0;
+}
+
+.ReviewForm input:first-child {
+    margin-right: 10px;
+}

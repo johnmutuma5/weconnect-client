@@ -13,7 +13,7 @@ const detailedBusinessInfo = (props) => {
             <article id="info_wrapper">
               <div className="detailed_info">
                 <BusinessDescription
-                    business_name={ 'Clean Fits Clothing and Footwear' }
+                    business_name={ props.name }
                     description={ 'Fashion, Clothing, Footwear, make up and accessories' }/>
 
                 <MoreBusinessInfo

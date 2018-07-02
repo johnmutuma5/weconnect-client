@@ -1,13 +1,14 @@
 .jumbotron {
   position: absolute;
-  top: 0px;
+  top: -20px;
   left: 0;
   width: 100vw;
   height: 400px;
+  margin-bottom: 50px;
 }
 
 .BusinessProfileContent {
-    margin-top: 400px;
+    margin-top: 450px;
 }
 
 div.business_details {
@@ -15,7 +16,7 @@ div.business_details {
   height: 100%;
   font-size: .9em;
   font-style: italic;
-  color: #D5D5D5;
+  color: #00396d;
   text-align: left;
   padding: 0px;
   background-image: url('/src/assets/background.jpg');
@@ -23,11 +24,12 @@ div.business_details {
   background-position: 100%;
   background-repeat: no-repeat;
   overflow: hidden;
+  /* box-shadow: 1px 1px 3px #00080c; */
 }
 
 div.business_details span {
   font-weight: bolder;
-  color: rgb(255, 255, 255);
+  color: #00273f;
 }
 
 .quick_details {
@@ -36,21 +38,24 @@ div.business_details span {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-color: #96858F;
-  padding: 25px;
+  background-color: #f2eee4;
+  padding: 25px 10px;
   width: 40%;
-  box-shadow: 0px .5px 0px 0px #000;
+  min-width: 350px;
+  box-shadow: 2px 6px 10px 2px #352f02;
   z-index: 25;
 }
 
 .quick_details div p {
-  font-size: .9em;
+  font-size: 1.1em;
 }
 
 .quick_details h3 {
   font-style: normal;
-  color: white;
+  color: #5b051d;
   font-weight: bolder;
+  font-size: 1.5em;
+  text-transform: uppercase;
 }
 
 .background_overlay {
@@ -60,13 +65,13 @@ div.business_details span {
   width: 100%;
   background: rgba(0, 0, 0, .7);
   background: linear-gradient(90deg,
-                              rgba(150, 133, 143, 1) 0%,
-                              rgba(150, 133, 143, .6) 50%,
-                              rgba(150, 133, 143, 0) 100%),
-              linear-gradient(180deg,
-                              rgba(109, 121, 147, 1) 0%,
-                              rgba(109, 121, 147, .3) 20%,
-                              rgba(109, 121, 147, 0) 100%),
+                              rgba(133, 149, 160, 1) 0%,
+                              rgba(133, 149, 160, .8) 50%,
+                              rgba(133, 149, 160, 0) 100%),
+              /* linear-gradient(180deg,
+                              rgba(87, 206, 229, 1) 0%,
+                              rgba(87, 206, 229, .3) 20%,
+                              rgba(87, 206, 229, 0) 100%), */
               transparent;
   background-blend-mode: multiply;
   z-index: -100;
@@ -131,7 +136,7 @@ div.business_details span {
   /* position: absolute;
   right: 0;
   bottom: 0; */
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-end;
 }
 
@@ -172,6 +177,7 @@ div.business_details span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
@@ -219,6 +225,7 @@ div.business_details span {
       -ms-flex-flow: column;
           flex-flow: column;
   margin-bottom: 10px;
+  box-shadow: 1px 1px 3px #4c4502;
 }
 
 .review .review_head {
@@ -235,7 +242,7 @@ div.business_details span {
       -ms-flex-align: center;
           align-items: center;
   font-size: .9em;
-  background-color: #96858F;
+  background-color: #998e39;
   height: 45px;
   color: white;
 }
@@ -257,9 +264,9 @@ div.business_details span {
 }
 
 .review .review_body {
-  background-color: #D5D5D5;
-  -ms-flex-preferred-size: 80%;
-      flex-basis: 80%;
+  background-color: #e0d8b8;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
 }
 
 .review_body q {

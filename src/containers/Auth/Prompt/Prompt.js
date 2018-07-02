@@ -14,7 +14,7 @@ const prompt = (props) => (
             justifyContent: 'center',
             alignItems: 'center'
         }}>{ props.ask }</div>
-        <Button onClickHandler={ props.handleClicked }>{ props.children }</Button>
+        <Button type={'dark'} onClickHandler={ props.handleClicked }>{ props.children }</Button>
     </div>
 );
 

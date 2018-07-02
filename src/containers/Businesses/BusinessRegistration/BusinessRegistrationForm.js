@@ -43,7 +43,6 @@ class BusinessRegistrationForm extends React.Component {
                 // construct a path to the new business's profile page
                 const business_id = response.id;
                 const path = '/businesses/'+ business_id;
-                console.log(path)
                 const msg = response.msg;
                 // update form state and redirect the user to the path above
                 this.setState(formProcessComplete(msg), this.redirect(path));

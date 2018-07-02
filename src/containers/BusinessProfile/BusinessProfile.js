@@ -1,27 +1,48 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux';
 import DetailedBusinessInfo from './DetailedBusinessInfo/DetailedBusinessInfo';
 import PrimaryBusinessInfo from './PrimaryBusinessInfo/PrimaryBusinessInfo';
 import SocialMedia from './SocialMedia/SocialMedia';
 import Reviews from './Reviews/Reviews';
+import { weConnectFetchPrimaryBusinessInfo,
+         weConnectFetchBusinessReviews,
+         weConnectAddBusinessReview } from '../../store/resources/business';
 
 import './BusinessProfile.css';
 
 class BusinessProfile extends React.Component {
-    constructor(props) {
+    constructor(props,context) {
         super(props);
         this.state = {
             primaryBusinessInfo: {
-                businessName: 'Clean Fits Clothing and Footwear',
-                ownerName: 'John Mutuma',
-                category: 'Fashion',
-                businessLocation: 'TRM, Drive',
-                specialization: 'Clothing & Footwear',
+                name: '',
+                category: '',
+                location: '',
+                mobile: '',
+                specialization: '',
                 registrationDate: 'Tue, February 27 2018',
             },
             reviews: [],
         }
+        this.store = context.store
     }
+
+    componentWillMount() {
+        window.scrollTo (0, 0);
+        const businessId = this.props.match.params['id'];
+        console.log('mounting profile')
+        weConnectFetchPrimaryBusinessInfo(businessId)
+            .then(res => this.setState(setPrimaryBusinessInfo(res)));
+        weConnectFetchBusinessReviews(businessId)
+            .then(res => this.setState(setBusinessReviews(res)));
+    }
+
+    componentDidMount() {
+        console.log('mounted profile')
+    }
+
     render() {
         return (
             <Aux>
@@ -33,14 +54,63 @@ class BusinessProfile extends React.Component {
 
                 <div className='BusinessProfileContent'>
                     <section>
-                        <DetailedBusinessInfo />
-                        <Reviews reviews={ this.state.reviews } />
+                        <DetailedBusinessInfo { ...this.state.primaryBusinessInfo } />
+                        <Reviews
+                            handleAddReview={ this.handleAddReview.bind(this) }
+                            updateReviews={ this.updateReviews }
+                            reviews={ this.state.reviews } />
                     </section>
                 </div>
             </Aux>
         );
     }
+
+    handleAddReview(reviewData) {
+        // post to API
+        const businessId = this.props.match.params['id'];
+        const userToken = this.store.state.authState.userToken;
+        return weConnectAddBusinessReview(businessId, reviewData, userToken);
+    }
+
+    updateReviews = () => {
+        // fetch from API
+        const businessId = this.props.match.params['id'];
+        weConnectFetchBusinessReviews(businessId)
+            .then(result => {
+                let reviews = result['info']
+                console.log(reviews)
+                this.setState({reviews: reviews})
+            })
+    }
+
+    componentWillUnmount () {
+        console.log('Unmounted profile')
+    }
+}
+
+BusinessProfile.contextTypes = {
+    store: PropTypes.object.isRequired
 }
 
 
-export default BusinessProfile;
+
+const setPrimaryBusinessInfo = res => (
+    // return a funciont for functional setState
+    (prevState, prevProps) => {
+        const primaryBusinessInfo = {
+            ...prevState.reviews,
+            ...res['info']
+        }
+        return {primaryBusinessInfo: primaryBusinessInfo};
+    }
+);
+
+const setBusinessReviews = res => (
+    // return a funciont for functional setState
+    (prevState, prevProps) => {
+        const reviews = res['info'];
+        return {reviews: reviews};
+    }
+);
+
+export default withRouter(BusinessProfile);
