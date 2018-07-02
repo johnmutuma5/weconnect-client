@@ -54,9 +54,7 @@ class Layout extends React.Component {
                 <div className="content">
                     <div className='container main-content'>
                         <main>
-                            <section>
-                                { this.props.children }
-                            </section>
+                            { this.props.children }
                         </main>
                     </div>
                     { gettingStarted }

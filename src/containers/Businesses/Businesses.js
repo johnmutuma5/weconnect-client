@@ -101,11 +101,13 @@ class Businesses extends React.Component {
 
         return (
             // render businesses and new business registration UI components
-            <article className='Businesses'>
-                { businesses }
-                { businessRegistrationElements }
-                { loader }
-            </article>
+            <section>
+                <article className='Businesses'>
+                    { businesses }
+                    { businessRegistrationElements }
+                    { loader }
+                </article>
+            </section>
         );
     }
 };

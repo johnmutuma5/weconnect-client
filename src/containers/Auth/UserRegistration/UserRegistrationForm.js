@@ -57,7 +57,6 @@ class UserRegistrationForm extends React.Component {
                 ask={'Already have an account?'}
                 handleClicked={ this.props.handleReadyToLogin} >
                 { 'Login' }</Prompt>
-
             { form }
             </Modal>
         );
