@@ -30,3 +30,8 @@ export function weConnectAddBusinessReview(id, data, userToken) {
     })
     return  ajax.post(`http://127.0.0.1:8080/api/v2/businesses/${id}/reviews`, data);
 }
+
+export function weConnectFilterBusinesses(queryString) {
+    console.log(queryString)
+    return ajax.get(`http://127.0.0.1:8080/api/v2/businesses/filter${queryString}`);
+}

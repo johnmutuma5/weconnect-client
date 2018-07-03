@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux';
 import DetailedBusinessInfo from './DetailedBusinessInfo/DetailedBusinessInfo';
+import EditBusinessForm from './EditBusinessForm/EditBusinessForm';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import PrimaryBusinessInfo from './PrimaryBusinessInfo/PrimaryBusinessInfo';
 import SocialMedia from './SocialMedia/SocialMedia';
 import Reviews from './Reviews/Reviews';
@@ -25,6 +27,7 @@ class BusinessProfile extends React.Component {
                 registrationDate: 'Tue, February 27 2018',
             },
             reviews: [],
+            editingProfile: false
         }
         this.store = context.store
     }
@@ -50,11 +53,17 @@ class BusinessProfile extends React.Component {
 
                 <div className='BusinessProfileContent'>
                     <section>
-                        <DetailedBusinessInfo { ...this.state.primaryBusinessInfo } />
+                        <DetailedBusinessInfo { ...this.state.primaryBusinessInfo }
+                            toggleEditing={ this.toggleEditingProfile.bind(this) }/>
                         <Reviews
                             handleAddReview={ this.handleAddReview.bind(this) }
                             updateReviews={ this.updateReviews }
                             reviews={ this.state.reviews } />
+
+                        <EditBusinessForm visible={ this.state.editingProfile }/>
+                        <Backdrop
+                            active={ this.state.editingProfile }
+                            click={ this.toggleEditingProfile.bind(this) }/>
                     </section>
                 </div>
             </Aux>
@@ -79,8 +88,9 @@ class BusinessProfile extends React.Component {
             })
     }
 
-    componentWillUnmount () {
-        console.log('Unmounted profile')
+    toggleEditingProfile() {
+        console.log('alas')
+        this.setState({editingProfile: !this.state.editingProfile})
     }
 }
 

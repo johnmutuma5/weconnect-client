@@ -108,7 +108,7 @@ div.business_details span {
 .info_heading .icon {
   width: 40px;
   border-radius: 50%;
-  background: #96858F;
+  background: #d1c695;
   text-align: center;
   line-height: 40px;
   margin-right: 15px;
@@ -224,8 +224,8 @@ div.business_details span {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  margin-bottom: 10px;
-  box-shadow: 1px 1px 3px #4c4502;
+  margin-bottom: 25px;
+  box-shadow: 1px 2px 5px #b2a559;
 }
 
 .review .review_head {
@@ -242,9 +242,9 @@ div.business_details span {
       -ms-flex-align: center;
           align-items: center;
   font-size: .9em;
-  background-color: #998e39;
+  background-color: #dae3e8;
   height: 45px;
-  color: white;
+  color: #00273f;
 }
 
 .review_head div {
@@ -264,13 +264,14 @@ div.business_details span {
 }
 
 .review .review_body {
-  background-color: #e0d8b8;
+    color: red;
+  background-color: #f9f7f2;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
 }
 
 .review_body q {
-  color: #5b5b5b;
+  color: #00273f;
   font-size: .8em;
 }
 

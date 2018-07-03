@@ -1,0 +1,7 @@
+.EditBusiness {
+    display: flex;
+}
+
+.EditBusiness>div {
+    width: 200px;
+}
