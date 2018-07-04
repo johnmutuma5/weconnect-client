@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 
 import './SearchField.css';
@@ -15,6 +16,7 @@ class SearchField extends React.Component {
     }
 
     render() {
+
         return (
             <Form
                 id={'search'}
@@ -27,7 +29,7 @@ class SearchField extends React.Component {
     loadElements() {
         return [
             formInput('text', 'searchValue', this.state.values.searchValue,
-                'Search businesses on weConnect')
+                'Search weConnect')
         ]
     }
 
@@ -38,4 +40,4 @@ class SearchField extends React.Component {
 }
 
 
-export default SearchField;
+export default withRouter(SearchField);

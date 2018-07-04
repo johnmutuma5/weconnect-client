@@ -9,12 +9,36 @@
   height: 50px;
 }
 
+.Toolbar .Search .form_container {
+    width: 250px;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.Toolbar form#search {
+    position: relative;
+}
+
+.Toolbar .Search input {
+    margin: 0;
+    background-color: #052842 !important;
+    color: #ffffff;
+    border: none;
+    height: 25px;
+}
+
+.Toolbar .Search input:focus {
+    background-color: #093251 !important;
+}
+
 .GettingStarted {
     margin-left: 50px;
 }
 
 @media (max-width: 700px) {
-    .Toolbar nav {
+    .Toolbar nav ul {
         display: None;
     }
 }

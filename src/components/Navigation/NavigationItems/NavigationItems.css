@@ -9,7 +9,7 @@
 
 .NavigationItems ul {
   height: 100%;
-  margin:0 0 0 auto;
+  margin:0;
   padding-left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,6 +22,16 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+nav.NavigationItems  {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
+/* nav.NavigationItems  .Search {
+    width: 200px;
+} */
 
 .CategoryNavigationItems {
     display: flex;
@@ -81,9 +91,14 @@
         height: auto;
     }
 
+    .SideDrawer .NavigationItems .Search {
+        display: None;
+    }
+
     .SideDrawer .NavigationItems ul {
         flex-flow: column;
         justify-content: flex-start;
+        width: 100%;
     }
 
     .CategoryNavigationItems ul {

@@ -1,13 +1,20 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import NavigationItem from './NavigationItem/NavigationItem';
+import SearchField from '../../../containers/Search/SearchField/SearchField';
 import './NavigationItems.css';
+
 
 const navigationItems = (props) => (
     <nav className='NavigationItems'>
+        <div className='Search'>
+            <SearchField onSubmit={(data) => props.history.push(`/businesses/search?name=${data.searchValue}`)} />
+        </div>
         <ul onClick={ props.onClick }>
-            <NavigationItem
-                link_to='/businesses'>Explore</NavigationItem>
-            <NavigationItem link_to='/upgrade'>Pro</NavigationItem>
+            {// <NavigationItem
+            //     link_to='/businesses'>Explore</NavigationItem>
+            // <NavigationItem link_to='/upgrade'>Pro</NavigationItem>
+            }
         </ul>
     </nav>
 );
@@ -40,4 +47,4 @@ export const CategoryNavigationItems = (props) => (
     </div>
 );
 
-export default navigationItems;
+export default withRouter(navigationItems);
