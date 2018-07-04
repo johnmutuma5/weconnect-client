@@ -41,3 +41,10 @@ export function weConnectUpdateBusiness(id, data, userToken) {
     })
     return ajax.put(`/businesses/${id}`, data);
 }
+
+export function weConnectDeleteBusiness(id, userToken) {
+    ajax.config({
+        headers: {Authorization: `Bearer ${userToken}`}
+    })
+    return ajax.delete(`/businesses/${id}`);
+}

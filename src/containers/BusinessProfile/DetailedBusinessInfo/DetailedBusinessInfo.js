@@ -10,13 +10,23 @@ import './DetailedBusinessInfo.css';
 const detailedBusinessInfo = (props, context) => {
     const layoutState = context.layoutState;
     let editingElements = (
-        <div className='EditBusiness'>
-            <div>
-                Edit Business Information
+        <div className='ProfileManangement'>
+            <div className='EditBusiness'>
+                <div>
+                    Edit Business Information
+                </div>
+                <Button
+                    type='dark'
+                    onClickHandler={ props.toggleEditing }> Edit </Button>
             </div>
-            <Button
-                type='dark'
-                onClickHandler={ props.toggleEditing }> Edit </Button>
+            <div className='DeleteBusiness'>
+                <div>
+                    { 'Delete this business' }
+                </div>
+                <Button
+                    type='danger'
+                    onClickHandler={ props.toggleDeleting }> Delete </Button>
+            </div>
         </div>
     );
 

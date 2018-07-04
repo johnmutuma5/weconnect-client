@@ -48,7 +48,7 @@
     padding: 0;
     flex-flow: row;
     flex-wrap: nowrap;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }
 
 .CategoryNavigationItems ul li {

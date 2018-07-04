@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 import Modal from '../../../components/UI/Modal/Modal';
 
@@ -6,18 +7,15 @@ import Modal from '../../../components/UI/Modal/Modal';
 class EditBusinessForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            values: {
-                name: '',
-                caterory: '',
-                location: ''
-            }
+        this.state= {
+
         }
     }
 
     render() {
-        const modalTitle = 'Edit Business Information';
+        const modalTitle = 'Proceed to Delete business?';
         const form = <Form
+                        id={'delete'}
                         loadElements={ this.loadFormElements.bind(this) }
                         formContext = { this }
                         onSubmit={ this.onSubmit.bind(this) }/>;
@@ -32,12 +30,10 @@ class EditBusinessForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const data = this.filterEmptyFields(this.state.values);
-        this.props.onSubmit(data)
+        this.props.onSubmit()
             .then(response => {
                 const msg = response.msg;
-                this.setState(formProcessComplete(msg));
-                this.props.refreshBusinessInfo();
+                this.setState(formProcessComplete(msg), this.redirect());
             })
             .catch(err => {
                 const msg = err.msg;
@@ -45,25 +41,16 @@ class EditBusinessForm extends React.Component {
             })
     }
 
-    filterEmptyFields(formData) {
-        let data = {};
-        for (let [key, value] of Object.entries(formData)){
-            if(!value)
-                continue
-            data[key] = value;
-        }
-        return data;
+    redirect(timeout=1000) {
+        return () => setTimeout(() => this.props.history.push('/businesses'), timeout)
     }
 
     loadFormElements() {
         return [
-            formInput('text', 'name', this.state.values.name, 'Name'),
-            formInput('text', 'category', this.state.values.category, 'Category'),
-            formInput('text', 'location', this.state.values.location, 'Location'),
-            formInput('submit', 'submit', 'Submit', undefined)
+            formInput('submit', 'submit', 'Yes', undefined)
         ]
     }
 }
 
 
-export default EditBusinessForm;
+export default withRouter(EditBusinessForm);

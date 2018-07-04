@@ -57,6 +57,10 @@ class HttpRequests {
         return this.createAjaxPromise(endpoint, 'PUT', putData);
     }
 
+    delete (endpoint) {
+        return this.createAjaxPromise(endpoint, 'DELETE');
+    }
+
 }
 
 

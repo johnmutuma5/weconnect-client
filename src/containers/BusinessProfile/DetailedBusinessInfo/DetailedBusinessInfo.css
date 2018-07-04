@@ -1,7 +1,10 @@
-.EditBusiness {
+.ProfileManangement {
     display: flex;
+    flex-flow: column;
 }
 
-.EditBusiness > div {
-    width: 200px;
+.ProfileManangement > div {
+    display: flex;
+    flex-flow: row;
+    margin-top: 20px;
 }

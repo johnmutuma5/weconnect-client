@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux';
 import DetailedBusinessInfo from './DetailedBusinessInfo/DetailedBusinessInfo';
 import EditBusinessForm from './EditBusinessForm/EditBusinessForm';
+import DeleteBusinessForm from './DeleteBusinessForm/DeleteBusinessForm';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import PrimaryBusinessInfo from './PrimaryBusinessInfo/PrimaryBusinessInfo';
 import SocialMedia from './SocialMedia/SocialMedia';
@@ -11,7 +12,8 @@ import Reviews from './Reviews/Reviews';
 import { weConnectFetchPrimaryBusinessInfo,
          weConnectFetchBusinessReviews,
          weConnectAddBusinessReview,
-         weConnectUpdateBusiness } from '../../store/resources/business';
+         weConnectUpdateBusiness,
+         weConnectDeleteBusiness } from '../../store/resources/business';
 
 import './BusinessProfile.css';
 
@@ -28,7 +30,8 @@ class BusinessProfile extends React.Component {
                 registrationDate: 'Tue, February 27 2018',
             },
             reviews: [],
-            editingProfile: false
+            editingProfile: false,
+            deletingBusiness: false
         }
         this.store = context.store
     }
@@ -55,7 +58,8 @@ class BusinessProfile extends React.Component {
                 <div className='BusinessProfileContent'>
                     <section>
                         <DetailedBusinessInfo { ...this.state.primaryBusinessInfo }
-                            toggleEditing={ this.toggleEditingProfile.bind(this) }/>
+                            toggleEditing={ this.toggleEditingProfile.bind(this) }
+                            toggleDeleting={ this.toggleDeletingBusiness.bind(this) } />
                         <Reviews
                             handleAddReview={ this.handleAddReview.bind(this) }
                             updateReviews={ this.refreshReviews }
@@ -68,6 +72,12 @@ class BusinessProfile extends React.Component {
                         <Backdrop
                             active={ this.state.editingProfile }
                             click={ this.toggleEditingProfile.bind(this) }/>
+                        <DeleteBusinessForm
+                            visible={ this.state.deletingBusiness }
+                            onSubmit={ this.handleDeleteBusiness.bind(this) }/>
+                        <Backdrop
+                            active={ this.state.deletingBusiness }
+                            click={ this.toggleDeletingBusiness.bind(this) }/>
                     </section>
                 </div>
             </Aux>
@@ -106,6 +116,16 @@ class BusinessProfile extends React.Component {
 
     toggleEditingProfile() {
         this.setState({editingProfile: !this.state.editingProfile})
+    }
+
+    handleDeleteBusiness() {
+        const businessId = this.props.match.params['id'];
+        const userToken = this.store.state.authState.userToken;
+        return weConnectDeleteBusiness(businessId, userToken);
+    }
+
+    toggleDeletingBusiness() {
+        this.setState({deletingBusiness: !this.state.deletingBusiness})
     }
 }
 

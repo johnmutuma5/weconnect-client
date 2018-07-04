@@ -31,7 +31,7 @@ export const CategoryNavigationItems = (props) => (
                     queryString='?category=entertainment'>Entertainment</NavigationItem>
                 <NavigationItem
                     link_to='/businesses/filter'
-                    queryString='?category=outdoors'>Tourism</NavigationItem>
+                    queryString='?category=fitness'>Fitness</NavigationItem>
                 <NavigationItem
                     link_to='/businesses/filter'
                     queryString='?category=finance'>Finance</NavigationItem>

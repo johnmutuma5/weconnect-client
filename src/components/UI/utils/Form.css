@@ -49,6 +49,14 @@ form {
             flex-flow: column;
 }
 
+form#delete input[type='submit'] {
+    background: #e8135a;
+}
+
+form#delete input[type='submit']:hover {
+    background: #932142;
+}
+
 .form_container fieldset {
     display: -webkit-box;
     display: -ms-flexbox;

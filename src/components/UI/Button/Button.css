@@ -19,11 +19,22 @@
     background:  #00273F;
 }
 
-.Button.Dark {
-    background: #00273F;
+.Button.dark, .Button.danger {
     height: 25px;
 }
 
-.Button.Dark:hover {
+.Button.dark {
+    background: #00273F;
+}
+
+.Button.dark:hover {
     background: #D1C695;
+}
+
+.Button.danger {
+    background: #e8135a;
+}
+
+.Button.danger:hover {
+    background: #932142;
 }

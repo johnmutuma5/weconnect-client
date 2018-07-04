@@ -4,9 +4,8 @@ import './Button.css';
 
 const button = (props) => {
     let buttonClasses = ['Button'];
-    buttonClasses = props.type === 'dark'?
-                        buttonClasses.concat(['Dark']):
-                        buttonClasses.concat([''])
+    buttonClasses = buttonClasses.concat([props.type])
+
     return (
         <div
             className={ buttonClasses.join(' ') }
