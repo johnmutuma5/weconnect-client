@@ -31,7 +31,8 @@ class BusinessProfile extends React.Component {
             },
             reviews: [],
             editingProfile: false,
-            deletingBusiness: false
+            deletingBusiness: false,
+            readyToAddReview: false
         }
         this.store = context.store
     }
@@ -61,6 +62,8 @@ class BusinessProfile extends React.Component {
                             toggleEditing={ this.toggleEditingProfile.bind(this) }
                             toggleDeleting={ this.toggleDeletingBusiness.bind(this) } />
                         <Reviews
+                            readyToAddReview={ this.state.readyToAddReview }
+                            toggleReadyToAddReview={this.toggleReadyToAddReview.bind(this)}
                             handleAddReview={ this.handleAddReview.bind(this) }
                             updateReviews={ this.refreshReviews }
                             reviews={ this.state.reviews } />
@@ -126,6 +129,10 @@ class BusinessProfile extends React.Component {
 
     toggleDeletingBusiness() {
         this.setState({deletingBusiness: !this.state.deletingBusiness})
+    }
+
+    toggleReadyToAddReview() {
+        this.setState({readyToAddReview: !this.state.readyToAddReview})
     }
 }
 

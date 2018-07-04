@@ -1,8 +1,17 @@
 .ReviewForm {
-    height: 170px;
+    transition: all .2s ease-out;
+    transform-origin: top;
 }
 
+.ReviewForm.active {
+    height: 170px;
+    transform: scaleY(1);
+}
 
+.ReviewForm.inactive {
+    height: 0px;
+    transform: scaleY(0);
+}
 
 .ReviewForm input:focus {
     /* border: 1px solid black; */
