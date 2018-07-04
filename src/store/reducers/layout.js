@@ -4,7 +4,7 @@ import actionTypes from '../actions/actionTypes';
 const initState = {
     sideDrawerOpen: false,
     userGettingStarted: false,
-    showLayoutForAuthenticatedUser: false
+    showLayoutForAuthenticatedUser: localStorage.getItem('userToken')
 };
 
 const layoutStateReducer = (state=initState, action) => {
@@ -30,6 +30,12 @@ const layoutStateReducer = (state=initState, action) => {
             return {
                 ...state,
                 userGettingStarted: !state.userGettingStarted,
+                showLayoutForAuthenticatedUser: !state.showLayoutForAuthenticatedUser
+            }
+
+        case actionTypes.LOGOUT_USER:
+            return {
+                ...state,
                 showLayoutForAuthenticatedUser: !state.showLayoutForAuthenticatedUser
             }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Business from '../../components/Business/Business';
 import { weConnectFilterBusinesses } from '../../store/resources/business';
 
@@ -39,11 +39,12 @@ class BusinessesFilter extends React.Component {
 
     render() {
         const results = this.state.filterResults.map(business => (
-            <Business
-                name={business.name}
-                location={business.location}
-                category={business.category}
-                key={business.id}/>
+            <Link to={ `/businesses/${business.id}` } key={business.id}>
+                <Business
+                    name={business.name}
+                    location={business.location}
+                    category={business.category}/>
+            </Link>
         ));
 
         return (

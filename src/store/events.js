@@ -10,6 +10,7 @@ export const events = {};
 registerEvent(events, actionTypes.RENDER_FETCHED_BUSINESSES);
 registerEvent(events, actionTypes.INIT_BUSINESSES_STATE);
 registerEvent(events, actionTypes.LOGIN_USER);
+registerEvent(events, actionTypes.LOGOUT_USER);
 registerEvent(events, actionTypes.INIT_LAYOUT_STATE);
 registerEvent(events, actionTypes.TOGGLE_SIDE_DRAWER);
 registerEvent(events, actionTypes.TOGGLE_GETTING_STARTED);

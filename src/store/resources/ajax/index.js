@@ -5,7 +5,8 @@ ajax.config(
     {
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        baseURL: 'http://weconnect-api-heroku.herokuapp.com/api/v2'
     }
 );
 

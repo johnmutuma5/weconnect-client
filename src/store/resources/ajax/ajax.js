@@ -44,12 +44,17 @@ class HttpRequests {
 
 
     post (endpoint, data) {
-        let post_data = JSON.stringify(data);
+        const post_data = JSON.stringify(data);
         return this.createAjaxPromise(endpoint, 'POST', post_data);
     };
 
     get (endpoint) {
         return this.createAjaxPromise(endpoint, 'GET');
+    }
+
+    put (endpoint, data) {
+        const putData = JSON.stringify(data);
+        return this.createAjaxPromise(endpoint, 'PUT', putData);
     }
 
 }

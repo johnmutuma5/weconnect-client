@@ -20,7 +20,13 @@ export const loginUserAction = (auth_token) => (
         type: types.LOGIN_USER,
         payload: auth_token
     }
-)
+);
+
+export const logoutUser = () => (
+    {
+        type: types.LOGOUT_USER
+    }
+);
 
 // LAYOUT
 

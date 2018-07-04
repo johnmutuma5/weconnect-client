@@ -25,7 +25,16 @@ export const CategoryNavigationItems = (props) => (
                     queryString='?category=art'>Creativity</NavigationItem>
                 <NavigationItem
                     link_to='/businesses/filter'
-                    queryString='?category=entertain'>Entertainment</NavigationItem>
+                    queryString='?category=fashion'>Fashion</NavigationItem>
+                <NavigationItem
+                    link_to='/businesses/filter'
+                    queryString='?category=entertainment'>Entertainment</NavigationItem>
+                <NavigationItem
+                    link_to='/businesses/filter'
+                    queryString='?category=outdoors'>Tourism</NavigationItem>
+                <NavigationItem
+                    link_to='/businesses/filter'
+                    queryString='?category=finance'>Finance</NavigationItem>
             </ul>
         </nav>
     </div>

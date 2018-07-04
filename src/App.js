@@ -17,6 +17,7 @@ class App extends Component {
                 <Route exact path="/" component={ Businesses } />
                 <Route exact path="/businesses" component={ Businesses } />
                 <Route exact path="/businesses/filter" component={ BusinessesFilter } />
+                <Route exact path="/businesses/search" component={ BusinessesFilter } />
                 <Route exact path="/businesses/:id" component={ BusinessProfile } />
             </Switch>
         </Layout>

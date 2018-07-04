@@ -18,6 +18,7 @@ class Layout extends React.Component {
         this.subscriptions = [
             'INIT_LAYOUT_STATE',
             'LOGIN_USER',
+            'LOGOUT_USER',
             'TOGGLE_SIDE_DRAWER',
             'TOGGLE_GETTING_STARTED'
         ];
@@ -35,8 +36,8 @@ class Layout extends React.Component {
     }
 
     handleStateDidUpdate(state) {
+        console.log('setting state')
         this.setState(state.layoutState);
-
     }
 
     render() {

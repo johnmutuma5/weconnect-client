@@ -10,7 +10,8 @@ import SocialMedia from './SocialMedia/SocialMedia';
 import Reviews from './Reviews/Reviews';
 import { weConnectFetchPrimaryBusinessInfo,
          weConnectFetchBusinessReviews,
-         weConnectAddBusinessReview } from '../../store/resources/business';
+         weConnectAddBusinessReview,
+         weConnectUpdateBusiness } from '../../store/resources/business';
 
 import './BusinessProfile.css';
 
@@ -57,10 +58,13 @@ class BusinessProfile extends React.Component {
                             toggleEditing={ this.toggleEditingProfile.bind(this) }/>
                         <Reviews
                             handleAddReview={ this.handleAddReview.bind(this) }
-                            updateReviews={ this.updateReviews }
+                            updateReviews={ this.refreshReviews }
                             reviews={ this.state.reviews } />
 
-                        <EditBusinessForm visible={ this.state.editingProfile }/>
+                        <EditBusinessForm
+                            visible={ this.state.editingProfile }
+                            onSubmit={ this.handleUpdateBusiness.bind(this) }
+                            refreshBusinessInfo={this.refreshBusinessInfo}/>
                         <Backdrop
                             active={ this.state.editingProfile }
                             click={ this.toggleEditingProfile.bind(this) }/>
@@ -77,19 +81,30 @@ class BusinessProfile extends React.Component {
         return weConnectAddBusinessReview(businessId, reviewData, userToken);
     }
 
-    updateReviews = () => {
+    refreshReviews = () => {
         // fetch from API
         const businessId = this.props.match.params['id'];
         weConnectFetchBusinessReviews(businessId)
             .then(result => {
                 let reviews = result['info']
-                console.log(reviews)
                 this.setState({reviews: reviews})
             })
     }
 
+    handleUpdateBusiness = (data) => {
+        const businessId = this.props.match.params['id'];
+        const userToken = this.store.state.authState.userToken;
+        return weConnectUpdateBusiness(businessId, data, userToken);
+    }
+
+    refreshBusinessInfo = () => {
+        const businessId = this.props.match.params['id'];
+        weConnectFetchPrimaryBusinessInfo(businessId)
+            .then(res => this.setState(setPrimaryBusinessInfo(res)))
+            .then(() => setTimeout(() => this.toggleEditingProfile(), 1000));
+    }
+
     toggleEditingProfile() {
-        console.log('alas')
         this.setState({editingProfile: !this.state.editingProfile})
     }
 }
@@ -104,7 +119,7 @@ const setPrimaryBusinessInfo = res => (
     // return a funciont for functional setState
     (prevState, prevProps) => {
         const primaryBusinessInfo = {
-            ...prevState.reviews,
+            ...prevState.primaryBusinessInfo,
             ...res['info']
         }
         return {primaryBusinessInfo: primaryBusinessInfo};

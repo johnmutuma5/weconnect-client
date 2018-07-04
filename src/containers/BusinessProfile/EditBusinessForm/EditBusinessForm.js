@@ -32,7 +32,28 @@ class EditBusinessForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        console.log(this.state.values);
+        const data = this.filterEmptyFields(this.state.values);
+        console.log(data);
+        this.props.onSubmit(data)
+            .then(response => {
+                const msg = response.msg;
+                this.setState(formProcessComplete(msg));
+                this.props.refreshBusinessInfo();
+            })
+            .catch(err => {
+                const msg = err.msg;
+                this.setState(formProcessFailed(msg))
+            })
+    }
+
+    filterEmptyFields(formData) {
+        let data = {};
+        for (let [key, value] of Object.entries(formData)){
+            if(!value)
+                continue
+            data[key] = value;
+        }
+        return data;
     }
 
     loadFormElements() {
