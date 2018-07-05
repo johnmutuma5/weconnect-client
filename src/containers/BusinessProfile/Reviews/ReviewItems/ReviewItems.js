@@ -5,7 +5,7 @@ const reviewItems = (props) => {
     const reviews = props.reviews.map(review => (
         <ReviewItem
             key={ review.id }
-            author={ review.author_id }
+            author={ review.author.name }
             heading={ review.heading }
             body={ review.body }/>
     ));

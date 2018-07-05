@@ -22,7 +22,10 @@ class BusinessProfile extends React.Component {
         super(props);
         this.state = {
             primaryBusinessInfo: {
-                name: '',
+                owner: {
+                    name: '',
+                    id: ''
+                },
                 category: '',
                 location: '',
                 mobile: '',
@@ -62,11 +65,11 @@ class BusinessProfile extends React.Component {
                             toggleEditing={ this.toggleEditingProfile.bind(this) }
                             toggleDeleting={ this.toggleDeletingBusiness.bind(this) } />
                         <Reviews
+                            reviews={ this.state.reviews }
                             readyToAddReview={ this.state.readyToAddReview }
                             toggleReadyToAddReview={this.toggleReadyToAddReview.bind(this)}
                             handleAddReview={ this.handleAddReview.bind(this) }
-                            updateReviews={ this.refreshReviews }
-                            reviews={ this.state.reviews } />
+                            updateReviews={ this.refreshReviews } />
 
                         <EditBusinessForm
                             currentData={ this.state.primaryBusinessInfo }
