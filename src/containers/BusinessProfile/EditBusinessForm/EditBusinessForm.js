@@ -30,6 +30,18 @@ class EditBusinessForm extends React.Component {
 
     }
 
+    componentWillReceiveProps(nextProps) {
+        const currentData = nextProps.currentData;
+        this.setState({
+            ...this.state,
+            values: {
+                name: currentData.name,
+                location: currentData.location,
+                category: currentData.category
+            }
+        })
+    }
+
     onSubmit(e) {
         e.preventDefault();
         const data = this.filterEmptyFields(this.state.values);
@@ -57,9 +69,9 @@ class EditBusinessForm extends React.Component {
 
     loadFormElements() {
         return [
-            formInput('text', 'name', this.state.values.name, 'Name'),
-            formInput('text', 'category', this.state.values.category, 'Category'),
-            formInput('text', 'location', this.state.values.location, 'Location'),
+            formInput('text', 'name', this.state.values.name, 'Name [Optional]'),
+            formInput('text', 'category', this.state.values.category, 'Category [Optional]'),
+            formInput('text', 'location', this.state.values.location, 'Location [Optional]'),
             formInput('submit', 'submit', 'Submit', undefined)
         ]
     }

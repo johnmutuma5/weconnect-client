@@ -69,6 +69,7 @@ class BusinessProfile extends React.Component {
                             reviews={ this.state.reviews } />
 
                         <EditBusinessForm
+                            currentData={ this.state.primaryBusinessInfo }
                             visible={ this.state.editingProfile }
                             onSubmit={ this.handleUpdateBusiness.bind(this) }
                             refreshBusinessInfo={this.refreshBusinessInfo}/>
