@@ -95,6 +95,7 @@ input:not([type='checkbox']) {
   height: 35px;
   width: 50%;
   margin: 10px auto;
+  font-size: .975em;
 }
 
 input[name=submit] {
