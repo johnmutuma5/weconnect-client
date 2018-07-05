@@ -24,7 +24,6 @@ const authStateReducer =  (state=initState, action) => {
                 userToken: undefined
             }
         default:
-            console.log(state);
             return state
 
     }
