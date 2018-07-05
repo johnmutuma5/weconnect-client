@@ -19,7 +19,7 @@ import './BusinessProfile.css';
 
 class BusinessProfile extends React.Component {
     constructor(props,context) {
-        super(props); 
+        super(props);
         this.state = {
             primaryBusinessInfo: {
                 name: '',
