@@ -13,6 +13,7 @@ describe('authStateReducer', () => {
         };
     });
 
+
     it('it updates userToken on login', () => {
         expect.assertions(1); // this test expects one assertion
 
@@ -23,7 +24,6 @@ describe('authStateReducer', () => {
         const newState = authStateReducer(initState, loginAction);
         expect(newState).toEqual(expectedStateAfterLogin);
     });
-
 
 
     it('it clears userToken on logout', () => {
@@ -40,6 +40,7 @@ describe('authStateReducer', () => {
         const newState = authStateReducer(initState, logoutAction);
         expect(newState).toEqual(expectedStateAfterLogout);
     });
+
 
     it('returns default state with any other actions', () => {
         expect.assertions(1);
