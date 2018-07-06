@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Business /> Component renders correctly 1`] = `
+<div
+  className="Business flex_col"
+>
+  <businessMainContent
+    category="tech"
+    location="a place"
+    name="business name"
+  />
+  <businessQuickLinks />
+</div>
+`;
