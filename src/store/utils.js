@@ -1,12 +1,14 @@
 
 export function registerEvent(events, event, value=[]) {
-    Object.defineProperty(
-        events,
-        event,
-        {
-            value: value,
-            enumerable: true,
-            writable: true
-        }
-    )
+    if(!events.hasOwnProperty(event)) {
+        Object.defineProperty(
+            events,
+            event,
+            {
+                value: value,
+                enumerable: true,
+                writable: true
+            }
+        );
+    }
 }

@@ -1,11 +1,11 @@
-import { events } from './events';
 import ResourcesProvider from './ResourcesProvider';
+import { registerEvent } from './utils';
 
 
 class Store {
     constructor(reducer) {
         this.reducer = reducer;
-        this.events = events
+        this.events = {}
     }
 
     dispatch(action) {
@@ -18,12 +18,9 @@ class Store {
     after(eventType, listener) {
         // this will be used to subscribe listeners to various actions
         // eventTypes are identified by action types
-        try {
-            this.events[eventType].push(listener);
-        } catch (e) {
-            console.log(`Ensure you have registered ${ eventType } in the events file
-                and subscribed relevant components to that event`);
-        }
+        // register this eventType: registers only if it has not been registered before
+        registerEvent(this.events, eventType);
+        this.events[eventType].push(listener);
         // return a function to unsubscribe the listener
         const unsubscribe = () => {
             this.events[eventType] = this.events[eventType]
@@ -45,13 +42,8 @@ class Store {
 
     notify(eventType) {
         // this will be used to notify listners when events of actionType occur
-        try {
-            for (let listner of this.events[eventType])
-                listner(this.state);
-        } catch (e) {
-            alert(`Ensure you have registered ${ eventType } in the events file
-                and subscribed relevant components to that event`)
-        }
+        for (let listner of this.events[eventType])
+            listner(this.state);
     }
 }
 
