@@ -2,6 +2,9 @@ import Businesses from '../Businesses';
 import { createStore } from '../../../store';
 import weConnectReducer from '../../../store/baseReducer';
 
+
+jest.mock('../../../store/resources/business');
+
 describe('<Businesses /> Component', () => {
     let store, context;
 
@@ -15,5 +18,16 @@ describe('<Businesses /> Component', () => {
     it('renders correctly', () => {
         const wrapper = shallow(<Businesses />, { context });
         expect(wrapper.find('article')).toHaveLength(1);
+    });
+
+
+    it('fetches businesses from API and renders on mount', (done) => {
+        const wrapper = shallow(<Businesses />, { context });
+
+        setTimeout(() => {
+            wrapper.update();
+            expect(wrapper.find('business')).toHaveLength(1);
+            done();
+        });
     });
 })
