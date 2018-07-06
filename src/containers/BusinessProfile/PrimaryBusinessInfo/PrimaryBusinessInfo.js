@@ -1,13 +1,14 @@
 import React from 'react';
 
 const primaryBusinessInfo = (props) => {
+    console.log(props)
     return (
         <div className="business_details">
             <div className="quick_details draw-right">
                 <h3>{ props.name }</h3>
                 <hr />
                 <div className="owner">
-                    <p><span>Business Owner:</span> { props.owner }</p>
+                    <p><span>Business Owner:</span> { props.owner.name }</p>
                 </div>
                 <div className="business_category">
                     <p><span>Business Category:</span> { props.category }</p>

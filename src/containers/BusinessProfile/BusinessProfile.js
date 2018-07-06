@@ -22,7 +22,10 @@ class BusinessProfile extends React.Component {
         super(props);
         this.state = {
             primaryBusinessInfo: {
-                name: '',
+                owner: {
+                    name: '',
+                    id: ''
+                },
                 category: '',
                 location: '',
                 mobile: '',
@@ -41,7 +44,7 @@ class BusinessProfile extends React.Component {
         window.scrollTo (0, 0);
         const businessId = this.props.match.params['id'];
         weConnectFetchPrimaryBusinessInfo(businessId)
-            .then(res => this.setState(setPrimaryBusinessInfo(res)));
+            .then(res => this.setState(setPrimaryBusinessInfo(res)), ()=> console.log('hello'));
         weConnectFetchBusinessReviews(businessId)
             .then(res => this.setState(setBusinessReviews(res)));
     }
@@ -62,11 +65,11 @@ class BusinessProfile extends React.Component {
                             toggleEditing={ this.toggleEditingProfile.bind(this) }
                             toggleDeleting={ this.toggleDeletingBusiness.bind(this) } />
                         <Reviews
+                            reviews={ this.state.reviews }
                             readyToAddReview={ this.state.readyToAddReview }
                             toggleReadyToAddReview={this.toggleReadyToAddReview.bind(this)}
                             handleAddReview={ this.handleAddReview.bind(this) }
-                            updateReviews={ this.refreshReviews }
-                            reviews={ this.state.reviews } />
+                            updateReviews={ this.refreshReviews } />
 
                         <EditBusinessForm
                             currentData={ this.state.primaryBusinessInfo }
