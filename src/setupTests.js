@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'enzyme-to-json';
+import sinon from 'sinon';
 
 
 // snapshot serailizer for producing more human readable snapshots
@@ -38,3 +39,4 @@ global.localStorage = new LocalStorageMock;
 global.React = React;
 global.shallow = shallow;
 global.mount = mount;
+global.sinon = sinon;

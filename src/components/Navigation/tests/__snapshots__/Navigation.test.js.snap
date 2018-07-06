@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigation /> Component renders correctly 1`] = `
+<aux>
+  <sideDrawer />
+  <backDrop
+    active={false}
+    click={[Function]}
+    id="SideDrawerBackDrop"
+  />
+  <div
+    className="top-bar"
+  >
+    <toolbar />
+    <Component />
+  </div>
+</aux>
+`;
