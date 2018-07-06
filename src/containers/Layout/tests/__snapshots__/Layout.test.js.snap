@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> Component renders correctly 1`] = `
+<LayoutContextProvider
+  layoutState={
+    Object {
+      "showLayoutForAuthenticatedUser": null,
+      "sideDrawerOpen": false,
+      "userGettingStarted": false,
+    }
+  }
+>
+  <mainNavigation />
+  <div
+    className="content"
+  >
+    <div
+      className="container main-content"
+    >
+      <main />
+    </div>
+    <backDrop
+      active={false}
+      click={[Function]}
+      id="GettingStartedBackdrop"
+    />
+    <footer />
+  </div>
+</LayoutContextProvider>
+`;

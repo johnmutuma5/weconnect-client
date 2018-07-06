@@ -36,7 +36,6 @@ class Layout extends React.Component {
     }
 
     handleStateDidUpdate(state) {
-        console.log('setting state')
         this.setState(state.layoutState);
     }
 
