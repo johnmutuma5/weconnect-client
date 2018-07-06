@@ -1,6 +1,7 @@
 import React from 'react';
 
 const primaryBusinessInfo = (props) => {
+    console.log(props)
     return (
         <div className="business_details">
             <div className="quick_details draw-right">

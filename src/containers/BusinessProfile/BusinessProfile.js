@@ -44,7 +44,7 @@ class BusinessProfile extends React.Component {
         window.scrollTo (0, 0);
         const businessId = this.props.match.params['id'];
         weConnectFetchPrimaryBusinessInfo(businessId)
-            .then(res => this.setState(setPrimaryBusinessInfo(res)));
+            .then(res => this.setState(setPrimaryBusinessInfo(res)), ()=> console.log('hello'));
         weConnectFetchBusinessReviews(businessId)
             .then(res => this.setState(setBusinessReviews(res)));
     }
