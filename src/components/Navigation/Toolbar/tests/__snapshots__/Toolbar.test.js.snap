@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
+<div
+  className="Toolbar container"
+>
+  <logo
+    alt_text="WeConnect"
+    src="Logo.svg"
+  />
+  <withRouter(navigationItems) />
+  <div
+    className="GettingStarted"
+  >
+    <profileTools
+      id="atToolBar"
+    />
+  </div>
+  <button
+    onClickHandler={[Function]}
+  >
+    Logout
+  </button>
+  <sideMenuToggler />
+</div>
+`;
+
+exports[`<Toolbar /> Component renders correctly 1`] = `
+<div
+  className="Toolbar container"
+>
+  <logo
+    alt_text="WeConnect"
+    src="Logo.svg"
+  />
+  <withRouter(navigationItems) />
+  <div
+    className="GettingStarted"
+  >
+    <button
+      onClickHandler={[Function]}
+    >
+      Get Started
+    </button>
+  </div>
+  <sideMenuToggler />
+</div>
+`;

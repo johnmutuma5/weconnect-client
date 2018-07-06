@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'enzyme-to-json';
 import sinon from 'sinon';
@@ -33,10 +33,20 @@ class LocalStorageMock {
   }
 };
 
+const store = {
+    state: {
+        authState: undefined,
+        layoutState: undefined,
+        businessesState: undefined
+    }
+}
+
 
 // avail these to the global context for testing environment
 global.localStorage = new LocalStorageMock;
+global.store = store;
 global.React = React;
 global.shallow = shallow;
 global.mount = mount;
+global.render = render;
 global.sinon = sinon;
