@@ -1,0 +1,8 @@
+.business_details {
+    display: flex;
+    justify-content: center;
+}
+
+.business_details .quick_details {
+    height: 80%;
+}

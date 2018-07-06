@@ -6,6 +6,10 @@
   height: 400px;
   margin-bottom: 50px;
 }
+.jumbotron article {
+    width: 100%;
+    max-width: 1280px;
+}
 
 .BusinessProfileContent {
     margin-top: 450px;
@@ -42,7 +46,7 @@ div.business_details span {
   padding: 25px 10px;
   width: 40%;
   min-width: 350px;
-  box-shadow: 2px 6px 10px 2px #352f02;
+  box-shadow: 1px 1px 2px 0px #352f02;
   z-index: 25;
 }
 
@@ -63,16 +67,16 @@ div.business_details span {
   top: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, .7);
-  background: linear-gradient(90deg,
+  background: #bbf5f9;
+  /* background: linear-gradient(90deg,
                               rgba(133, 149, 160, 1) 0%,
                               rgba(133, 149, 160, .8) 50%,
-                              rgba(133, 149, 160, 0) 100%),
+                              rgba(133, 149, 160, 0) 100%), */
               /* linear-gradient(180deg,
                               rgba(87, 206, 229, 1) 0%,
                               rgba(87, 206, 229, .3) 20%,
                               rgba(87, 206, 229, 0) 100%), */
-              transparent;
+              /* transparent; */
   background-blend-mode: multiply;
   z-index: -100;
 }
@@ -145,6 +149,10 @@ div.business_details span {
   width: 50px;
   line-height: 50px;
   text-align: center;
+}
+
+.social_media div:first-child {
+    border-left: 1px solid #eae5d3;
 }
 
 .more_detail .description {
