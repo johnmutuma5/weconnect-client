@@ -12,7 +12,7 @@ class BusinessRegistrationForm extends React.Component {
             values: {
                 name: '',
                 location: '',
-                mobile: '',
+                mobile: '254',
                 category:''
             }
         }
