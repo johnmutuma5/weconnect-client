@@ -16,4 +16,6 @@ const businessMainDescription = (props) => (
     </div>
 );
 
+
+
 export default businessMainDescription;
