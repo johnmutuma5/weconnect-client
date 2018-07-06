@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> App renders correctly 1`] = `
+<Layout>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/businesses"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/businesses/filter"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/businesses/search"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/businesses/:id"
+    />
+  </Switch>
+</Layout>
+`;
+
+exports[`<App /> ResourcesProvider renders <App /> 1`] = `<App />`;
