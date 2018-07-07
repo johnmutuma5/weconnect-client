@@ -67,17 +67,20 @@ div.business_details span {
   top: 0;
   height: 100%;
   width: 100%;
-  background: #1f3642;
-  /* background: linear-gradient(90deg,
-                              rgba(133, 149, 160, 1) 0%,
-                              rgba(133, 149, 160, .8) 50%,
-                              rgba(133, 149, 160, 0) 100%), */
-              /* linear-gradient(180deg,
-                              rgba(87, 206, 229, 1) 0%,
-                              rgba(87, 206, 229, .3) 20%,
-                              rgba(87, 206, 229, 0) 100%), */
+  background: #dddddd;
+  background: linear-gradient(25deg,
+                          transparent 0%,
+                          transparent 60%,
+                          #234244 60%,
+                          #234244 100%),
+
+              linear-gradient(167deg,
+                          #234244 0%,
+                          #234244 50%,
+                          transparent 50%,
+                          transparent 100%);
               /* transparent; */
-  background-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
   z-index: -100;
 }
 

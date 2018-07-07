@@ -7,7 +7,7 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin: auto;
-  background-color: #C96B92;
+  background-color: #dddddd;
   border-radius: 5%;
 }
 
@@ -19,7 +19,7 @@
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-color: #0071BC;
+  background-color: #b2b5b7;
   border-radius: 10%;
   text-align: center;
   line-height: 90px;
