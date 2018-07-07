@@ -93,13 +93,14 @@ class Businesses extends React.Component {
                          click={ this.toggleRegistering.bind(this) }/>
                      <BusinessRegistrationForm
                          active={ layoutState.registeringBusiness }
-                         onSubmit={ this.addBusiness.bind(this) }/>
+                         onSubmit={ this.addBusiness.bind(this) }
+                         toggleRegistering={ this.toggleRegistering.bind(this) }/>
                      <Backdrop
                          active={ layoutState.registeringBusiness }
                          click={ this.toggleRegistering.bind(this) }/>
                 </Aux>
         }
-        
+
         return (
             // render businesses and new business registration UI components
             <section>

@@ -56,7 +56,10 @@ class BusinessRegistrationForm extends React.Component {
     redirect(path, timeout=1500) {
         console.log(path);
         return () => {
-            setTimeout(() => this.props.history.push(path), timeout)
+            setTimeout(() => {
+                this.props.history.push(path);
+                this.props.toggleRegistering();
+            }, timeout)
         }
     }
 
