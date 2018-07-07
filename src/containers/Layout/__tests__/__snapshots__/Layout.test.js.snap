@@ -4,6 +4,7 @@ exports[`<Layout /> Component renders correctly 1`] = `
 <LayoutContextProvider
   layoutState={
     Object {
+      "registeringBusiness": false,
       "showLayoutForAuthenticatedUser": null,
       "sideDrawerOpen": false,
       "userGettingStarted": false,

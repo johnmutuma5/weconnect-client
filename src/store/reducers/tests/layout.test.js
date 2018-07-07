@@ -3,7 +3,8 @@ import { initLayoutState,
          toggleSideDrawer,
          toggleGettingStarted,
          loginUserAction,
-         logoutUser } from '../../actions/actions';
+         logoutUser,
+         toggleRegisteringBusiness } from '../../actions/actions';
 
 describe('layoutStateReducer', () => {
     let initState;
@@ -12,6 +13,7 @@ describe('layoutStateReducer', () => {
         initState = {
             sideDrawerOpen: false,
             userGettingStarted: false,
+            registeringBusiness: false,
             showLayoutForAuthenticatedUser: localStorage.getItem('userToken')
         };
         localStorage.clear();
@@ -29,9 +31,8 @@ describe('layoutStateReducer', () => {
         expect.assertions(2);
 
         const expectedStateOpen = {
+            ...initState,
             sideDrawerOpen: true,
-            userGettingStarted: false,
-            showLayoutForAuthenticatedUser: localStorage.getItem('userToken')
         };
         const toggleSideDrawerAction = toggleSideDrawer();
         const stateOpen = layoutStateReducer(initState, toggleSideDrawerAction);
@@ -46,9 +47,8 @@ describe('layoutStateReducer', () => {
         expect.assertions(2);
 
         const expectedStateGettingStarted = {
-            sideDrawerOpen: false,
+            ...initState,
             userGettingStarted: true,
-            showLayoutForAuthenticatedUser: localStorage.getItem('userToken')
         };
 
         const gettingStartedAction = toggleGettingStarted();
@@ -69,8 +69,7 @@ describe('layoutStateReducer', () => {
         }
 
         const expectedState = {
-            sideDrawerOpen: false,
-            userGettingStarted: false,
+            ...initState,
             showLayoutForAuthenticatedUser: true
         };
 
@@ -95,6 +94,22 @@ describe('layoutStateReducer', () => {
         const logoutAction = logoutUser();
         const stateLoggedOut = layoutStateReducer(initStateLoggedIn, logoutAction);
         expect(stateLoggedOut).toEqual(expectedState);
+    });
+
+    it('toggles registering business', () => {
+        const notRegisteringState = {
+            ...initState,
+            registeringBusiness: false
+        }
+
+        const expectedState = {
+            ...initState,
+            registeringBusiness: true
+        }
+
+        const registeringAction = toggleRegisteringBusiness();
+        const newState = layoutStateReducer(notRegisteringState, registeringAction);
+        expect(newState).toEqual(expectedState);
     });
 
     it('returns default state', () => {
