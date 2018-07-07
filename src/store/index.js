@@ -42,8 +42,8 @@ class Store {
 
     notify(eventType) {
         // this will be used to notify listners when events of actionType occur
-        for (let listner of this.events[eventType])
-            listner(this.state);
+        for (let listener of this.events[eventType])
+            listener(this.state);
     }
 }
 

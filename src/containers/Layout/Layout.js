@@ -20,7 +20,8 @@ class Layout extends React.Component {
             'LOGIN_USER',
             'LOGOUT_USER',
             'TOGGLE_SIDE_DRAWER',
-            'TOGGLE_GETTING_STARTED'
+            'TOGGLE_GETTING_STARTED',
+            'TOGGLE_REGISTERING_BUSINESS'
         ];
     }
 

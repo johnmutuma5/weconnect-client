@@ -47,3 +47,9 @@ export const toggleGettingStarted = () => (
         type: types.TOGGLE_GETTING_STARTED
     }
 );
+
+export const toggleRegisteringBusiness = () => (
+    {
+        type: types.TOGGLE_REGISTERING_BUSINESS
+    }
+);

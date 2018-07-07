@@ -4,6 +4,7 @@ import actionTypes from '../actions/actionTypes';
 const initState = {
     sideDrawerOpen: false,
     userGettingStarted: false,
+    registeringBusiness: false,
     showLayoutForAuthenticatedUser: localStorage.getItem('userToken')
 };
 
@@ -24,6 +25,12 @@ const layoutStateReducer = (state=initState, action) => {
             return  {
                         ...state,
                         userGettingStarted: !state.userGettingStarted
+                    }
+
+        case actionTypes.TOGGLE_REGISTERING_BUSINESS:
+            return  {
+                        ...state,
+                        registeringBusiness: !state.registeringBusiness
                     }
 
         case actionTypes.LOGIN_USER:

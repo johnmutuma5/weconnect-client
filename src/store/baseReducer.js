@@ -16,7 +16,7 @@ const weConnectReducer = (state=initState, action) => (
     {
         businessesState: businessesStateReducer(state.businessesState, action),
         authState: authStateReducer(state.authState, action),
-        layoutState: layoutStateReducer(state.layoutState, action)
+        layoutState: layoutStateReducer(state.layoutState, action),
     }
 );
 

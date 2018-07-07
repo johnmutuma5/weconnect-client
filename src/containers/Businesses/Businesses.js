@@ -6,7 +6,9 @@ import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import CreateButton from '../../components/UI/CreateButton/CreateButton';
 import Aux from '../../hoc/Aux';
 import {loadBusinesses, registerNewBusiness} from '../../store/resources/business';
-import {initBusinessesState, renderFetchedBusinesses} from '../../store/actions/actions';
+import {initBusinessesState,
+        renderFetchedBusinesses,
+        toggleRegisteringBusiness } from '../../store/actions/actions';
 import BusinessRegistrationForm from './BusinessRegistration/BusinessRegistrationForm';
 
 import './Businesses.css';
@@ -17,7 +19,7 @@ class Businesses extends React.Component {
         super(props);
         this.subscriptions = [
             'INIT_BUSINESSES_STATE',
-            'RENDER_FETCHED_BUSINESSES'
+            'RENDER_FETCHED_BUSINESSES',
         ];
         this.store = context.store
     }
@@ -55,8 +57,7 @@ class Businesses extends React.Component {
     }
 
     toggleRegistering() {
-        let registeringNew = this.state.registeringNew;
-        this.setState({registeringNew: !registeringNew});
+        this.store.dispatch(toggleRegisteringBusiness())
     }
 
     render() {
@@ -82,24 +83,23 @@ class Businesses extends React.Component {
 
         // check layout state
         const layoutState = this.context.layoutState;
-
         let businessRegistrationElements = null;
         if (layoutState.showLayoutForAuthenticatedUser) {
             businessRegistrationElements =
                 <Aux>
                      <CreateButton
-                         active={ !this.state.registeringNew }
+                         active={ !layoutState.registeringBusiness }
                          id={'animatedAtThumb'}
                          click={ this.toggleRegistering.bind(this) }/>
                      <BusinessRegistrationForm
-                         active={ this.state.registeringNew }
+                         active={ layoutState.registeringBusiness }
                          onSubmit={ this.addBusiness.bind(this) }/>
                      <Backdrop
-                         active={ this.state.registeringNew }
+                         active={ layoutState.registeringBusiness }
                          click={ this.toggleRegistering.bind(this) }/>
                 </Aux>
         }
-
+        
         return (
             // render businesses and new business registration UI components
             <section>
