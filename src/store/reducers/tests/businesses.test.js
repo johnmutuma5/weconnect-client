@@ -32,9 +32,9 @@ describe('businessesStateReducer', () => {
         }];
 
         const expectedState = {
+            ...initState,
             businesses: businessesData,
             loading: false,
-            registeringNew: false
         }
         const renderBusinessesAction = renderFetchedBusinesses(businessesData);
         const state = businessesStateReducer(initState, renderBusinessesAction);
