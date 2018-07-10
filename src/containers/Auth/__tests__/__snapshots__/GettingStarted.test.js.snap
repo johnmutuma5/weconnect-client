@@ -93,7 +93,7 @@ exports[`<GettingStarted /> renders user sign up form as the default form 1`] = 
           key="mobile"
           name="mobile"
           onChange={[Function]}
-          placeholder="Mobile No."
+          placeholder="254700000000"
           type="text"
           value=""
         />

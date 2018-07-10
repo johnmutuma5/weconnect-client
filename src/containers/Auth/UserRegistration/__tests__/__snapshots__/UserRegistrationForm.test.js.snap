@@ -86,7 +86,7 @@ exports[`<UserRegistrationForm /> UserRegistrationForm with simulated data colle
           key="mobile"
           name="mobile"
           onChange={[Function]}
-          placeholder="Mobile No."
+          placeholder="254700000000"
           type="text"
           value=""
         />
