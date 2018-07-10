@@ -38,15 +38,31 @@ class BusinessProfile extends React.Component {
             readyToAddReview: false
         }
         this.store = context.store
+        this.subscriptions = [
+            'LOGIN_USER',
+            'LOGOUT_USER'
+        ]
     }
 
     componentWillMount() {
+        this.subscriptionsRevokers = this.store.subscribe(this.subscriptions,
+                                        this.handleStateDidUpdate.bind(this));
+
         window.scrollTo (0, 0);
         const businessId = this.props.match.params['id'];
         weConnectFetchPrimaryBusinessInfo(businessId)
             .then(res => this.setState(setPrimaryBusinessInfo(res)));
         weConnectFetchBusinessReviews(businessId)
             .then(res => this.setState(setBusinessReviews(res)));
+    }
+
+    componentWillUnmount() {
+        for(let subscriptionRevoker of this.subscriptionsRevokers)
+            subscriptionRevoker();
+    }
+
+    handleStateDidUpdate(state) {
+        this.setState({...this.state});
     }
 
 
