@@ -1,15 +1,12 @@
 import Businesses from '../Businesses';
-import { createStore } from '../../../store';
-import weConnectReducer from '../../../store/baseReducer';
-
+import { store } from '../../../App';
 
 jest.mock('../../../store/resources/business');
 
 describe('<Businesses /> Component', () => {
-    let store, context;
+    let context;
 
     beforeEach(() => {
-        store = createStore(weConnectReducer);
         store.state = {};
         store.state.layoutState = {};
         context = { store: store, layoutState: store.state.layoutState }
