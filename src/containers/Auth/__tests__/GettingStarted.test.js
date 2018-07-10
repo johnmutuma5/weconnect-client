@@ -15,7 +15,8 @@ describe('<GettingStarted />', () => {
         expect(wrapper.text()).toContain('Register a user account');
     });
 
-    it('toggles sign up and login form with state', () => {
+    it('toggles sign up and login form with button click', () => {
+        expect.assertions(2);
         const context = {
                             context: { store },
                             childContextTypes: {
