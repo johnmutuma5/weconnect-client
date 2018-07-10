@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserRegistrationForm /> collects data from input fields into state 1`] = `
+exports[`<UserRegistrationForm /> UserRegistrationForm with simulated data collects data from input fields into state 1`] = `
 <div
   className="Modal visible"
 >
@@ -105,7 +105,7 @@ exports[`<UserRegistrationForm /> collects data from input fields into state 1`]
           onChange={[Function]}
           placeholder="Username"
           type="text"
-          value=""
+          value="john_doe"
         />
         <input
           key="password"
@@ -113,7 +113,7 @@ exports[`<UserRegistrationForm /> collects data from input fields into state 1`]
           onChange={[Function]}
           placeholder="Password"
           type="password"
-          value=""
+          value="apassword"
         />
       </fieldset>
       <fieldset
