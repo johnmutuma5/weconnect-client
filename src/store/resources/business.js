@@ -2,8 +2,7 @@ import ajax from './ajax';
 
 
 export function loadBusinesses() {
-    const prom = ajax.get('/businesses');
-    return prom;
+    return ajax.get('/businesses');
 }
 
 

@@ -1,19 +1,15 @@
 import ajax from './ajax';
 
 export function createAccount(data) {
-    let prom = ajax.post('/auth/register', data);
-    return prom;
-}
+    return ajax.post('/auth/register', data);
 
 export function weConnectLoginUser(data) {
-    let prom = ajax.post('/auth/login', data);
-    return prom;
+    return ajax.post('/auth/login', data);
 }
 
 
 export function weConnectLogoutUser(userToken) {
-    ajax.config({
-        headers: {Authorization: `Bearer ${userToken}`}
-    });
-    return ajax.post('/auth/logout');
+    return ajax
+            .config({headers: {Authorization: `Bearer ${userToken}`}})
+            .post('/auth/logout');
 }
