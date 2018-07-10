@@ -62,7 +62,6 @@ class Businesses extends React.Component {
     }
 
     render() {
-        console.log('here')
         const businesses = this.state.businesses
             .map((business) => {
                 const business_props = {
@@ -85,7 +84,6 @@ class Businesses extends React.Component {
 
         // check layout state
         const layoutState = this.store.state.layoutState;
-        console.log(layoutState)
         let businessRegistrationElements = null;
         if (layoutState.showLayoutForAuthenticatedUser) {
             businessRegistrationElements =

@@ -1,14 +1,18 @@
 import MemoryRouter from 'react-router-dom';
 import Toolbar from '../Toolbar';
+import { store } from '../../../../App'
 
 describe('<Toolbar /> Component', () => {
     let context;
 
     beforeEach(() => {
-        store.state.authState = { userToken: undefined };
-        context = {
-            store,
+
+        store.state = {
+            authState: { userToken: undefined },
             layoutState: {}
+        };
+        context = {
+            store
         }
     });
 
@@ -20,7 +24,7 @@ describe('<Toolbar /> Component', () => {
     it('displays logout button when authenticated', () => {
         expect.assertions(2);
         context.store.state.authState = { userToken: 'a.user.token'};
-        context.layoutState = {showLayoutForAuthenticatedUser: true}
+        context.store.state.layoutState = {showLayoutForAuthenticatedUser: true}
 
         const wrapper = shallow(<Toolbar />, { context });
         expect(wrapper).toMatchSnapshot();

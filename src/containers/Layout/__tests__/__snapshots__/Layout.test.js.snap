@@ -1,16 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Layout /> Component renders correctly 1`] = `
-<LayoutContextProvider
-  layoutState={
-    Object {
-      "registeringBusiness": false,
-      "showLayoutForAuthenticatedUser": null,
-      "sideDrawerOpen": false,
-      "userGettingStarted": false,
-    }
-  }
->
+<aux>
   <mainNavigation />
   <div
     className="content"
@@ -27,5 +18,5 @@ exports[`<Layout /> Component renders correctly 1`] = `
     />
     <footer />
   </div>
-</LayoutContextProvider>
+</aux>
 `;

@@ -1,15 +1,13 @@
 import Navigation from '../Navigation';
+import { store } from '../../../App'
+
 
 describe('<Navigation /> Component', () => {
     let context;
 
     beforeEach(() => {
-        context = {
-            layoutState: {
-                store: {},
-                sideDrawerOpen: false
-            }
-        };
+        store.state = { layoutState: {}}
+        context = { store };
     });
 
 

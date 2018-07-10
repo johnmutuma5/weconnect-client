@@ -33,18 +33,9 @@ class LocalStorageMock {
   }
 };
 
-const store = {
-    state: {
-        authState: undefined,
-        layoutState: undefined,
-        businessesState: undefined
-    }
-}
-
 
 // avail these to the global context for testing environment
 global.localStorage = new LocalStorageMock;
-global.store = store;
 global.React = React;
 global.shallow = shallow;
 global.mount = mount;

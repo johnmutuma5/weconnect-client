@@ -4,7 +4,6 @@ exports[`<Navigation /> Component renders correctly 1`] = `
 <aux>
   <sideDrawer />
   <backDrop
-    active={false}
     click={[Function]}
     id="SideDrawerBackDrop"
   />
