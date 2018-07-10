@@ -40,6 +40,7 @@ class HttpRequests {
             if (item === "headers")
             Object.assign(this.requestHeaders, conf_obj[item]);
         }
+        return this;
     };
 
 

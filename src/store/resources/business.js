@@ -8,27 +8,23 @@ export function loadBusinesses() {
 
 
 export function registerNewBusiness(businessData, userToken) {
-    ajax.config({
-        headers: {Authorization: `Bearer ${userToken}`}
-    })
-    return ajax.post('/businesses', businessData)
+    return ajax
+            .config({headers: {Authorization: `Bearer ${userToken}`}})
+            .post('/businesses', businessData)
 }
 
 export function weConnectFetchPrimaryBusinessInfo(id) {
-    const prom = ajax.get(`/businesses/${id}`);
-    return prom;
+    return ajax.get(`/businesses/${id}`);
 }
 
 export function weConnectFetchBusinessReviews(id) {
-    const prom = ajax.get(`/businesses/${id}/reviews`);
-    return prom;
+    return ajax.get(`/businesses/${id}/reviews`);
 }
 
 export function weConnectAddBusinessReview(id, data, userToken) {
-    ajax.config({
-        headers: {Authorization: `Bearer ${userToken}`}
-    });
-    return  ajax.post(`/businesses/${id}/reviews`, data);
+    return ajax
+            .config({headers: {Authorization: `Bearer ${userToken}`}})
+            .post(`/businesses/${id}/reviews`, data);
 }
 
 export function weConnectFilterBusinesses(queryString) {
@@ -36,15 +32,13 @@ export function weConnectFilterBusinesses(queryString) {
 }
 
 export function weConnectUpdateBusiness(id, data, userToken) {
-    ajax.config({
-        headers: {Authorization: `Bearer ${userToken}`}
-    })
-    return ajax.put(`/businesses/${id}`, data);
+    return ajax
+            .config({headers: {Authorization: `Bearer ${userToken}`}})
+            .put(`/businesses/${id}`, data);
 }
 
 export function weConnectDeleteBusiness(id, userToken) {
-    ajax.config({
-        headers: {Authorization: `Bearer ${userToken}`}
-    })
-    return ajax.delete(`/businesses/${id}`);
+    return ajax
+            .config({headers: {Authorization: `Bearer ${userToken}`}})
+            .delete(`/businesses/${id}`);
 }
