@@ -20,7 +20,9 @@ class Businesses extends React.Component {
         this.subscriptions = [
             'INIT_BUSINESSES_STATE',
             'RENDER_FETCHED_BUSINESSES',
-            'TOGGLE_REGISTERING_BUSINESS'
+            'TOGGLE_REGISTERING_BUSINESS',
+            'LOGIN_USER',
+            'LOGOUT_USER'
         ];
         this.store = context.store
     }
