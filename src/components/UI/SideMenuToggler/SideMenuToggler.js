@@ -5,7 +5,7 @@ import { toggleSideDrawer } from '../../../store/actions/actions';
 import './SideMenuToggler.css';
 
 const sideMenuToggler = (props, context) => {
-    const state = context.layoutState;
+    const state = context.store.state.layoutState;
 
     let classes = ["SideMenuToggler"]
     classes = state.sideDrawerOpen? classes.concat("invisible"): classes.concat("visible");
@@ -22,7 +22,6 @@ const sideMenuToggler = (props, context) => {
 }
 
 sideMenuToggler.contextTypes = {
-    layoutState: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired
 }
 

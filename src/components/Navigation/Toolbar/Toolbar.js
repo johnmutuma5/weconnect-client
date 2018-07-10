@@ -13,7 +13,7 @@ import './Toolbar.css';
 
 const toolbar = (props, context) => {
     const store = context.store;
-    const layoutState = context.layoutState;
+    const layoutState = store.state.layoutState;
     const userToken = store.state.authState.userToken;
 
     let logoutButton = null;
@@ -48,7 +48,6 @@ const toolbar = (props, context) => {
 
 toolbar.contextTypes = {
     store: PropTypes.object.isRequired,
-    layoutState: PropTypes.object.isRequired
 }
 
 export default toolbar;

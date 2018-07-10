@@ -7,8 +7,8 @@ import { toggleSideDrawer } from '../../../store/actions/actions';
 import './SideDrawer.css';
 
 const sideDrawer = (props, context) => {
-    const state = context.layoutState;
     const store = context.store;
+    const state = store.state.layoutState;
     let classes = ['SideDrawer']
     classes = state.sideDrawerOpen ? classes.concat('Open') : classes.concat('Closed');
 
@@ -23,7 +23,6 @@ const sideDrawer = (props, context) => {
 };
 
 sideDrawer.contextTypes = {
-    layoutState: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired
 }
 

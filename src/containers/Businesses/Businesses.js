@@ -20,6 +20,7 @@ class Businesses extends React.Component {
         this.subscriptions = [
             'INIT_BUSINESSES_STATE',
             'RENDER_FETCHED_BUSINESSES',
+            'TOGGLE_REGISTERING_BUSINESS'
         ];
         this.store = context.store
     }
@@ -61,6 +62,7 @@ class Businesses extends React.Component {
     }
 
     render() {
+        console.log('here')
         const businesses = this.state.businesses
             .map((business) => {
                 const business_props = {
@@ -82,7 +84,8 @@ class Businesses extends React.Component {
             loader = 'loading now. Please wait'
 
         // check layout state
-        const layoutState = this.context.layoutState;
+        const layoutState = this.store.state.layoutState;
+        console.log(layoutState)
         let businessRegistrationElements = null;
         if (layoutState.showLayoutForAuthenticatedUser) {
             businessRegistrationElements =
@@ -117,7 +120,6 @@ class Businesses extends React.Component {
 
 Businesses.contextTypes = {
     store: PropTypes.object.isRequired,
-    layoutState: PropTypes.object.isRequired
 }
 
 export default Businesses;

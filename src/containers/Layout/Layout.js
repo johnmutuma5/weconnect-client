@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LayoutContextProvider from './LayoutContextProvider';
+import Aux from '../../hoc/Aux';
 import Navigation from '../../components/Navigation/Navigation';
 import GettingStarted from '../Auth/GettingStarted';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
@@ -40,6 +40,10 @@ class Layout extends React.Component {
         this.setState(state.layoutState);
     }
 
+    shouldComponentUpdate(props) {
+        return true;
+    }
+
     render() {
         const store = this.context.store;
 
@@ -50,7 +54,7 @@ class Layout extends React.Component {
                 <GettingStarted visible={this.state.userGettingStarted} />
 
         return (
-            <LayoutContextProvider layoutState={ this.state } >
+            <Aux>
                 <Navigation />
                 <div className="content">
                     <div className='container main-content'>
@@ -65,7 +69,7 @@ class Layout extends React.Component {
                         click={ () => store.dispatch(toggleGettingStarted()) }/>
                     <Footer />
                 </div>
-            </LayoutContextProvider>
+            </Aux>
         );
     }
 }

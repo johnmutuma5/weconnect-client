@@ -8,7 +8,8 @@ import Button from '../../../components/UI/Button/Button';
 import './DetailedBusinessInfo.css';
 
 const detailedBusinessInfo = (props, context) => {
-    const layoutState = context.layoutState;
+    const layoutState = context.store.state.layoutState;
+
     let editingElements = (
         <div className='ProfileManangement'>
             <div className='EditBusiness'>
@@ -58,7 +59,7 @@ const detailedBusinessInfo = (props, context) => {
 }
 
 detailedBusinessInfo.contextTypes = {
-    layoutState: PropTypes.object.isRequired
+    store: PropTypes.object.isRequired
 }
 
 export default detailedBusinessInfo;

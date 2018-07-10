@@ -17,7 +17,7 @@ const mainNavigation = (props, context) => {
         <Aux>
             <SideDrawer />
             <Backdrop
-                active={ context.layoutState.sideDrawerOpen }
+                active={ store.state.layoutState.sideDrawerOpen }
                 id={ 'SideDrawerBackDrop' }
                 click={ () => store.dispatch(toggleSideDrawer()) }/>
 
@@ -30,7 +30,6 @@ const mainNavigation = (props, context) => {
 };
 
 mainNavigation.contextTypes = {
-    layoutState: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired
 }
 
