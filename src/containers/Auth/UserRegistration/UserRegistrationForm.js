@@ -7,7 +7,7 @@ import Prompt from '../Prompt/Prompt';
 
 // import './UserRegistrationForm.css';
 
-class UserRegistrationForm extends React.Component {
+export class UserRegistrationForm extends React.Component {
 
     constructor(props) {
         super();

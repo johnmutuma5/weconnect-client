@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserRegistrationForm /> collects data from input fields into state 1`] = `
+<div
+  className="Modal visible"
+>
+  <p>
+    Register a user account
+  </p>
+  <span />
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "center",
+        "margin": "15px 0",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+        }
+      }
+    >
+      Already have an account?
+    </div>
+    <div
+      className="Button dark"
+    >
+       
+      Login
+    </div>
+  </div>
+  <article
+    className="form_container"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <fieldset
+        key="usrreg1"
+      >
+        <legend
+          key="Basic and Contact Data"
+        >
+          Basic and Contact Data
+        </legend>
+        <input
+          key="first_name"
+          name="first_name"
+          onChange={[Function]}
+          placeholder="First Name"
+          type="text"
+          value=""
+        />
+        <input
+          key="last_name"
+          name="last_name"
+          onChange={[Function]}
+          placeholder="Last Name"
+          type="text"
+          value=""
+        />
+        <input
+          key="gender"
+          name="gender"
+          onChange={[Function]}
+          placeholder="Gender"
+          type="text"
+          value=""
+        />
+        <input
+          key="email"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value=""
+        />
+        <input
+          key="mobile"
+          name="mobile"
+          onChange={[Function]}
+          placeholder="Mobile No."
+          type="text"
+          value=""
+        />
+      </fieldset>
+      <fieldset
+        key="usrreg2"
+      >
+        <legend
+          key="Login Details"
+        >
+          Login Details
+        </legend>
+        <input
+          key="username"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+        <input
+          key="password"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </fieldset>
+      <fieldset
+        key="usrreg3"
+      >
+        <input
+          key="submit"
+          name="submit"
+          onChange={[Function]}
+          type="submit"
+          value="Submit"
+        />
+      </fieldset>
+    </form>
+  </article>
+</div>
+`;
+
+exports[`<UserRegistrationForm /> renders correctly 1`] = `
+<modal
+  title="Register a user account"
+>
+  <prompt
+    ask="Already have an account?"
+  >
+    Login
+  </prompt>
+  <Form
+    formContext={
+      UserRegistrationForm {
+        "context": Object {},
+        "props": Object {},
+        "refs": Object {},
+        "state": Object {
+          "values": Object {
+            "email": "",
+            "first_name": "",
+            "gender": "",
+            "last_name": "",
+            "mobile": "",
+            "password": "",
+            "username": "",
+          },
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <UserRegistrationForm />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": null,
+            "_rendered": <modal
+              isVisible={undefined}
+              title="Register a user account"
+      >
+              <prompt
+                      ask="Already have an account?"
+                      handleClicked={undefined}
+              >
+                      Login
+              </prompt>
+              <Form
+                      formContext={[Circular]}
+                      loadElements={[Function]}
+                      onSubmit={[Function]}
+              />
+      </modal>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
+    loadElements={[Function]}
+    onSubmit={[Function]}
+  />
+</modal>
+`;
