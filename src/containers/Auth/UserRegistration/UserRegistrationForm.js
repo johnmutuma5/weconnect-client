@@ -76,7 +76,7 @@ export class UserRegistrationForm extends React.Component {
                     formInput('text', 'last_name', this.state.values.last_name, 'Last Name'),
                     formInput('text', 'gender', this.state.values.gender, 'Gender'),
                     formInput('email', 'email', this.state.values.email, 'Email'),
-                    formInput('text', 'mobile', this.state.values.mobile, 'Mobile No.')
+                    formInput('text', 'mobile', this.state.values.mobile, '254700000000')
                 ]
             },
             {

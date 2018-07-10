@@ -12,7 +12,7 @@ class BusinessRegistrationForm extends React.Component {
             values: {
                 name: '',
                 location: '',
-                mobile: '254',
+                mobile: '',
                 category:''
             }
         }
@@ -89,7 +89,7 @@ class BusinessRegistrationForm extends React.Component {
                         elementType: 'legend',
                         children: 'Business Contact Details'
                     },
-                    formInput('text', 'mobile', this.state.values.mobile, 'Mobile No.')
+                    formInput('text', 'mobile', this.state.values.mobile, '254700000000')
                 ]
             },
             {
