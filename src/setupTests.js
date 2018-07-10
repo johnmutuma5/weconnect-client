@@ -1,4 +1,6 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Enzyme, { shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'enzyme-to-json';
@@ -37,6 +39,8 @@ class LocalStorageMock {
 // avail these to the global context for testing environment
 global.localStorage = new LocalStorageMock;
 global.React = React;
+global.MemoryRouter = MemoryRouter;
+global.PropTypes = PropTypes;
 global.shallow = shallow;
 global.mount = mount;
 global.render = render;

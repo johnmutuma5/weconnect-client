@@ -53,11 +53,11 @@ class UserRegistrationForm extends React.Component {
                         onSubmit = { this.onSubmit.bind(this) } />
         return (
             <Modal title={ modalTitle } isVisible={this.props.isVisible}>
-            <Prompt
-                ask={'Already have an account?'}
-                handleClicked={ this.props.handleReadyToLogin} >
-                { 'Login' }</Prompt>
-            { form }
+                <Prompt
+                    ask={'Already have an account?'}
+                    handleClicked={ this.props.handleReadyToLogin} >
+                    { 'Login' }</Prompt>
+                { form }
             </Modal>
         );
     }
