@@ -8,6 +8,7 @@ const button = (props) => {
 
     return (
         <div
+            id = {props.id}
             className={ buttonClasses.join(' ') }
             onClick={ props.onClickHandler }> { props.children }</div>
     );

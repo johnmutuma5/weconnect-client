@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import UserRegistrationForm from './UserRegistration/UserRegistrationForm';
 import UserLoginForm from './UserLogin/UserLoginForm';
+import { toggleGettingStarted } from '../../store/actions/actions';
+import Button from '../../components/UI/Button/Button';
 
 class GettingStarted extends React.Component {
 
@@ -44,6 +47,22 @@ class GettingStarted extends React.Component {
         }
         return form;
     }
+}
+
+export const GettingStartedButton = (props, context) => {
+    const store = context.store;
+    const click = () => store.dispatch(toggleGettingStarted());
+    return (
+        <Button id={props.id}
+                type='dark'
+                onClickHandler={ click }>
+                    { 'Get Started' }
+        </Button>
+    )
+}
+
+GettingStartedButton.contextTypes = {
+    store: PropTypes.object.isRequired
 }
 
 

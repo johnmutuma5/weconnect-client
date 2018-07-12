@@ -39,7 +39,7 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
         className="SearchIcon"
         onClick={[Function]}
       >
-        icon
+        Search
       </div>
       <article
         className="form_container"
@@ -87,7 +87,7 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
         className="ProfileActions"
       >
         <div
-          className="Button "
+          className="Button dark"
           onClick={[Function]}
         >
            
@@ -116,8 +116,8 @@ exports[`<Toolbar /> Component renders correctly 1`] = `
     src="Logo.svg"
   />
   <withRouter(navigationItems) />
-  <profileTools
-    id="atToolBar"
+  <Component
+    id="toolbarGetStarted"
   />
   <sideMenuToggler />
 </div>
