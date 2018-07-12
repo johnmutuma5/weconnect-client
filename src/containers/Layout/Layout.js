@@ -67,7 +67,7 @@ class Layout extends React.Component {
                         active={this.state.userGettingStarted}
                         id={ 'GettingStartedBackdrop' }
                         click={ () => store.dispatch(toggleGettingStarted()) }/>
-                    <Footer />
+                    
                 </div>
             </Aux>
         );
