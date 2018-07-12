@@ -13,7 +13,7 @@ const profileTools = (props, context) => {
     const layoutState = store.state.layoutState;
     const userToken = store.state.authState.userToken;
     let gettingStartedButton =
-        <Button onClickHandler={ () => store.dispatch(toggleGettingStarted()) }>
+        <Button type='dark' onClickHandler={ () => store.dispatch(toggleGettingStarted()) }>
             { 'Get Started' }
         </Button>;
 
@@ -21,7 +21,7 @@ const profileTools = (props, context) => {
 
     // check layout state
     if (layoutState.showLayoutForAuthenticatedUser) {
-        logoutButton = <Button
+        logoutButton = <Button type='dark'
                             onClickHandler={ () => {
                                 weConnectLogoutUser(userToken)
                                 store.dispatch(logoutUser())

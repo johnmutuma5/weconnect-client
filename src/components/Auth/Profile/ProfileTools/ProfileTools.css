@@ -64,12 +64,12 @@
 
     .ProfileItems {
         position: relative;
-        top: 110%;
+        top: 130%;
         left: -500%;
         display: flex;
         flex-flow: column;
         justify-content: space-around;
-        background-color: #8595A0;
+        background-color: #d9fbfc;
         width: 200px;
         min-width: 200px;
         height: 150px;
@@ -79,6 +79,20 @@
         transform-origin: top;
         transition-delay: .1s;
         border-radius: 5px 0 5px 0;
-        box-shadow: 2px 5px 20px 3px #1f3642;
+        box-shadow: 2px 2px 15px #1f3642;
+        color: #00080c;
+        overflow: visible;
+    }
+
+    .ProfileItems::before {
+        position: absolute;
+        bottom: 100%;
+        right: 10px;
+        content: '';
+        display: flex;
+        border-bottom: 10px solid #d9fbfc;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid transparent;
     }
 }

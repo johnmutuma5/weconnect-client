@@ -30,6 +30,7 @@ class SearchField extends React.Component {
                     formContext={ this }
                     loadElements={ this.loadElements.bind(this) }
                     onInputBlur={ this.onInputBlur }
+                    onInputChange={ (e) => {console.log(this.state)} }
                     onSubmit={ this.onSubmit.bind(this) }/>
             </div>
         )

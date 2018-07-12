@@ -7,18 +7,23 @@ import './Form.css';
 
 class Form extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         this.formContext = props.formContext;
         this.createElement = this.createElement.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this.formContext)
     }
 
     handleInputChange(e) {
-        let values = {...this.state.values}
+        let values = {...this.formContext.state.values}
         const value = e.target.value;
         const field = e.target.name;
         Object.defineProperty(values, field, {value: value, enumerable: true});
-        this.setState({values: values});
+        this.formContext.setState({values: values}, (e) => this.incomingOnInputChange(e));
+    }
+
+    incomingOnInputChange(e) {
+        // call the particular form's onInputChange if it's available
+        if(this.props.onInputChange)
+            this.props.onInputChange(e);
     }
 
     render() {
@@ -57,7 +62,7 @@ class Form extends React.Component {
                 return (<input
                         { ...elem.attributes }
                         onBlur={ this.props.onInputBlur }
-                        onChange={ this.handleInputChange }
+                        onChange={ this.handleInputChange.bind(this) }
                         key={ elem.attributes.name }/>)
             default:
                 break;
