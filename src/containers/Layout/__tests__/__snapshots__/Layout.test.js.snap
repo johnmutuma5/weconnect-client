@@ -16,7 +16,6 @@ exports[`<Layout /> Component renders correctly 1`] = `
       click={[Function]}
       id="GettingStartedBackdrop"
     />
-    <footer />
   </div>
 </aux>
 `;
