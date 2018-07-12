@@ -37,6 +37,7 @@
     height: 40px;
     width: 40px;
     color: white;
+    cursor: pointer;
 }
 
 .Toolbar .Search {
@@ -44,6 +45,7 @@
     flex-flow: row;
     align-items: center;
     justify-content: flex-end;
+    margin-right: 15px;
 }
 
 .Toolbar .Search .form_container {
