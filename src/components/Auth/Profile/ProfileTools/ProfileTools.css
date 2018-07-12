@@ -17,6 +17,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    box-shadow: 2px 5px 20px 3px #1f3642;
 }
 
 .SideDrawer .ProfileItems {
