@@ -12,11 +12,12 @@ const profileTools = (props, context) => {
     const store = context.store;
     const layoutState = store.state.layoutState;
     const userToken = store.state.authState.userToken;
-    let logoutButton = null;
     let gettingStartedButton =
         <Button onClickHandler={ () => store.dispatch(toggleGettingStarted()) }>
             { 'Get Started' }
         </Button>;
+
+    let logoutButton = gettingStartedButton;
 
     // check layout state
     if (layoutState.showLayoutForAuthenticatedUser) {
@@ -30,9 +31,11 @@ const profileTools = (props, context) => {
     return (
         <div className='ProfileTools' id={ props.id }>
             <ProfileAvatar image={ {} } />
-            <div>{'John Doe'}</div>
-            <div className='ProfileActions'>
-                { logoutButton }
+            <div className='ProfileItems'>
+                <div>{'John Doe'}</div>
+                <div className='ProfileActions'>
+                    { logoutButton }
+                </div>
             </div>
         </div>
     );

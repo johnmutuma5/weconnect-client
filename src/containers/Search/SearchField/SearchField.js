@@ -27,7 +27,6 @@ class SearchField extends React.Component {
             <div className={searchClasses.join(' ')}>
                 <div onClick={ this.toggleInputBar } className='SearchIcon'>icon</div>
                 <Form
-                    id='search'
                     formContext={ this }
                     loadElements={ this.loadElements.bind(this) }
                     onInputBlur={ this.onInputBlur }

@@ -1,32 +1,33 @@
 .ProfileTools {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column;
-            flex-flow: column;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     color: #BBF5F9;
     background: #8595A0;
     width: 100%;
     height: 230px;
     cursor: pointer;
+    padding-top: 25px;
 }
 
 .ProfileTools#atToolBar {
     display: none;
 }
 
+.ProfileItems {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.SideDrawer .ProfileItems {
+    min-height: 35%;
+}
 
 .ProfileActions {
     display: flex;
     justify-content: center;
     width: 100%;
+    height: auto;
 }
 
 .ProfileActions .Button {
@@ -39,10 +40,8 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-    }
-
-    .ProfileTools div:not(:first-child) {
-        display: none;
+        overflow: visible;
+        padding-top: 0;
     }
 
     .ProfileTools#atToolBar {
@@ -50,8 +49,35 @@
     }
 
     .ProfileTools .ProfileAvatar {
+        position: relative;
+        /* top: 250%; */
         width: 100%;
         height: 100%;
+        min-height: 100%;
+        min-width: 100%;
         padding: 0;
+    }
+
+    .ProfileTools:hover .ProfileItems {
+        transform: scaleY(1);
+    }
+
+    .ProfileItems {
+        position: relative;
+        top: 110%;
+        left: -500%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        background-color: #8595A0;
+        width: 200px;
+        min-width: 200px;
+        height: 150px;
+        overflow: auto;
+        transform: scaleY(0);
+        transition: transform .3s ease-out;
+        transform-origin: top;
+        transition-delay: .1s;
+        border-radius: 5px 0 5px 0;
     }
 }

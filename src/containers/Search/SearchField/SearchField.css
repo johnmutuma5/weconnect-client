@@ -65,7 +65,7 @@
     margin: auto;
 }
 
-.Toolbar form#search {
+.Toolbar .Search form {
     position: relative;
 }
 
