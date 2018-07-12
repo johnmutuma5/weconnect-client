@@ -25,7 +25,7 @@ class SearchField extends React.Component {
 
         return (
             <div className={searchClasses.join(' ')}>
-                <div onClick={ this.toggleInputBar } className='SearchIcon'>icon</div>
+                <div onClick={ this.toggleInputBar } className='SearchIcon'>Search</div>
                 <Form
                     formContext={ this }
                     loadElements={ this.loadElements.bind(this) }
