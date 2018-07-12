@@ -4,24 +4,106 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
 <div
   className="Toolbar container"
 >
-  <logo
-    alt_text="WeConnect"
-    src="Logo.svg"
-  />
-  <withRouter(navigationItems) />
   <div
-    className="GettingStarted"
+    className="Logo"
   >
-    <profileTools
-      id="atToolBar"
-    />
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <div>
+        <img
+          alt="WeConnect"
+          src="Logo.svg"
+        />
+      </div>
+    </a>
+    <div
+      className="synopsis"
+    >
+      <p>
+        Put your businesses on a global platform...
+      </p>
+      <p>
+        Looking to buy? You can find other businesses in your location
+      </p>
+    </div>
   </div>
-  <button
-    onClickHandler={[Function]}
+  <nav
+    className="NavigationItems"
   >
-    Logout
-  </button>
-  <sideMenuToggler />
+    <div
+      className="Search hidden"
+    >
+      <div
+        className="SearchIcon"
+        onClick={[Function]}
+      >
+        icon
+      </div>
+      <article
+        className="form_container"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            key="searchValue"
+            name="searchValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Search weConnect"
+            type="text"
+            value=""
+          />
+        </form>
+      </article>
+    </div>
+    <ul />
+  </nav>
+  <div
+    className="ProfileTools"
+    id="atToolBar"
+  >
+    <div
+      className="ProfileAvatar"
+    >
+      <div
+        className="avatar-img"
+      >
+        <img
+          alt="Pic"
+          src="Avatar.svg"
+        />
+      </div>
+    </div>
+    <div
+      className="ProfileItems"
+    >
+      <div>
+        John Doe
+      </div>
+      <div
+        className="ProfileActions"
+      >
+        <div
+          className="Button "
+          onClick={[Function]}
+        >
+           
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="SideMenuToggler visible"
+    onClick={[Function]}
+  >
+    <span />
+    <span />
+    <span />
+  </div>
 </div>
 `;
 
@@ -34,15 +116,9 @@ exports[`<Toolbar /> Component renders correctly 1`] = `
     src="Logo.svg"
   />
   <withRouter(navigationItems) />
-  <div
-    className="GettingStarted"
-  >
-    <button
-      onClickHandler={[Function]}
-    >
-      Get Started
-    </button>
-  </div>
+  <profileTools
+    id="atToolBar"
+  />
   <sideMenuToggler />
 </div>
 `;

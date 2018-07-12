@@ -1,4 +1,5 @@
-import MemoryRouter from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Toolbar from '../Toolbar';
 import { store } from '../../../../App'
 
@@ -26,10 +27,15 @@ describe('<Toolbar /> Component', () => {
         context.store.state.authState = { userToken: 'a.user.token'};
         context.store.state.layoutState = {showLayoutForAuthenticatedUser: true}
 
-        const wrapper = shallow(<Toolbar />, { context });
+        const wrapper = mount(<MemoryRouter><Toolbar /></MemoryRouter>,
+                                { context,
+                                  childContextTypes: {
+                                      store: PropTypes.object.isRequired
+                                  }});
+                                  
         expect(wrapper).toMatchSnapshot();
 
-        const buttonText = wrapper.find('button').dive().text();
+        const buttonText = wrapper.find('.Button').text();
         expect(buttonText).toContain('Logout');
     });
 })
