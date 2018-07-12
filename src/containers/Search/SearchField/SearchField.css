@@ -10,6 +10,7 @@
     width: 100%;
 }
 
+
 .SearchField form input[type='text'] {
     margin: 0;
     height: 50px;
@@ -27,8 +28,78 @@
     outline: none;
 }
 
+.SearchIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+    height: 40px;
+    width: 40px;
+    color: white;
+}
+
+.Toolbar .Search {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.Toolbar .Search .form_container {
+    width: 250px;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: width .5s ease-out;
+}
+
+.Toolbar .Search.hidden .form_container {
+    width: 0;
+    margin: 0;
+}
+
+.Toolbar .Search.visible .form_container {
+    width: 250px;
+    margin: auto;
+}
+
+.Toolbar form#search {
+    position: relative;
+}
+
+.Toolbar .Search input {
+    margin: 0;
+    background-color: #052842 !important;
+    color: #ffffff;
+    border: none;
+    height: 25px;
+    width: 100%;
+}
+
+.Toolbar .Search input:focus {
+    background-color: #093251 !important;
+    outline: none;
+}
+
 @media (max-width: 700px) {
     .SearchField article {
-        width: 100%
+        width: 100%;
     }
+
+    .Toolbar .Search {
+        width: 100%;
+    }
+
+    .Toolbar .Search .form_container {
+        width: 100%;
+    }
+
+    .Toolbar .Search form {
+        align-items: flex-end;
+        width: 100%;
+    }
+
+
 }

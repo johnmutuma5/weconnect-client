@@ -43,6 +43,10 @@ class Businesses extends React.Component {
                 let businesses = result.businesses
                 this.store.dispatch(renderFetchedBusinesses(businesses))
             });
+
+        // window.addEventListener('scroll', () => {
+        //     console.log(this)
+        // });
     }
 
     handleStateDidUpdate(state) {

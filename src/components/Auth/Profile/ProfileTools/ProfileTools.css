@@ -22,6 +22,18 @@
     display: none;
 }
 
+
+.ProfileActions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.ProfileActions .Button {
+    width: 90%;
+    margin: auto;
+}
+
 @media (min-width: 700px) {
     .ProfileTools {
         width: 40px;

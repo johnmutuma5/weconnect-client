@@ -2,6 +2,7 @@
     display: None;
     height: 40px;
     width: 40px;
+    min-width: 40px;
     padding: 10px 2px;
     border-radius: 30%;
     transition: padding .4s ease-out;

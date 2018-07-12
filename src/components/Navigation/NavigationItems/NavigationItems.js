@@ -7,9 +7,7 @@ import './NavigationItems.css';
 
 const navigationItems = (props) => (
     <nav className='NavigationItems'>
-        <div className='Search'>
-            <SearchField onSubmit={(data) => props.history.push(`/businesses/search?name=${data.searchValue}`)} />
-        </div>
+        <SearchField onSubmit={(data) => props.history.push(`/businesses/search?name=${data.searchValue}`)} />
         <ul onClick={ props.onClick }>
             {// <NavigationItem
             //     link_to='/businesses'>Explore</NavigationItem>

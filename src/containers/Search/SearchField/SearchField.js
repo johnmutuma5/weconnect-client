@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import Aux from '../../../hoc/Aux';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 
 import './SearchField.css';
@@ -11,18 +12,27 @@ class SearchField extends React.Component {
         this.state = {
             values: {
                 searchValue: ''
-            }
+            },
+            searchVisible: false,
         }
     }
 
     render() {
+        let searchClasses = ['Search'];
+        searchClasses = this.state.searchVisible ?
+                            searchClasses.concat(['visible']) :
+                            searchClasses.concat(['hidden']);
 
         return (
-            <Form
-                id={'search'}
-                formContext={ this }
-                loadElements={ this.loadElements.bind(this) }
-                onSubmit={ this.onSubmit.bind(this) }/>
+            <div className={searchClasses.join(' ')}>
+                <div onClick={ this.toggleInputBar } className='SearchIcon'>icon</div>
+                <Form
+                    id='search'
+                    formContext={ this }
+                    loadElements={ this.loadElements.bind(this) }
+                    onInputBlur={ this.onInputBlur }
+                    onSubmit={ this.onSubmit.bind(this) }/>
+            </div>
         )
     }
 
@@ -33,9 +43,19 @@ class SearchField extends React.Component {
         ]
     }
 
+
     onSubmit(e) {
-        e.preventDefault()
-        this.props.onSubmit(this.state.values)
+        e.preventDefault();
+        this.toggleInputBar();
+        this.props.onSubmit(this.state.values);
+    }
+
+    toggleInputBar = () => {
+        this.setState({searchVisible: !this.state.searchVisible});
+    }
+
+    onInputBlur = () => {
+        this.toggleInputBar();
     }
 }
 

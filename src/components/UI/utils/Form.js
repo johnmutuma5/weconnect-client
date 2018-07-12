@@ -56,6 +56,7 @@ class Form extends React.Component {
             case 'input':
                 return (<input
                         { ...elem.attributes }
+                        onBlur={ this.props.onInputBlur }
                         onChange={ this.handleInputChange }
                         key={ elem.attributes.name }/>)
             default:

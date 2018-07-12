@@ -101,6 +101,11 @@ nav.NavigationItems  {
         width: 100%;
     }
 
+    .Toolbar .NavigationItems {
+        flex-grow: 0;
+        width: 200px;
+    }
+
     .CategoryNavigationItems ul {
         width: 100%;
         overflow: hidden;
