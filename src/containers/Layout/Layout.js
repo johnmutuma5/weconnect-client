@@ -67,16 +67,13 @@ class Layout extends React.Component {
                         active={this.state.userGettingStarted}
                         id={ 'GettingStartedBackdrop' }
                         click={ () => store.dispatch(toggleGettingStarted()) }/>
-                    
+
                 </div>
             </Aux>
         );
     }
 }
 
-Layout.contextTypes = {
-    store: PropTypes.object.isRequired
-}
-
+Layout.contextTypes = { store: PropTypes.object.isRequired }
 
 export default Layout;
