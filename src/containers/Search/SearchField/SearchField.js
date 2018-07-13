@@ -15,6 +15,7 @@ class SearchField extends React.Component {
         this.state = {};
         this.subscriptions = [
             'INIT_SEARCH_STATE',
+            'SEARCH_NAME'
         ];
     }
 
