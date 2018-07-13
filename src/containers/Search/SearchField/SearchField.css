@@ -28,17 +28,6 @@
     outline: none;
 }
 
-.SearchIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 40px;
-    min-height: 40px;
-    height: 40px;
-    width: 40px;
-    color: white;
-    cursor: pointer;
-}
 
 .Toolbar .Search {
     display: flex;

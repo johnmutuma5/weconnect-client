@@ -1,0 +1,27 @@
+.SearchIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+    height: 40px;
+    width: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.SearchIcon span:first-child {
+    min-width: 45%;
+    min-height: 45%;
+    background-color: transparent;
+    border: .182em solid #8deaf7;
+    border-radius: 50%
+}
+
+.SearchIcon span:last-child {
+    background-color: white;
+    border: .09em solid #8deaf7;
+    width: 12px;
+    max-width: 70%;
+    transform: rotateZ(35deg) translateY(8px) translateX(0.5px);
+}
