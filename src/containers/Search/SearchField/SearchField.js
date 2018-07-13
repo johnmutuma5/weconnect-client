@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Aux';
 import { initSearchState, searchName } from '../../../store/actions/actions';
+import SearchIcon from '../../../components/UI/SearchIcon/SearchIcon';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 
 import './SearchField.css';
@@ -45,7 +46,9 @@ class SearchField extends React.Component {
             <div className={searchClasses.join(' ')}>
                 <div
                     onClick={ this.toggleInputBar.bind(this) }
-                    className='SearchIcon'>Search</div>
+                    className='SearchIcon'>
+                        <SearchIcon />
+                    </div>
                 <Form
                     formContext={ this }
                     loadElements={ this.loadElements.bind(this) }
