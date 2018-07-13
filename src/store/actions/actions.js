@@ -53,3 +53,17 @@ export const toggleRegisteringBusiness = () => (
         type: types.TOGGLE_REGISTERING_BUSINESS
     }
 );
+
+// SEARCH
+export const initSearchState = () => (
+    {
+        type: types.INIT_SEARCH_STATE
+    }
+);
+
+export const searchName = (term) => (
+    {
+        type: types.SEARCH_NAME,
+        payload: term
+    }
+);

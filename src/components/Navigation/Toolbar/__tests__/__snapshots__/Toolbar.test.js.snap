@@ -32,35 +32,35 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
   <nav
     className="NavigationItems"
   >
-    <div
-      className="Search hidden"
-    >
-      <div
-        className="SearchIcon"
-        onClick={[Function]}
-      >
-        Search
-      </div>
-      <article
-        className="form_container"
-      >
-        <form
-          onSubmit={[Function]}
-        >
-          <input
-            key="searchValue"
-            name="searchValue"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="Search weConnect"
-            type="text"
-            value=""
-          />
-        </form>
-      </article>
-    </div>
     <ul />
   </nav>
+  <div
+    className="Search hidden"
+  >
+    <div
+      className="SearchIcon"
+      onClick={[Function]}
+    >
+      Search
+    </div>
+    <article
+      className="form_container"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          key="searchValue"
+          name="searchValue"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Search weConnect"
+          type="text"
+          value=""
+        />
+      </form>
+    </article>
+  </div>
   <div
     className="ProfileTools"
     id="atToolBar"
@@ -116,6 +116,7 @@ exports[`<Toolbar /> Component renders correctly 1`] = `
     src="Logo.svg"
   />
   <withRouter(navigationItems) />
+  <withRouter(SearchField) />
   <Component
     id="toolbarGetStarted"
   />

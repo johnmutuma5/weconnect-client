@@ -4,11 +4,13 @@
 import businessesStateReducer from './reducers/businesses';
 import authStateReducer from './reducers/auth';
 import layoutStateReducer from './reducers/layout';
+import searchFieldStateReducer from './reducers/search';
 
 const initState = {
     businessesState: undefined,
     authState: undefined,
-    layoutState: undefined
+    layoutState: undefined,
+    searchFieldState: undefined
 };
 
 
@@ -17,6 +19,7 @@ const weConnectReducer = (state=initState, action) => (
         businessesState: businessesStateReducer(state.businessesState, action),
         authState: authStateReducer(state.authState, action),
         layoutState: layoutStateReducer(state.layoutState, action),
+        searchFieldState: searchFieldStateReducer(state.searchFieldState, action),
     }
 );
 

@@ -1,20 +1,37 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Aux';
+import { initSearchState, searchName } from '../../../store/actions/actions';
 import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
 
 import './SearchField.css';
 
 
 class SearchField extends React.Component {
-    constructor(props) {
+    constructor(props, context) {
         super(props);
-        this.state = {
-            values: {
-                searchValue: ''
-            },
-            searchVisible: false
-        }
+        this.store = context.store;
+        this.state = {};
+        this.subscriptions = [
+            'INIT_SEARCH_STATE',
+        ];
+    }
+
+    componentWillMount() {
+        // subscribe to store events
+        this.subscriptionsRevokers = this.store.subscribe(
+            this.subscriptions, this.handleStateDidUpdate.bind(this))
+        this.store.dispatch(initSearchState());
+    }
+
+    handleStateDidUpdate(state) {
+        this.setState(state.searchFieldState);
+    }
+
+    componentWillUnmount() {
+        for(let subscriptionRevoker of this.subscriptionsRevokers)
+            subscriptionRevoker();
     }
 
     render() {
@@ -52,6 +69,7 @@ class SearchField extends React.Component {
     }
 
     processFormData(data) {
+        this.store.dispatch(searchName(data.searchValue));
         this.props.history.push(`/businesses/search?name=${data.searchValue}`)
     }
 
@@ -64,5 +82,8 @@ class SearchField extends React.Component {
     }
 }
 
+SearchField.contextTypes = {
+    store: PropTypes.object.isRequired
+}
 
 export default withRouter(SearchField);
