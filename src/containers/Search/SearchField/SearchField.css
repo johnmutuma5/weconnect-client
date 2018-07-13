@@ -45,11 +45,11 @@
     flex-flow: row;
     align-items: center;
     justify-content: flex-end;
+    width: 200px;
     margin-right: 15px;
 }
 
 .Toolbar .Search .form_container {
-    width: 250px;
     flex-flow: row;
     align-items: center;
     justify-content: center;
@@ -63,7 +63,7 @@
 }
 
 .Toolbar .Search.visible .form_container {
-    width: 250px;
+    width: 100%;
     margin: auto;
 }
 

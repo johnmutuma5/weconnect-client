@@ -13,7 +13,7 @@ class SearchField extends React.Component {
             values: {
                 searchValue: ''
             },
-            searchVisible: false,
+            searchVisible: false
         }
     }
 
@@ -25,7 +25,9 @@ class SearchField extends React.Component {
 
         return (
             <div className={searchClasses.join(' ')}>
-                <div onClick={ this.toggleInputBar } className='SearchIcon'>Search</div>
+                <div
+                    onClick={ this.toggleInputBar.bind(this) }
+                    className='SearchIcon'>Search</div>
                 <Form
                     formContext={ this }
                     loadElements={ this.loadElements.bind(this) }
@@ -43,14 +45,17 @@ class SearchField extends React.Component {
         ]
     }
 
-
     onSubmit(e) {
         e.preventDefault();
         this.toggleInputBar();
-        this.props.onSubmit(this.state.values);
+        this.processFormData(this.state.values);
     }
 
-    toggleInputBar = () => {
+    processFormData(data) {
+        this.props.history.push(`/businesses/search?name=${data.searchValue}`)
+    }
+
+    toggleInputBar() {
         this.setState({searchVisible: !this.state.searchVisible});
     }
 

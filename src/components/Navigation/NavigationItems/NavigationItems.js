@@ -1,13 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import NavigationItem from './NavigationItem/NavigationItem';
-import SearchField from '../../../containers/Search/SearchField/SearchField';
 import './NavigationItems.css';
 
 
 const navigationItems = (props) => (
     <nav className='NavigationItems'>
-        <SearchField onSubmit={(data) => props.history.push(`/businesses/search?name=${data.searchValue}`)} />
         <ul onClick={ props.onClick }>
             {// <NavigationItem
             //     link_to='/businesses'>Explore</NavigationItem>
