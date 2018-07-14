@@ -9,7 +9,6 @@ import './DetailedBusinessInfo.css';
 
 const detailedBusinessInfo = (props, context) => {
     const layoutState = context.store.state.layoutState;
-    const currentUserId = context.store.state.authState.userId;
 
     let editingElements = (
         <div className='ProfileManangement'>
@@ -32,11 +31,10 @@ const detailedBusinessInfo = (props, context) => {
         </div>
     );
 
-    const userIsOwner = (props.owner.id).toString() === currentUserId;
+    const userIsOwner = (props.owner.id).toString() === (props.currentUserId).toString();
     editingElements = layoutState.showLayoutForAuthenticatedUser && userIsOwner?
                         editingElements :
                         null;
-
     return (
         <Aux>
             <div class="">

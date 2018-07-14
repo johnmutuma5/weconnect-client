@@ -20,6 +20,7 @@ import './BusinessProfile.css';
 class BusinessProfile extends React.Component {
     constructor(props,context) {
         super(props);
+        this.store = context.store
         this.state = {
             primaryBusinessInfo: {
                 owner: {
@@ -37,7 +38,6 @@ class BusinessProfile extends React.Component {
             deletingBusiness: false,
             readyToAddReview: false
         }
-        this.store = context.store
         this.subscriptions = [
             'LOGIN_USER',
             'LOGOUT_USER'
@@ -67,6 +67,9 @@ class BusinessProfile extends React.Component {
 
 
     render() {
+
+        const currentUserId = this.store.state.authState.userId || ''; 
+
         return (
             <Aux>
                 <div className="jumbotron">
@@ -77,7 +80,9 @@ class BusinessProfile extends React.Component {
 
                 <div className='BusinessProfileContent'>
                     <section>
-                        <DetailedBusinessInfo { ...this.state.primaryBusinessInfo }
+                        <DetailedBusinessInfo
+                            currentUserId={ currentUserId }
+                            { ...this.state.primaryBusinessInfo }
                             toggleEditing={ this.toggleEditingProfile.bind(this) }
                             toggleDeleting={ this.toggleDeletingBusiness.bind(this) } />
                         <Reviews
