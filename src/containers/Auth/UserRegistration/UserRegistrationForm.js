@@ -26,6 +26,7 @@ export class UserRegistrationForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault()
+        console.log(this.state.values)
         createAccount(this.state.values)
             .then((response) => {
                 const msg = response.msg;
@@ -74,7 +75,29 @@ export class UserRegistrationForm extends React.Component {
                     },
                     formInput('text', 'first_name', this.state.values.first_name, 'First Name'),
                     formInput('text', 'last_name', this.state.values.last_name, 'Last Name'),
-                    formInput('text', 'gender', this.state.values.gender, 'Gender'),
+                    // formInput('text', 'gender', this.state.values.gender, 'Gender'),
+                    {
+                        elementType: 'select',
+                        attributes: {
+                            name: 'gender'
+                        },
+                        children: [
+                            {
+                                elementType: 'option',
+                                attributes: {
+                                    value: 'Male'
+                                },
+                                children: 'Male'
+                            },
+                            {
+                                elementType: 'option',
+                                attributes: {
+                                    value: 'Female'
+                                },
+                                children: 'Female'
+                            }
+                        ]
+                    },
                     formInput('email', 'email', this.state.values.email, 'Email'),
                     formInput('text', 'mobile', this.state.values.mobile, '254700000000')
                 ]

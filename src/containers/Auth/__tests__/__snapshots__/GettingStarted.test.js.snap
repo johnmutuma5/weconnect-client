@@ -73,14 +73,29 @@ exports[`<GettingStarted /> renders user sign up form as the default form 1`] = 
           type="text"
           value=""
         />
-        <input
-          key="gender"
+        <select
           name="gender"
           onChange={[Function]}
-          placeholder="Gender"
-          type="text"
-          value=""
-        />
+        >
+          <option
+            disabled={true}
+            hidden={true}
+            selected={true}
+            value=""
+          >
+            Select Gender...
+          </option>
+          <option
+            value="Male"
+          >
+            Male
+          </option>
+          <option
+            value="Female"
+          >
+            Female
+          </option>
+        </select>
         <input
           key="email"
           name="email"

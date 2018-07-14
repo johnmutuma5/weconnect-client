@@ -66,14 +66,29 @@ exports[`<UserRegistrationForm /> UserRegistrationForm with simulated data colle
           type="text"
           value=""
         />
-        <input
-          key="gender"
+        <select
           name="gender"
           onChange={[Function]}
-          placeholder="Gender"
-          type="text"
-          value=""
-        />
+        >
+          <option
+            disabled={true}
+            hidden={true}
+            selected={true}
+            value=""
+          >
+            Select Gender...
+          </option>
+          <option
+            value="Male"
+          >
+            Male
+          </option>
+          <option
+            value="Female"
+          >
+            Female
+          </option>
+        </select>
         <input
           key="email"
           name="email"

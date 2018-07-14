@@ -88,7 +88,7 @@ fieldset:last-child {
   color: #00273F;
 }
 
-input:not([type='checkbox']) {
+input:not([type='checkbox']), select {
   border-radius: 5px;
   border: none;
   border-bottom: 1px solid #BBF5F9;
@@ -114,9 +114,13 @@ input[name='submit']:hover {
   box-shadow: 2px 3px 5px #4c4502;
 }
 
-input[type='text'], input[type='password'], input[type='email']{
+input[type='text'], input[type='password'], input[type='email'], select{
     background-color: #E5E8EA;
     min-width: 80%;
+}
+
+select option {
+    /* color: red; */
 }
 
 input {
@@ -126,7 +130,7 @@ input {
   padding-left: 5px !important;
 }
 
-fieldset:not(:last-child) input:focus {
+fieldset:not(:last-child) input:focus, select {
   -webkit-box-shadow: 0px 0px 5px 1px #F7FCFC;
           box-shadow: 0px 0px 5px 1px #F7FCFC;
   outline: none;

@@ -58,11 +58,29 @@ class Form extends React.Component {
                 const val = elem.children;
                 return <legend key={ val }>{ val }</legend>;
 
+            case 'select':
+                let selectChildren = elem.children.map(this.createElement);
+                return (
+                    <select
+                        onChange={ this.handleInputChange.bind(this) }
+                        { ...elem.attributes}>
+                        <option value="" disabled selected hidden>
+                            { 'Select Gender...' }
+                        </option>
+                        { selectChildren }
+                    </select>
+                );
+
+            case 'option':
+                return (
+                    <option { ...elem.attributes }>{ elem.children }</option>
+                )
+
             case 'input':
                 return (<input
-                        { ...elem.attributes }
                         onBlur={ this.props.onInputBlur }
                         onChange={ this.handleInputChange.bind(this) }
+                        { ...elem.attributes }
                         key={ elem.attributes.name }/>)
             default:
                 break;
