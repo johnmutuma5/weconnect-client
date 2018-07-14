@@ -46,7 +46,7 @@ class Store {
             for (let listener of this.events[eventType])
                 listener(this.state);
         } catch (e) {
-            console.error(`Have you forgotten to subscribe the component dispatching ${eventType}? You can do this by store.subscribe(['${eventType}'], handler), or by adding ${eventType} to this.subscriptions array if it is already declared in the component`);
+            console.error(`Have you forgotten to subscribe components interested with  ${eventType} to the event? You can do this by store.subscribe(['${eventType}'], handler), or by adding ${eventType} to this.subscriptions array if it is already declared in the component`);
         }
     }
 }

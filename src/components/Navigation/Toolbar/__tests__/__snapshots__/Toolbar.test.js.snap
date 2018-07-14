@@ -41,7 +41,8 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
       className="SearchIcon"
       onClick={[Function]}
     >
-      Search
+      <span />
+      <span />
     </div>
     <article
       className="form_container"

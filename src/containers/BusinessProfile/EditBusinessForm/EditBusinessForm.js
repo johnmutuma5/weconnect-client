@@ -9,7 +9,7 @@ class EditBusinessForm extends React.Component {
         this.state = {
             values: {
                 name: '',
-                caterory: '',
+                category: '',
                 location: ''
             }
         }
