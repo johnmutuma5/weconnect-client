@@ -11,8 +11,8 @@
 }
 
 .SearchIcon span:first-child {
-    min-width: 45%;
-    min-height: 45%;
+    min-width: 35%;
+    min-height: 35%;
     background-color: transparent;
     border: .182em solid #8deaf7;
     border-radius: 50%
@@ -21,7 +21,8 @@
 .SearchIcon span:last-child {
     background-color: white;
     border: .09em solid #8deaf7;
-    width: 12px;
+    width: 10px;
     max-width: 70%;
-    transform: rotateZ(35deg) translateY(8px) translateX(0.5px);
+    transform-origin: top;
+    transform: rotateZ(45deg) translateY(8px) translateX(2.5px);
 }

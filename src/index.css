@@ -20,12 +20,12 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Montserrat';
   margin: 0;
   background: #e4ebef;
   position: relative;
   color: #00080C;
-  font-weight:800;
+  font-weight:100;
   font-size: .85em;
   letter-spacing: 1px;
   text-rendering: optimizeLegibility;
@@ -84,6 +84,7 @@ h2::before {
 h1, h2, h3, h4 {
   color: #5b051d;
   font-size: 1.05em;
+  font-weight: 100;
 }
 
 
@@ -95,7 +96,7 @@ h2 {
 h3 {
   font-style: normal;
   color: #404040;
-  font-weight: bolder;
+  font-weight: 800;
 }
 
 h4, h2 {
