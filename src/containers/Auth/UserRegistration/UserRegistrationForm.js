@@ -41,7 +41,7 @@ export class UserRegistrationForm extends React.Component {
     redirect(path) {
         // returns a timed-out callback function for setState
         return () => {
-            setTimeout(()=>this.props.history.push(path) ,1500);
+            setTimeout(()=>this.props.handleReadyToLogin() ,1500);
         }
     }
 
