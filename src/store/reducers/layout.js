@@ -24,7 +24,8 @@ const layoutStateReducer = (state=initState, action) => {
         case actionTypes.TOGGLE_GETTING_STARTED:
             return  {
                         ...state,
-                        userGettingStarted: !state.userGettingStarted
+                        userGettingStarted: !state.userGettingStarted,
+                        sideDrawerOpen: false
                     }
 
         case actionTypes.TOGGLE_REGISTERING_BUSINESS:
@@ -37,13 +38,15 @@ const layoutStateReducer = (state=initState, action) => {
             return {
                 ...state,
                 userGettingStarted: !state.userGettingStarted,
-                showLayoutForAuthenticatedUser: !state.showLayoutForAuthenticatedUser
+                showLayoutForAuthenticatedUser: !state.showLayoutForAuthenticatedUser,
+                sideDrawerOpen: false
             }
 
         case actionTypes.LOGOUT_USER:
             return {
                 ...state,
-                showLayoutForAuthenticatedUser: !state.showLayoutForAuthenticatedUser
+                showLayoutForAuthenticatedUser: !state.showLayoutForAuthenticatedUser,
+                sideDrawerOpen: false
             }
 
         default:
