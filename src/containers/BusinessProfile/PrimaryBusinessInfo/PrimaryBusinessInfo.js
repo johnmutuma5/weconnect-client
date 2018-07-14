@@ -3,7 +3,6 @@ import React from 'react';
 import './PrimaryBusinessInfo.css';
 
 const primaryBusinessInfo = (props) => {
-    console.log(props)
     return (
         <div className="business_details">
             <article>

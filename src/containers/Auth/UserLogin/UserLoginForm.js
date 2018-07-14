@@ -31,7 +31,11 @@ class UserLoginForm extends React.Component {
             .then((response) => {
                 // update application state with auth access_token credentials
                 // consider a flash message here in later
-                const action = loginUserAction(response.access_token);
+                const authData = {
+                    accessToken: response.access_token,
+                    userId: response.id
+                }
+                const action = loginUserAction(authData);
                 this.store.dispatch(action)
             })
             .catch((error) => {

@@ -5,7 +5,7 @@ const initState = {
     sideDrawerOpen: false,
     userGettingStarted: false,
     registeringBusiness: false,
-    showLayoutForAuthenticatedUser: localStorage.getItem('userToken')
+    showLayoutForAuthenticatedUser: localStorage.getItem('accessToken')
 };
 
 const layoutStateReducer = (state=initState, action) => {

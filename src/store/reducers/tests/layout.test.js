@@ -14,7 +14,7 @@ describe('layoutStateReducer', () => {
             sideDrawerOpen: false,
             userGettingStarted: false,
             registeringBusiness: false,
-            showLayoutForAuthenticatedUser: localStorage.getItem('userToken')
+            showLayoutForAuthenticatedUser: localStorage.getItem('accessToken')
         };
         localStorage.clear();
     });

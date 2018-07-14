@@ -2,39 +2,41 @@ import authStateReducer from '../auth';
 import { loginUserAction, logoutUser } from '../../actions/actions';
 
 describe('authStateReducer', () => {
-    let userToken;
-    let initState;
+    let accessToken, initState, userId;
 
     beforeEach(() => {
-        userToken = 'a.user.token';
+        accessToken = 'a.user.token';
+        userId= '1000'
         // initial authState
         initState = {
-            userToken: localStorage.getItem('userToken')
+            accessToken: localStorage.getItem('accessToken'),
+            userId: localStorage.getItem('userId')
         };
     });
 
 
-    it('it updates userToken on login', () => {
+    it('it updates accessToken on login', () => {
         expect.assertions(1); // this test expects one assertion
 
         const expectedStateAfterLogin = {
-            userToken: userToken
+            accessToken: accessToken,
+            userId: userId
         }
-        const loginAction = loginUserAction(userToken);
+        const loginAction = loginUserAction(expectedStateAfterLogin);
         const newState = authStateReducer(initState, loginAction);
         expect(newState).toEqual(expectedStateAfterLogin);
     });
 
 
-    it('it clears userToken on logout', () => {
+    it('it clears accessToken on logout', () => {
         expect.assertions(1);
 
         const initState = {
-            userToken: userToken
+            accessToken: accessToken
         };
 
         const expectedStateAfterLogout = {
-            userToken: undefined
+            accessToken: undefined
         }
         const logoutAction = logoutUser();
         const newState = authStateReducer(initState, logoutAction);

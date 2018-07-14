@@ -59,8 +59,8 @@ class Businesses extends React.Component {
     }
 
     addBusiness(businessData) {
-        const userToken = this.store.state.authState.userToken;
-        return registerNewBusiness(businessData, userToken);
+        const accessToken = this.store.state.authState.accessToken;
+        return registerNewBusiness(businessData, accessToken);
     }
 
     toggleRegistering() {

@@ -9,7 +9,7 @@ describe('<Toolbar /> Component', () => {
     beforeEach(() => {
 
         store.state = {
-            authState: { userToken: undefined },
+            authState: { accessToken: undefined },
             layoutState: {}
         };
         context = {
@@ -24,7 +24,7 @@ describe('<Toolbar /> Component', () => {
 
     it('displays logout button when authenticated', () => {
         expect.assertions(2);
-        context.store.state.authState = { userToken: 'a.user.token'};
+        context.store.state.authState = { accessToken: 'a.user.token'};
         context.store.state.layoutState = {showLayoutForAuthenticatedUser: true}
 
         const wrapper = mount(<MemoryRouter><Toolbar /></MemoryRouter>,

@@ -9,8 +9,8 @@ export function weConnectLoginUser(data) {
 }
 
 
-export function weConnectLogoutUser(userToken) {
+export function weConnectLogoutUser(accessToken) {
     return ajax
-            .config({headers: {Authorization: `Bearer ${userToken}`}})
+            .config({headers: {Authorization: `Bearer ${accessToken}`}})
             .post('/auth/logout');
 }

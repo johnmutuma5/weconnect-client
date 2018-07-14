@@ -15,10 +15,10 @@ export const initBusinessesState = () => (
 );
 
 //AUTH
-export const loginUserAction = (auth_token) => (
+export const loginUserAction = (authData) => (
     {
         type: types.LOGIN_USER,
-        payload: auth_token
+        payload: authData
     }
 );
 

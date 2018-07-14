@@ -2,7 +2,8 @@ import actionTypes from '../actions/actionTypes';
 
 
 const initState = {
-    userToken: localStorage.getItem('userToken')
+    accessToken: localStorage.getItem('accessToken'),
+    userId: localStorage.getItem('userId')
 };
 
 
@@ -10,18 +11,20 @@ const initState = {
 const authStateReducer =  (state=initState, action) => {
     switch (action.type) {
         case actionTypes.LOGIN_USER:
-            const userToken = action.payload;
-            localStorage.setItem('userToken', userToken);
+            localStorage.setItem('accessToken', action.payload.accessToken);
+            localStorage.setItem('userId', action.payload.userId);
             const newState = {
                 ...state,
-                userToken: userToken
+                accessToken: action.payload.accessToken,
+                userId: action.payload.userId
             }
             return newState;
         case actionTypes.LOGOUT_USER:
             localStorage.clear();
             return {
                 ...state,
-                userToken: undefined
+                accessToken: undefined,
+                userId: undefined
             }
         default:
             return state

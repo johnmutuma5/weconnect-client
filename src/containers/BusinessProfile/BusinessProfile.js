@@ -110,8 +110,8 @@ class BusinessProfile extends React.Component {
     handleAddReview(reviewData) {
         // post to API
         const businessId = this.props.match.params['id'];
-        const userToken = this.store.state.authState.userToken;
-        return weConnectAddBusinessReview(businessId, reviewData, userToken);
+        const accessToken = this.store.state.authState.accessToken;
+        return weConnectAddBusinessReview(businessId, reviewData, accessToken);
     }
 
     refreshReviews = () => {
@@ -126,8 +126,8 @@ class BusinessProfile extends React.Component {
 
     handleUpdateBusiness = (data) => {
         const businessId = this.props.match.params['id'];
-        const userToken = this.store.state.authState.userToken;
-        return weConnectUpdateBusiness(businessId, data, userToken);
+        const accessToken = this.store.state.authState.accessToken;
+        return weConnectUpdateBusiness(businessId, data, accessToken);
     }
 
     refreshBusinessInfo = () => {
@@ -143,8 +143,8 @@ class BusinessProfile extends React.Component {
 
     handleDeleteBusiness() {
         const businessId = this.props.match.params['id'];
-        const userToken = this.store.state.authState.userToken;
-        return weConnectDeleteBusiness(businessId, userToken);
+        const accessToken = this.store.state.authState.accessToken;
+        return weConnectDeleteBusiness(businessId, accessToken);
     }
 
     toggleDeletingBusiness() {
