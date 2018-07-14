@@ -35,9 +35,9 @@ class EditBusinessForm extends React.Component {
         this.setState({
             ...this.state,
             values: {
-                name: currentData.name,
-                location: currentData.location,
-                category: currentData.category
+                name: currentData.name || '',
+                location: currentData.location || '',
+                category: currentData.category || ''
             }
         })
     }
