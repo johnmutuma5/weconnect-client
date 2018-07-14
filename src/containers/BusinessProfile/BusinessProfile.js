@@ -68,7 +68,7 @@ class BusinessProfile extends React.Component {
 
     render() {
 
-        const currentUserId = this.store.state.authState.userId || ''; 
+        const currentUserId = this.store.state.authState.userId || '';
 
         return (
             <Aux>
@@ -86,6 +86,8 @@ class BusinessProfile extends React.Component {
                             toggleEditing={ this.toggleEditingProfile.bind(this) }
                             toggleDeleting={ this.toggleDeletingBusiness.bind(this) } />
                         <Reviews
+                            currentUserId={ currentUserId }
+                            businessOwnerId={ this.state.primaryBusinessInfo.owner.id }
                             reviews={ this.state.reviews }
                             readyToAddReview={ this.state.readyToAddReview }
                             toggleReadyToAddReview={this.toggleReadyToAddReview.bind(this)}

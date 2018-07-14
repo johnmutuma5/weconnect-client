@@ -16,23 +16,28 @@ const addReviewElements = (props) => {
     else
         reviewFormClasses = reviewFormClasses.concat(['inactive'])
 
-    return (
-        <Aux>
-            <div class="prompt_review">
-              <div class="prompt">
-                <p> { 'If you know this business, please leave a review...' }</p>
-              </div>
-              <Button type='dark' onClickHandler={props.toggleReadyToAddReview}>
-                <span>{ buttonText }</span>
-              </Button>
-            </div>
-            <div className={ reviewFormClasses.join(' ')}>
-                <AddReviewForm
-                    onSubmit={ props.handleAddReview }
-                    invokeUpdateReviews={ props.updateReviews }/>
-            </div>
-        </Aux>
-    );
+    let addReviewElements = null;
+    // if current user is business owner, these will not be visible
+    if (props.show)
+        addReviewElements = (
+            <Aux>
+                <div class="prompt_review">
+                  <div class="prompt">
+                    <p> { 'If you know this business, please leave a review...' }</p>
+                  </div>
+                  <Button type='dark' onClickHandler={props.toggleReadyToAddReview}>
+                    <span>{ buttonText }</span>
+                  </Button>
+                </div>
+                <div className={ reviewFormClasses.join(' ')}>
+                    <AddReviewForm
+                        onSubmit={ props.handleAddReview }
+                        invokeUpdateReviews={ props.updateReviews }/>
+                </div>
+            </Aux>
+        );
+
+    return addReviewElements;
 };
 
 export default addReviewElements;
