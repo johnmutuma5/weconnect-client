@@ -13,6 +13,7 @@ const profileTools = (props, context) => {
     const store = context.store;
     const layoutState = store.state.layoutState;
     const accessToken = store.state.authState.accessToken;
+    const userFullName = store.state.authState.userFullName;
 
     let logoutButton = <GettingStartedButton />;
 
@@ -29,7 +30,7 @@ const profileTools = (props, context) => {
         <div className='ProfileTools' id={ props.id }>
             <ProfileAvatar image={ {} } />
             <div className='ProfileItems'>
-                <div>{'John Doe'}</div>
+                <div>{ userFullName }</div>
                 <div className='ProfileActions'>
                     { logoutButton }
                 </div>

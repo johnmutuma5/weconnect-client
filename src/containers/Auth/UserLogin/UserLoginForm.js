@@ -33,7 +33,8 @@ class UserLoginForm extends React.Component {
                 // consider a flash message here in later
                 const authData = {
                     accessToken: response.access_token,
-                    userId: response.id
+                    userId: response.id,
+                    userFullName: response.full_name
                 }
                 const action = loginUserAction(authData);
                 this.store.dispatch(action)

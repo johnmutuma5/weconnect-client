@@ -2,11 +2,12 @@ import authStateReducer from '../auth';
 import { loginUserAction, logoutUser } from '../../actions/actions';
 
 describe('authStateReducer', () => {
-    let accessToken, initState, userId;
+    let accessToken, initState, userId, userFullName;
 
     beforeEach(() => {
         accessToken = 'a.user.token';
-        userId= '1000'
+        userId= '1000';
+        userFullName= 'John Doe';
         // initial authState
         initState = {
             accessToken: localStorage.getItem('accessToken'),
@@ -20,7 +21,8 @@ describe('authStateReducer', () => {
 
         const expectedStateAfterLogin = {
             accessToken: accessToken,
-            userId: userId
+            userId: userId,
+            userFullName: userFullName
         }
         const loginAction = loginUserAction(expectedStateAfterLogin);
         const newState = authStateReducer(initState, loginAction);

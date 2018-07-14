@@ -81,9 +81,7 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
     <div
       className="ProfileItems"
     >
-      <div>
-        John Doe
-      </div>
+      <div />
       <div
         className="ProfileActions"
       >
