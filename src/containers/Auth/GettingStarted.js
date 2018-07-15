@@ -12,7 +12,7 @@ class GettingStarted extends React.Component {
     constructor(props, context) {
         super();
         this.state = {
-            startBy: 'signUp'
+            startBy: 'login'
         }
     }
 

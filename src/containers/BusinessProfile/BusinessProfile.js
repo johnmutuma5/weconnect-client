@@ -14,6 +14,7 @@ import { weConnectFetchPrimaryBusinessInfo,
          weConnectAddBusinessReview,
          weConnectUpdateBusiness,
          weConnectDeleteBusiness } from '../../store/resources/business';
+import { toggleGettingStarted } from '../../store/actions/actions';
 
 import './BusinessProfile.css';
 
@@ -114,6 +115,15 @@ class BusinessProfile extends React.Component {
         );
     }
 
+    toggleReadyToAddReview() {
+        if (!this.store.state.layoutState.showLayoutForAuthenticatedUser && !this.state.readyToAddReview){
+            const action = toggleGettingStarted();
+            this.store.dispatch(action);
+            return
+        }
+        this.setState({readyToAddReview: !this.state.readyToAddReview})
+    }
+
     handleAddReview(reviewData) {
         // post to API
         const businessId = this.props.match.params['id'];
@@ -156,10 +166,6 @@ class BusinessProfile extends React.Component {
 
     toggleDeletingBusiness() {
         this.setState({deletingBusiness: !this.state.deletingBusiness})
-    }
-
-    toggleReadyToAddReview() {
-        this.setState({readyToAddReview: !this.state.readyToAddReview})
     }
 }
 
