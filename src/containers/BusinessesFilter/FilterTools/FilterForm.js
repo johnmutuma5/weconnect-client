@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import Form, { formInput } from '../../../components/UI/utils/Form';
 
 class FilterForm extends React.Component {
@@ -15,7 +14,7 @@ class FilterForm extends React.Component {
             <Form
                 loadElements={ this.loadElements.bind(this) }
                 formContext={ this }
-                onInputChange={ this.handleFilterInput.bind(this) }
+                onInputChange={ () => this.props.handleFilterInput(this.state.values) }
                 onSubmit={ (e) => { e.preventDefault() } }/>
         )
 
@@ -30,25 +29,6 @@ class FilterForm extends React.Component {
         ]
     }
 
-    handleFilterInput() {
-        const query = this.generateQueryString(this.state.values);
-        this.props.history.push({
-            pathname: '/businesses/filter',
-            search: '?'+query
-        })
-    }
-
-    generateQueryString(queryObj) {
-        let queryStringParts = [];
-        for(let key in this.state.values){
-            if(!this.state.values.hasOwnProperty(key) || !this.state.values[key].length)
-                continue
-            queryStringParts =
-                queryStringParts
-                    .concat(key + '=' + encodeURIComponent(this.state.values[key]))
-        }
-        return queryStringParts.join('&');
-    }
 }
 
-export default withRouter(FilterForm);
+export default FilterForm;

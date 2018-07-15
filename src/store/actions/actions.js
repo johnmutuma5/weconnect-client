@@ -75,3 +75,10 @@ export const initFilterToolsState = () => (
         type: types.INIT_FILTER_TOOLS_STATE
     }
 );
+
+export const updateFilterValues = (inputData) => (
+    {
+        type: types.UPDATE_FILTER_VALUES,
+        payload: inputData
+    }
+);

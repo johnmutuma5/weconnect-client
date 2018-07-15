@@ -27,6 +27,7 @@ export function weConnectAddBusinessReview(id, data, accessToken) {
 }
 
 export function weConnectFilterBusinesses(queryString) {
+    console.log('sent')
     return ajax.get(`/businesses/filter${queryString}`);
 }
 

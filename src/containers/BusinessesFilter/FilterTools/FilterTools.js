@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import FilterForm from './FilterForm';
-import { initFilterToolsState } from '../../../store/actions/actions';
+import { initFilterToolsState, updateFilterValues } from '../../../store/actions/actions';
 
 import './FilterTools.css';
 
@@ -11,7 +12,8 @@ class FilterTools extends React.Component {
         this.store = context.store;
         this.state = {};
         this.subscriptions = [
-            'INIT_FILTER_TOOLS_STATE'
+            'INIT_FILTER_TOOLS_STATE',
+            'UPDATE_FILTER_VALUES'
         ]
     }
 
@@ -22,7 +24,8 @@ class FilterTools extends React.Component {
     }
 
     handleStateDidUpdate(state) {
-        this.setState(state.filterToolsState);
+        const filterToolsState = state.filterToolsState;
+        this.setState(filterToolsState);
     }
 
     componentWillUnmount() {
@@ -34,9 +37,38 @@ class FilterTools extends React.Component {
         return (
             <div className='FilterTools'>
                 <div>{'Filter'}</div>
-                <FilterForm values={ this.state.filters } />
+                <FilterForm
+                    values={ this.state.filters }
+                    handleFilterInput={ this.handleFilterInput.bind(this) } />
             </div>
         )
+    }
+
+    fetchFilterResults = (filters) => (
+        () => {
+            const query = this.generateQueryString(filters);
+            this.props.history.push({
+                pathname: '/businesses/filter',
+                search: '?'+query
+            })
+        }
+    );
+
+    handleFilterInput(inputData) {
+        this.store.dispatch(updateFilterValues(inputData));
+        setTimeout(() => this.fetchFilterResults(inputData)(), 700);
+    }
+
+    generateQueryString(queryObj) {
+        let queryStringParts = [];
+        for(let key in queryObj){
+            if(!queryObj.hasOwnProperty(key) || !queryObj[key].length)
+                continue
+            queryStringParts =
+                queryStringParts
+                    .concat(key + '=' + encodeURIComponent(queryObj[key]))
+        }
+        return queryStringParts.join('&');
     }
 }
 
@@ -44,4 +76,4 @@ FilterTools.contextTypes = {
     store: PropTypes.object.isRequired
 }
 
-export default FilterTools;
+export default withRouter(FilterTools);
