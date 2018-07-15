@@ -5,7 +5,6 @@ import { Switch } from 'react-router';
 import Businesses from './containers/Businesses/Businesses';
 import BusinessesFilter from './containers/BusinessesFilter/BusinessesFilter';
 import SearchBusinesses from './containers/Search/Search';
-import UserRegistrationForm from './containers/Auth/UserRegistration/UserRegistrationForm';
 import BusinessProfile from './containers/BusinessProfile/BusinessProfile';
 import ResourcesProvider, { createStore } from './store';
 import weConnectReducer from './store/baseReducer';

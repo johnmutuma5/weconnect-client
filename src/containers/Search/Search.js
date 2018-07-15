@@ -4,9 +4,6 @@ import BusinessesFilter from '../BusinessesFilter/BusinessesFilter';
 import Aux from '../../hoc/Aux';
 
 class SearchBusinesses extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

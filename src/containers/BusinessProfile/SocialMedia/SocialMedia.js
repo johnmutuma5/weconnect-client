@@ -7,10 +7,10 @@ const socialMedia = (props) => {
         <article id='socialMedia'>
             <div className="social_media flex_row">
               <div className="fb">
-                <a href="http://eg.com" title='Facebook'><i className="fa fa-facebook-official" aria-hidden="true" style={{fontSize:'24px', color:'#3b5998'}}></i></a>
+                <a href="http://eg.com" title='Facebook'><i className="fa fa-facebook-official" style={{fontSize:'24px', color:'#3b5998'}}></i></a>
               </div>
               <div className="tw">
-                <a href="http://eg.com" title='Twitter'><i className="fa fa-twitter" aria-hidden="true" style={{
+                <a href="http://eg.com" title='Twitter'><i className="fa fa-twitter" style={{
                     fontSize:'24px', color:'#55acee'
                 }}></i></a>
               </div>

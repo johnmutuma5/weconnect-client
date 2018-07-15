@@ -1,10 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Aux from '../../../hoc/Aux';
 import { initSearchState, searchName } from '../../../store/actions/actions';
 import SearchIcon from '../../../components/UI/SearchIcon/SearchIcon';
-import Form, {formProcessComplete, formProcessFailed, formInput} from '../../../components/UI/utils/Form';
+import Form, { formInput } from '../../../components/UI/utils/Form';
 
 import './SearchField.css';
 

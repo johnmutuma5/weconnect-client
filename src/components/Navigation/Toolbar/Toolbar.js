@@ -5,9 +5,7 @@ import Logo from '../../Logo/Logo';
 import SideMenuToggler from '../../UI/SideMenuToggler/SideMenuToggler';
 import logo from '../../../Logo.svg';
 import ProfileTools from '../../Auth/Profile/ProfileTools/ProfileTools';
-import Button from '../../UI/Button/Button';
 import { GettingStartedButton } from '../../../containers/Auth/GettingStarted';
-import { toggleGettingStarted } from '../../../store/actions/actions';
 import SearchField from '../../../containers/Search/SearchField/SearchField';
 
 import './Toolbar.css';
@@ -28,7 +26,6 @@ const toolbar = (props, context) => {
             <SearchField />
             { profileTools }
             <SideMenuToggler click={ props.click } />
-
         </div>
     );
 };

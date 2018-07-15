@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux';
 import Navigation from '../../components/Navigation/Navigation';
 import GettingStarted from '../Auth/GettingStarted';
-import Footer from './Footer/Footer';
-import { initLayoutState, toggleGettingStarted } from '../../store/actions/actions';
+import { initLayoutState } from '../../store/actions/actions';
 
 import './Layout.css';
 
