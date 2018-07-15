@@ -3,9 +3,9 @@ import actionTypes from '../actions/actionTypes';
 
 const initFilterToolsState = {
     filters: {
-        category: 'de',
-        location: 'def',
-        name: 'def'
+        category: '',
+        location: '',
+        name: ''
     },
     filterFormActive: false
 };
