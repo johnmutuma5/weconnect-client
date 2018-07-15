@@ -42,7 +42,7 @@ class SearchField extends React.Component {
                             searchClasses.concat(['hidden']);
 
         return (
-            <div className={searchClasses.join(' ')}>
+            <article className={searchClasses.join(' ')}>
                 <SearchIcon click={ this.toggleInputBar.bind(this) }/>
                 <Form
                     formContext={ this }
@@ -50,7 +50,7 @@ class SearchField extends React.Component {
                     onInputBlur={ this.onInputBlur }
                     onInputChange={ (e) => {console.log(this.state)} }
                     onSubmit={ this.onSubmit.bind(this) }/>
-            </div>
+            </article>
         )
     }
 

@@ -50,7 +50,7 @@ nav.NavigationItems  {
 .CategoryNavigationItems nav {
     display: flex;
     justify-content: flex-start;
-    max-width: 1280px;
+    max-width: 1080px;
 }
 
 .CategoryNavigationItems nav ul {

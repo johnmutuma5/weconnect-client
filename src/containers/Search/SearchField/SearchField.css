@@ -1,9 +1,15 @@
-.SearchField article {
+.SearchField > article {
     height: 100px;
-    width: 60%;
+    margin: 0 0 35px 0;
+    /*width: 60%;
     justify-content: flex-start;
     margin: 0;
-    flex-flow: row;
+    flex-flow: row; */
+}
+
+.SearchField .form_container {
+    margin: 0;
+    width: 100%;
 }
 
 .SearchField form {

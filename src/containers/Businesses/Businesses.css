@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 
-article.Businesses {
+/* article.Businesses {
  padding: 0;
  margin: auto;
-}
+} */
 
 .Businesses a {
     text-decoration: none;
@@ -21,8 +21,8 @@ article.Businesses {
 
 @media (min-width: 700px) {
 
-   article.Businesses {
+   /* article.Businesses {
      width: 60%;
      margin-left: 0;
-   }
+   } */
 }

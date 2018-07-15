@@ -1,0 +1,10 @@
+.FilterTools {
+    display: flex;
+    flex-flow: column;
+}
+
+.FilterTools form input {
+    width: 100%;
+    height: 25px;
+    margin: 5px 0;;
+}

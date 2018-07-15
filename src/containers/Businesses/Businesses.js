@@ -13,6 +13,8 @@ import BusinessRegistrationForm from './BusinessRegistration/BusinessRegistratio
 
 import './Businesses.css';
 
+import FilterForm from '../BusinessesFilter/FilterTools/FilterForm';
+
 
 class Businesses extends React.Component {
     constructor (props, context) {
@@ -111,11 +113,22 @@ class Businesses extends React.Component {
         return (
             // render businesses and new business registration UI components
             <section>
+                <div className='SideElements'>
+                    <div className='side-wrapper'>
+                        <div className='FilterTools'>
+                            <div>{'filetes'}</div>
+                            <FilterForm />
+                        </div>
+                    </div>
+                </div>
                 <article className='Businesses'>
                     { businesses }
                     { businessRegistrationElements }
                     { loader }
                 </article>
+                <div className='Highlights'>
+                    {'Highlights'}
+                </div>
             </section>
         );
     }

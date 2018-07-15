@@ -31,14 +31,14 @@ class Form extends React.Component {
             .map(this.createElement)
 
         const form = this.withMessages(
-            <article className="form_container">
+            <div className="form_container">
                 <form
                     onSubmit={ this.props.onSubmit }
                     className={ this.props.className }
                     id={ this.props.id }>
                         { formElements }
                 </form>
-            </article>
+            </div>
         );
 
         return form
