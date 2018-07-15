@@ -32,7 +32,7 @@ class BusinessProfile extends React.Component {
                 location: '',
                 mobile: '',
                 specialization: '',
-                registrationDate: 'Tue, February 27 2018',
+                date_created: '',
             },
             reviews: [],
             editingProfile: false,

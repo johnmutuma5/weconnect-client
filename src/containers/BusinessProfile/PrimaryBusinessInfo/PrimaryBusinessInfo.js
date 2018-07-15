@@ -23,7 +23,7 @@ const primaryBusinessInfo = (props) => {
                         <p><span>{ 'Mobile' }:</span> { props.mobile } </p>
                     </div>
                     <div className="registration_date">
-                        <p><span>Registration date:</span> { props.registrationDate } </p>
+                        <p><span>Registration date:</span> { props.date_created } </p>
                     </div>
                 </div>
             </article>
