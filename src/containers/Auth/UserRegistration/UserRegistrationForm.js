@@ -26,7 +26,6 @@ export class UserRegistrationForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault()
-        console.log(this.state.values)
         createAccount(this.state.values)
             .then((response) => {
                 const msg = response.msg;

@@ -11,11 +11,6 @@ exports[`<Layout /> Component renders correctly 1`] = `
     >
       <main />
     </div>
-    <backDrop
-      active={false}
-      click={[Function]}
-      id="GettingStartedBackdrop"
-    />
   </div>
 </aux>
 `;

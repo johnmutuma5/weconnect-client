@@ -10,7 +10,7 @@ const reviewItems = (props) => {
             body={ review.body }/>
     ));
     return (
-        <div class="reviews">
+        <div className="reviews">
           <ul>
             { reviews }
           </ul>

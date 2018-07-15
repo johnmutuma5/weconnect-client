@@ -21,8 +21,8 @@ const addReviewElements = (props) => {
     if (props.show)
         addReviewElements = (
             <Aux>
-                <div class="prompt_review">
-                  <div class="prompt">
+                <div className="prompt_review">
+                  <div className="prompt">
                     <p> { 'If you know this business, please leave a review...' }</p>
                   </div>
                   <Button type='dark' onClickHandler={props.toggleReadyToAddReview}>

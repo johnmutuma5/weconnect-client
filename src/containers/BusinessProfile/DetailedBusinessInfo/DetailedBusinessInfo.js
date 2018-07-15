@@ -37,7 +37,7 @@ const detailedBusinessInfo = (props, context) => {
                         null;
     return (
         <Aux>
-            <div class="">
+            <div className="">
               <h2>Detailed information</h2>
             </div>
             <article id="info_wrapper">

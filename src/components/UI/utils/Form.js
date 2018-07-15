@@ -62,6 +62,7 @@ class Form extends React.Component {
                 let selectChildren = elem.children.map(this.createElement);
                 return (
                     <select
+                        key={elem.attributes.name}
                         onChange={ this.handleInputChange.bind(this) }
                         { ...elem.attributes}>
                         <option value="" disabled selected hidden>
@@ -73,7 +74,9 @@ class Form extends React.Component {
 
             case 'option':
                 return (
-                    <option { ...elem.attributes }>{ elem.children }</option>
+                    <option key={elem.attributes.value} { ...elem.attributes }>
+                        { elem.children }
+                    </option>
                 )
 
             case 'input':

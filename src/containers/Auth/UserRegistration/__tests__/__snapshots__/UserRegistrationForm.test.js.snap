@@ -67,6 +67,7 @@ exports[`<UserRegistrationForm /> UserRegistrationForm with simulated data colle
           value=""
         />
         <select
+          key="gender"
           name="gender"
           onChange={[Function]}
         >
@@ -79,11 +80,13 @@ exports[`<UserRegistrationForm /> UserRegistrationForm with simulated data colle
             Select Gender...
           </option>
           <option
+            key="Male"
             value="Male"
           >
             Male
           </option>
           <option
+            key="Female"
             value="Female"
           >
             Female
