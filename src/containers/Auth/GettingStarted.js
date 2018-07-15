@@ -4,10 +4,12 @@ import UserRegistrationForm from './UserRegistration/UserRegistrationForm';
 import UserLoginForm from './UserLogin/UserLoginForm';
 import { toggleGettingStarted } from '../../store/actions/actions';
 import Button from '../../components/UI/Button/Button';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import Aux from '../../hoc/Aux';
 
 class GettingStarted extends React.Component {
 
-    constructor(props) {
+    constructor(props, context) {
         super();
         this.state = {
             startBy: 'signUp'
@@ -15,12 +17,21 @@ class GettingStarted extends React.Component {
     }
 
     render() {
+        const store = this.context.store;
         let form = <UserRegistrationForm
                         isVisible={ this.props.visible }
                         handleReadyToLogin={ this.handleReadyToLogin.bind(this) }/>
         // switch form between sign up, login and reset password
         form = this.switchForm(form);
-        return form;
+        return (
+            <Aux>
+                { form }
+                <Backdrop
+                    active={ this.props.visible }
+                    id={ 'GettingStartedBackdrop' }
+                    click={ () => store.dispatch(toggleGettingStarted()) }/>
+            </Aux>
+        );
     }
 
 
@@ -61,9 +72,8 @@ export const GettingStartedButton = (props, context) => {
     )
 }
 
-GettingStartedButton.contextTypes = {
-    store: PropTypes.object.isRequired
-}
+GettingStarted.contextTypes = { store: PropTypes.object.isRequired }
+GettingStartedButton.contextTypes = { store: PropTypes.object.isRequired }
 
 
 export default GettingStarted;

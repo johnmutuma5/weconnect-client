@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux';
 import Navigation from '../../components/Navigation/Navigation';
 import GettingStarted from '../Auth/GettingStarted';
-import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Footer from './Footer/Footer';
 import { initLayoutState, toggleGettingStarted } from '../../store/actions/actions';
 
@@ -45,13 +44,11 @@ class Layout extends React.Component {
     }
 
     render() {
-        const store = this.context.store;
-
         // prepare to render getting started elements
         let gettingStarted = null;
         if(this.state.userGettingStarted)
             gettingStarted =
-                <GettingStarted visible={this.state.userGettingStarted} />
+                <GettingStarted visible={ this.state.userGettingStarted } />
 
         return (
             <Aux>
@@ -63,11 +60,6 @@ class Layout extends React.Component {
                         </main>
                     </div>
                     { gettingStarted }
-                    <Backdrop
-                        active={this.state.userGettingStarted}
-                        id={ 'GettingStartedBackdrop' }
-                        click={ () => store.dispatch(toggleGettingStarted()) }/>
-
                 </div>
             </Aux>
         );
