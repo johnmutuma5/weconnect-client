@@ -12,11 +12,7 @@ class BusinessesFilter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            filterResults: [],
-            filters: {
-                category: '',
-                location: '',
-            }
+            filterResults: []
         }
     }
 

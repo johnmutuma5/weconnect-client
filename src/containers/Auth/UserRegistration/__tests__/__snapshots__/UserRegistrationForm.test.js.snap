@@ -36,7 +36,7 @@ exports[`<UserRegistrationForm /> UserRegistrationForm with simulated data colle
       Login
     </div>
   </div>
-  <article
+  <div
     className="form_container"
   >
     <form
@@ -146,7 +146,7 @@ exports[`<UserRegistrationForm /> UserRegistrationForm with simulated data colle
         />
       </fieldset>
     </form>
-  </article>
+  </div>
 </div>
 `;
 

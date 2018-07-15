@@ -67,3 +67,11 @@ export const searchName = (term) => (
         payload: term
     }
 );
+
+
+// FILTER
+export const initFilterToolsState = () => (
+    {
+        type: types.INIT_FILTER_TOOLS_STATE
+    }
+);

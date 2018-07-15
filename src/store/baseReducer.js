@@ -5,12 +5,14 @@ import businessesStateReducer from './reducers/businesses';
 import authStateReducer from './reducers/auth';
 import layoutStateReducer from './reducers/layout';
 import searchFieldStateReducer from './reducers/search';
+import filterToolsStateReducer from './reducers/filterTools';
 
 const initState = {
     businessesState: undefined,
     authState: undefined,
     layoutState: undefined,
-    searchFieldState: undefined
+    searchFieldState: undefined,
+    filterToolsState: undefined
 };
 
 
@@ -20,6 +22,7 @@ const weConnectReducer = (state=initState, action) => (
         authState: authStateReducer(state.authState, action),
         layoutState: layoutStateReducer(state.layoutState, action),
         searchFieldState: searchFieldStateReducer(state.searchFieldState, action),
+        filterToolsState: filterToolsStateReducer(state.filterToolsState, action)
     }
 );
 

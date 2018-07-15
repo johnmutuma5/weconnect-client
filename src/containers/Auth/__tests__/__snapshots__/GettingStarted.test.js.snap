@@ -50,7 +50,7 @@ Array [
             Sign up
         </div>
     </div>
-    <article
+    <div
         className="form_container"
     >
         <form
@@ -93,7 +93,7 @@ Array [
                 />
             </fieldset>
         </form>
-    </article>
+    </div>
 </div>,
   <div
     className="Backdrop inactive"

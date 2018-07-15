@@ -34,7 +34,7 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
   >
     <ul />
   </nav>
-  <div
+  <article
     className="Search hidden"
   >
     <div
@@ -44,7 +44,7 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
       <span />
       <span />
     </div>
-    <article
+    <div
       className="form_container"
     >
       <form
@@ -60,8 +60,8 @@ exports[`<Toolbar /> Component displays logout button when authenticated 1`] = `
           value=""
         />
       </form>
-    </article>
-  </div>
+    </div>
+  </article>
   <div
     className="ProfileTools"
     id="atToolBar"

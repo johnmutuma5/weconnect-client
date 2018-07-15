@@ -6,11 +6,7 @@ class FilterForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            values: {
-                location: '',
-                category: '',
-                name: '',
-            }
+            values: props.values
         }
     }
 
