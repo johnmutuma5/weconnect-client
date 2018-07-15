@@ -34,14 +34,26 @@ class FilterTools extends React.Component {
     }
 
     render() {
+        const status = this.state.filterFormActive || this.props.loadsActive ?
+                            'active' :
+                            'inactive'
         return (
-            <div className='FilterTools'>
-                <div>{'Filter'}</div>
+            <div className={ 'FilterTools' }>
+                <div
+                    className={ 'FilterHeader ' + status }
+                    onClick={ this.toggleFilterFormActive.bind(this) }>
+                    {'Filter by...'}
+                </div>
                 <FilterForm
+                    status={ status }
                     values={ this.state.filters }
                     handleFilterInput={ this.handleFilterInput.bind(this) } />
             </div>
         )
+    }
+
+    toggleFilterFormActive() {
+        this.setState({filterFormActive: !this.state.filterFormActive});
     }
 
     fetchFilterResults = (filters) => (
@@ -55,8 +67,11 @@ class FilterTools extends React.Component {
     );
 
     handleFilterInput(inputData) {
+        const delay = this.props.atBusinesses ?
+                        3000 :
+                        0;
         this.store.dispatch(updateFilterValues(inputData));
-        setTimeout(() => this.fetchFilterResults(inputData)(), 700);
+        setTimeout(() => this.fetchFilterResults(inputData)(), delay);
     }
 
     generateQueryString(queryObj) {

@@ -38,3 +38,11 @@
 .Button.danger:hover {
     background: #932142;
 }
+
+.Button#toolbarGetStarted {
+    background: #e8135a;
+}
+
+.Button#toolbarGetStarted:hover {
+    background: #7a7106;
+}

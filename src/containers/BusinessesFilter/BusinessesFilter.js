@@ -48,7 +48,7 @@ class BusinessesFilter extends React.Component {
         return (
             <section>
                 <SideElements>
-                    <FilterTools />
+                    <FilterTools loadsActive />
                 </SideElements>
                 <article className='Businesses'>
                     { results }

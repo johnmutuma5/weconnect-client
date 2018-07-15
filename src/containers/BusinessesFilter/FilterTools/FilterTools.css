@@ -5,6 +5,60 @@
 
 .FilterTools form input {
     width: 100%;
-    height: 25px;
+    max-height: 25px;
     margin: 5px 0;;
+}
+
+.FilterHeader {
+    position: relative;
+    display: flex;
+    align-items:center;
+    padding: 0 5px;
+    height: 30px;
+    background-color: #1a90c4;
+    margin-bottom: 5px;
+    color: #d9fcfc;
+    cursor: pointer;
+    border-radius: 0px 5px 0px 5px;
+}
+
+.FilterHeader.inactive::after {
+    content: '';
+    position: absolute;
+    right: 7px;
+    top: 14px;
+    border-top: 7px solid #d9fcfc;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.FilterHeader.active::after {
+    content: '';
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    border-bottom: 7px solid #d9fcfc;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid transparent;
+}
+
+.FilterToolsForm {
+    transition: height .3s ease-out;
+    transform-origin: top;
+}
+
+.FilterHeader:hover, .FilterHeader.active {
+    background-color: #bfb379;
+}
+
+
+
+.FilterToolsForm.active {
+    height: 110px;
+}
+
+.FilterToolsForm.inactive {
+    height: 0px;
 }

@@ -6,10 +6,11 @@
 }
 
 .Business .BusinessMainDescription .business_name  h3 {
-    color: #7A0624;
+    color: #9e154a;
     font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-weight: bold;
 }
 
 

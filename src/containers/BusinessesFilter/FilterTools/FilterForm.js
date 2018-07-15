@@ -10,12 +10,15 @@ class FilterForm extends React.Component {
     }
 
     render() {
+        const status = this.props.status;
         const form = (
-            <Form
-                loadElements={ this.loadElements.bind(this) }
-                formContext={ this }
-                onInputChange={ () => this.props.handleFilterInput(this.state.values) }
-                onSubmit={ (e) => { e.preventDefault() } }/>
+            <div className={ 'FilterToolsForm ' + status }>
+                <Form
+                    loadElements={ this.loadElements.bind(this) }
+                    formContext={ this }
+                    onInputChange={ () => this.props.handleFilterInput(this.state.values) }
+                    onSubmit={ (e) => { e.preventDefault() } }/>
+            </div>
         )
 
         return form

@@ -114,7 +114,7 @@ class Businesses extends React.Component {
             // render businesses and new business registration UI components
             <section>
                 <SideElements>
-                    <FilterTools />
+                    <FilterTools atBusinesses />
                 </SideElements>
                 <article className='Businesses'>
                     { businesses }
