@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Form, { formInput } from '../../../components/UI/utils/Form';
-import './temp.css';
 
 class FilterForm extends React.Component {
     constructor(props) {

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Business from '../../components/Business/Business';
-import FilterForm from './FilterTools/FilterForm';
+import SideElements from '../../hoc/SideElements/SideElements';
+import FilterTools from '../BusinessesFilter/FilterTools/FilterTools';
 import { weConnectFilterBusinesses } from '../../store/resources/business';
 
 
@@ -50,14 +51,9 @@ class BusinessesFilter extends React.Component {
 
         return (
             <section>
-                <div className='SideElements'>
-                    <div className='side-wrapper'>
-                        <div className='FilterTools'>
-                            <div>{'filetes'}</div>
-                            <FilterForm />
-                        </div>
-                    </div>
-                </div>
+                <SideElements>
+                    <FilterTools />
+                </SideElements>
                 <article className='Businesses'>
                     { results }
                 </article>
