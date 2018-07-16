@@ -41,10 +41,12 @@ class FilterTools extends React.Component {
                             'active' :
                             'inactive'
         return (
-            <div className={ 'FilterTools' }>
+            <div
+                className={ 'FilterTools' }
+                onMouseOver={ this.toggleFilterFormActive.bind(this) }
+                onMouseOut={ this.toggleFilterFormActive.bind(this) }>
                 <div
-                    className={ 'FilterHeader ' + status }
-                    onClick={ this.toggleFilterFormActive.bind(this) }>
+                    className={ 'FilterHeader ' + status }>
                     <i className="fa fa-filter"></i>{'Filter...'}
                 </div>
                 <FilterForm
