@@ -110,9 +110,19 @@ body hr {
   border: .5px solid #D5D5D5;
 }
 
-.fa {
+
+/* font awesome */
+.fa, .fas, .far {
     margin-right: 7px;
+    color: #8deaf7;
 }
+
+p .fa, p .fas , p .far {
+    font-size: 1.4em;
+    color: #446f72;
+}
+
+/*  */
 
 .flex_col {
   display: -webkit-box;

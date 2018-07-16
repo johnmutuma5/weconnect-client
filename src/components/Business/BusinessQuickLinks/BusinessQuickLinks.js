@@ -5,16 +5,16 @@ import './BusinessQuickLinks.css';
 const businessQuickLinks = (props) => (
     <div className="BusinessQuickLinks flex_row">
         <div className="website">
-            <p>website</p>
+            <p><i className="fas fa-globe"></i></p>
         </div>
         <div className="email">
-            <p>email</p>
+            <p><i className="far fa-envelope"></i></p>
         </div>
         <div className="direction">
-            <p>direction</p>
+            <p><i className="far fa-compass"></i></p>
         </div>
         <div className="phone">
-            <p>phone</p>
+            <p><i className="fas fa-phone"></i></p>
         </div>
     </div>
 );
