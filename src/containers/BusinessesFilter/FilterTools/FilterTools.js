@@ -2,7 +2,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import FilterForm from './FilterForm';
-import { initFilterToolsState, updateFilterValues } from '../../../store/actions/actions';
+import { initFilterToolsState,
+         updateFilterValues,
+         toggleFilterForm } from '../../../store/actions/actions';
 
 import './FilterTools.css';
 
@@ -13,7 +15,8 @@ class FilterTools extends React.Component {
         this.state = {};
         this.subscriptions = [
             'INIT_FILTER_TOOLS_STATE',
-            'UPDATE_FILTER_VALUES'
+            'UPDATE_FILTER_VALUES',
+            'TOGGLE_FILTER_FORM'
         ]
     }
 
@@ -42,7 +45,7 @@ class FilterTools extends React.Component {
                 <div
                     className={ 'FilterHeader ' + status }
                     onClick={ this.toggleFilterFormActive.bind(this) }>
-                    {'Filter by...'}
+                    <i className="fa fa-filter"></i>{'Filter...'}
                 </div>
                 <FilterForm
                     status={ status }
@@ -53,7 +56,7 @@ class FilterTools extends React.Component {
     }
 
     toggleFilterFormActive() {
-        this.setState({filterFormActive: !this.state.filterFormActive});
+        this.store.dispatch(toggleFilterForm())
     }
 
     fetchFilterResults = (filters) => (
@@ -68,7 +71,7 @@ class FilterTools extends React.Component {
 
     handleFilterInput(inputData) {
         const delay = this.props.atBusinesses ?
-                        3000 :
+                        2200 :
                         0;
         this.store.dispatch(updateFilterValues(inputData));
         setTimeout(() => this.fetchFilterResults(inputData)(), delay);

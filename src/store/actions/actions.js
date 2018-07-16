@@ -82,3 +82,9 @@ export const updateFilterValues = (inputData) => (
         payload: inputData
     }
 );
+
+export const toggleFilterForm = () => (
+    {
+        type: types.TOGGLE_FILTER_FORM
+    }
+);

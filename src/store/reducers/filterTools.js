@@ -20,6 +20,12 @@ const filterToolsStateReducer = (state=initFilterToolsState, action) => {
                 filterFormActive: true
             }
 
+        case actionTypes.TOGGLE_FILTER_FORM:
+            return {
+                ...state,
+                filterFormActive: !state.filterFormActive
+            }
+
         case actionTypes.INIT_FILTER_TOOLS_STATE:
         default:
             return state;
