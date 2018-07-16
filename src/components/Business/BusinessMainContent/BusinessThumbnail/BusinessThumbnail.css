@@ -12,16 +12,18 @@
 }
 
 .Business .BusinessThumbnail .image {
-  width: 99%;
-  height: 99%;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+    height: 99%;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-color: #b2b5b7;
-  border-radius: 7px;
-  text-align: center;
-  line-height: 90px;
-  color: #D1C695;
+    background-color: #dae3e8;
+    border-radius: 7px;
+    text-align: center;
+    color: #D1C695;
 }
