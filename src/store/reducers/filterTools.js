@@ -16,7 +16,8 @@ const filterToolsStateReducer = (state=initFilterToolsState, action) => {
         case actionTypes.UPDATE_FILTER_VALUES:
             return {
                 ...state,
-                filters: action.payload
+                filters: action.payload,
+                filterFormActive: true
             }
 
         case actionTypes.INIT_FILTER_TOOLS_STATE:

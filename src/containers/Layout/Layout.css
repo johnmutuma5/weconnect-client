@@ -49,4 +49,9 @@
         height: 300px;
         background: #ccd3d6;
     }
+
+    .Highlights .side-wrapper {
+        padding: 15px;
+        color: #d9fcfc;
+    }
 }

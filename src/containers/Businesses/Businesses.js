@@ -122,7 +122,9 @@ class Businesses extends React.Component {
                     { loader }
                 </article>
                 <div className='Highlights'>
-                    {'Highlights'}
+                    <div className='side-wrapper'>
+                        {'Highlights'}
+                    </div>
                 </div>
             </section>
         );

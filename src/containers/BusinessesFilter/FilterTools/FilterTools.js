@@ -34,7 +34,7 @@ class FilterTools extends React.Component {
     }
 
     render() {
-        const status = this.state.filterFormActive || this.props.loadsActive ?
+        const status = this.state.filterFormActive ?
                             'active' :
                             'inactive'
         return (
