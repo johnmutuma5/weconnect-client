@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Business from '../../components/Business/Business';
-import SideElements from '../../hoc/SideElements/SideElements';
+import LeftColumn from '../../hoc/LeftColumn/LeftColumn';
 import FilterTools from '../BusinessesFilter/FilterTools/FilterTools';
 import { weConnectFilterBusinesses } from '../../store/resources/business';
 
@@ -47,10 +47,10 @@ class BusinessesFilter extends React.Component {
 
         return (
             <section>
-                <SideElements>
+                <LeftColumn>
                     <FilterTools />
-                </SideElements>
-                <article className='Businesses'>
+                </LeftColumn>
+                <article className='Businesses middle-content'>
                     { results }
                 </article>
             </section>

@@ -2,7 +2,6 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  padding-left: 25px;
 }
 
 .Business .BusinessMainDescription .business_name  h3 {

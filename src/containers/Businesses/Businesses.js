@@ -5,7 +5,8 @@ import Business from '../../components/Business/Business';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import CreateButton from '../../components/UI/CreateButton/CreateButton';
 import Aux from '../../hoc/Aux';
-import SideElements from '../../hoc/SideElements/SideElements';
+import LeftColumn from '../../hoc/LeftColumn/LeftColumn';
+import RightColumn from '../../hoc/RightColumn/RightColumn';
 import FilterTools from '../BusinessesFilter/FilterTools/FilterTools';
 import {loadBusinesses, registerNewBusiness} from '../../store/resources/business';
 import {initBusinessesState,
@@ -113,19 +114,17 @@ class Businesses extends React.Component {
         return (
             // render businesses and new business registration UI components
             <section>
-                <SideElements>
+                <LeftColumn>
                     <FilterTools atBusinesses />
-                </SideElements>
-                <article className='Businesses'>
+                </LeftColumn>
+                <article className='Businesses middle-content'>
                     { businesses }
                     { businessRegistrationElements }
                     { loader }
                 </article>
-                <div className='Highlights'>
-                    <div className='side-wrapper'>
-                        {'Highlights'}
-                    </div>
-                </div>
+                <RightColumn>
+                    {'Highlights'}
+                </RightColumn>
             </section>
         );
     }
