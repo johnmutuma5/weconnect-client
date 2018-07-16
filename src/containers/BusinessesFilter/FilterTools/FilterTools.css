@@ -1,6 +1,7 @@
 .FilterTools {
     display: flex;
     flex-flow: column;
+    z-index: 5000;
 }
 
 .FilterTools form input {
@@ -53,6 +54,9 @@
     background-color: #bfb379;
 }
 
+.FilterHeader.inactive {
+    background-color: #1a90c4;
+}
 
 
 .FilterToolsForm.active {

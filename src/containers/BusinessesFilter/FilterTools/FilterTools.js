@@ -44,7 +44,8 @@ class FilterTools extends React.Component {
             <div
                 className={ 'FilterTools' }
                 onMouseOver={ this.toggleFilterFormActive.bind(this) }
-                onMouseOut={ this.toggleFilterFormActive.bind(this) }>
+                onMouseOut={ this.toggleFilterFormActive.bind(this) }
+                onClick={ this.toggleFilterFormActive.bind(this) }>
                 <div
                     className={ 'FilterHeader ' + status }>
                     <i className="fa fa-filter"></i>{'Filter...'}
