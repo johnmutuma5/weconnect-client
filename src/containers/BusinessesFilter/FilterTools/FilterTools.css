@@ -57,13 +57,13 @@
 
 .FilterToolsForm.active {
     /* height: 110px; */
-    animation: open-down .5s ease-out;
+    animation: open-down .3s ease-out;
     animation-fill-mode: forwards;
 }
 
 .FilterToolsForm.inactive {
     /* height: 0px; */
-    animation: close-up .7s ease-out;
+    animation: close-up .5s ease-out;
     animation-fill-mode: forwards;
 }
 
