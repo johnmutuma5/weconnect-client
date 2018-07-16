@@ -107,6 +107,10 @@ body hr {
   border: .5px solid #D5D5D5;
 }
 
+.fa {
+    margin-right: 7px;
+}
+
 .flex_col {
   display: -webkit-box;
   display: -ms-flexbox;
