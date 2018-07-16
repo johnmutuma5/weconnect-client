@@ -6,9 +6,9 @@ import './BusinessMainContent.css';
 
 
 const businessMainContent = (props) => (
-    <div className="BusinessMainContent flex_row">
-        <BusinessThumbnail />
+    <div className="BusinessMainContent">
         <BusinessMainDescription { ...props }/>
+        <BusinessThumbnail />
     </div>
 );
 
