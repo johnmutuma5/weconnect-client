@@ -1,14 +1,14 @@
 .Business .BusinessThumbnail {
-  width: 100%;
-  height: 350px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
+    width: 100%;
+    height: 350px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin: auto;
-  background-color: #dddddd;
-  border-radius: 7px;
+    margin: auto;
+    background-color: #dddddd;
+    border-radius: 7px;
 }
 
 .Business .BusinessThumbnail .image {
@@ -20,8 +20,8 @@
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
     background-color: #dae3e8;
     border-radius: 7px;
     text-align: center;
