@@ -11,6 +11,7 @@
 
 .Toolbar.container {
     max-width: 100vw;
+    overflow: visible;
 }
 
 .GettingStarted {
